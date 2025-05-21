@@ -51,7 +51,7 @@ int main() {
     string line;
     int rows = 0, cols = 0;
 
-    // Step 1: Read battlefield dimensions (e.g., "M by N : 40 50")
+    // Read battlefield dimensions (e.g., "M by N : 40 50")
     if (getline(file, line)) {
         size_t pos = line.find(':');
         if (pos != string::npos) {
@@ -66,10 +66,10 @@ int main() {
         return 1;
     }
 
-    // Step 2: Initialize battlefield with '-' characters
+    //Initialize battlefield with '-' characters
     vector<vector<char>> matrix(rows, vector<char>(cols, '-'));
 
-    // Step 3: Read number of robots (e.g., "robots: 5")
+    //Read number of robots (e.g., "robots: 5")
     int robotCount = 0;
     if (getline(file, line)) {
         istringstream iss(line);
@@ -77,7 +77,7 @@ int main() {
         iss >> label >> robotCount;
     }
 
-    // Step 4: Read robot entries and store them in a vector of RobotInfo pointers
+    //Read robot entries and store them in a vector of RobotInfo pointers
     vector<RobotInfo*> robots;
     for (int i = 0; i < robotCount; ++i) {
         if (getline(file, line)) {
@@ -90,7 +90,7 @@ int main() {
         }
     }
 
-    // Step 5: Place robots on the battlefield
+    //Place robots on the battlefield
     srand(time(0)); // Seed random number generator once
     for (RobotInfo* r : robots) {
         int x = r->getX();
@@ -106,11 +106,11 @@ int main() {
             r->setPosition(x, y); // Set the chosen position
         }
 
-        // Place the robot on the battlefield using the first letter of its name
+        //Place the robot on the battlefield using the first letter of its name
         matrix[r->getX()][r->getY()] = r->getName()[0];
     }
 
-    // Step 6: Print the battlefield (no spaces as per your request)
+    //Print the battlefield
     for (const auto& row : matrix) {
         for (char ch : row) {
             cout << ch;
@@ -118,7 +118,7 @@ int main() {
         cout << '\n';
     }
 
-    // Step 7: Clean up dynamically allocated memory
+    //Clean up dynamically allocated memory
     for (RobotInfo* r : robots) {
         delete r;
     }
