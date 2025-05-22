@@ -29,9 +29,9 @@ public:
 
     virtual void takeTurn(vector<vector<char>>& battlefield) = 0;
     virtual void think() = 0;
-    virtual void move(vector<vector<char>>& battlefield) = 0;
-    virtual void look(int dx, int dy, const vector<vector<char>>& battlefield) = 0;
+    virtual bool look(int dx, int dy, const vector<vector<char>>& battlefield) = 0;
     virtual void fire(int dx, int dy, vector<vector<char>>& battlefield) = 0;
+    virtual void move(vector<vector<char>>& battlefield) = 0;
 
     string getName() const { return name; }
     int getX() const { return x; }
@@ -41,78 +41,45 @@ public:
     bool isAlive() const { return alive; }
 };
 
-class MovingRobot {
-public:
-    virtual void move(vector<vector<char>>& battlefield) = 0;
-};
-
-class ShootingRobot {
-public:
-    virtual void fire(int dx, int dy, vector<vector<char>>& battlefield) = 0;
-};
-
-class SeeingRobot {
-public:
-    virtual void look(int dx, int dy, const vector<vector<char>>& battlefield) = 0;
-};
-
-class ThinkingRobot {
-public:
-    virtual void think() = 0;
-};
-
-// Concrete GenericRobot class
-class GenericRobot : public Robot, public MovingRobot, public ShootingRobot, public SeeingRobot, public ThinkingRobot {
+class GenericRobot : public Robot {
 public:
     GenericRobot(string t, string n, string xStr, string yStr)
         : Robot(t, n, xStr, yStr) {}
-
-    void takeTurn(vector<vector<char>>& battlefield) override {
-        think();
-        look(0, 0, battlefield);
-        if (shells > 0) fire(0, 1, battlefield); // Simplified fire
-        move(battlefield);
-    }
 
     void think() override {
         cout << name << " is thinking...\n";
     }
 
-    void look(int dx, int dy, const vector<vector<char>>& battlefield) override {
-        cout << name << " looks around (" << x + dx << "," << y + dy << "):\n";
-        int lookX = x + dx, lookY = y + dy;
-        for (int i = -1; i <= 1; ++i) {
-            for (int j = -1; j <= 1; ++j) {
-                int lx = lookX + i;
-                int ly = lookY + j;
-                if (lx >= 0 && lx < (int)battlefield.size() && ly >= 0 && ly < (int)battlefield[0].size()) {
-                    cout << battlefield[lx][ly];
-                } else {
-                    cout << ' ';
-                }
-            }
-            cout << '\n';
+    bool look(int dx, int dy, const vector<vector<char>>& battlefield) override {
+        int lookX = x + dx;
+        int lookY = y + dy;
+        if (lookX >= 0 && lookX < (int)battlefield.size() &&
+            lookY >= 0 && lookY < (int)battlefield[0].size()) {
+            char target = battlefield[lookX][lookY];
+            cout << name << " looks at (" << lookX << "," << lookY << "): " << target << "\n";
+            return target != '-' && target != name[0]; // enemy spotted
         }
+        return false;
     }
 
     void fire(int dx, int dy, vector<vector<char>>& battlefield) override {
-        if (dx == 0 && dy == 0) return;
+        if (shells <= 0) {
+            cout << name << " has no shells and self-destructs!\n";
+            alive = false;
+            battlefield[x][y] = '-';
+            return;
+        }
+
         int targetX = x + dx;
         int targetY = y + dy;
         if (targetX >= 0 && targetX < (int)battlefield.size() &&
             targetY >= 0 && targetY < (int)battlefield[0].size()) {
-            if (shells > 0) {
-                --shells;
-                if ((rand() % 100) < 70) {
-                    cout << name << " hits target at (" << targetX << "," << targetY << ")!\n";
-                    battlefield[targetX][targetY] = '-';
-                } else {
-                    cout << name << " misses target at (" << targetX << "," << targetY << ").\n";
-                }
+            --shells;
+            if ((rand() % 100) < 70) {
+                cout << name << " hits target at (" << targetX << "," << targetY << ")!\n";
+                battlefield[targetX][targetY] = '-';
             } else {
-                cout << name << " has no shells and self-destructs!\n";
-                alive = false;
-                battlefield[x][y] = '-';
+                cout << name << " misses target at (" << targetX << "," << targetY << ").\n";
             }
         }
     }
@@ -133,6 +100,20 @@ public:
             cout << name << " moves to (" << x << "," << y << ")\n";
         }
     }
+
+    void takeTurn(vector<vector<char>>& battlefield) override {
+        think();
+        static const int dx[] = {0, -1, 0, 1, 0, -1, 1, -1, 1};
+        static const int dy[] = {0, -1, -1, -1, 1, 0, 0, 1, 1};
+        int dir = rand() % 9;
+        bool enemySeen = look(dx[dir], dy[dir], battlefield);
+
+        if (enemySeen && shells > 0) {
+            fire(dx[dir], dy[dir], battlefield);
+        } else {
+            move(battlefield);
+        }
+    }
 };
 
 int main() {
@@ -145,7 +126,6 @@ int main() {
     string line;
     int rows = 0, cols = 0, steps = 0, robotCount = 0;
 
-    // Read battlefield size
     if (getline(file, line)) {
         size_t pos = line.find(':');
         if (pos != string::npos) {
@@ -159,24 +139,20 @@ int main() {
         return 1;
     }
 
-    // Initialize battlefield
     vector<vector<char>> matrix(rows, vector<char>(cols, '-'));
 
-    // Read simulation steps
     if (getline(file, line)) {
         istringstream iss(line);
         string label;
         iss >> label >> steps;
     }
 
-    // Read number of robots
     if (getline(file, line)) {
         istringstream iss(line);
         string label;
         iss >> label >> robotCount;
     }
 
-    // Read and create robots
     vector<Robot*> robots;
     for (int i = 0; i < robotCount; ++i) {
         if (getline(file, line)) {
@@ -189,7 +165,6 @@ int main() {
         }
     }
 
-    // Place robots
     srand(time(0));
     for (Robot* r : robots) {
         int x = r->getX(), y = r->getY();
@@ -203,7 +178,6 @@ int main() {
         matrix[r->getX()][r->getY()] = r->getName()[0];
     }
 
-    // Run simulation
     for (int turn = 0; turn < steps; ++turn) {
         cout << "\nTurn " << turn + 1 << ":\n";
         for (Robot* r : robots) {
@@ -212,7 +186,6 @@ int main() {
             }
         }
 
-        // Display battlefield
         cout << "\nBattlefield:\n";
         for (const auto& row : matrix) {
             for (char ch : row) cout << ch;
@@ -220,7 +193,6 @@ int main() {
         }
     }
 
-    // Cleanup
     for (Robot* r : robots) delete r;
 
     return 0;
