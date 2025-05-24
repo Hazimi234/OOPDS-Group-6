@@ -1,4 +1,4 @@
-M by N : 10 10
+M by N : 5 5
 steps: 10
 robots: 2
 GenericRobot Star random random
