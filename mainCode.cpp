@@ -27,11 +27,12 @@ public:
 
     virtual ~Robot() {}
 
-    virtual void takeTurn(vector<vector<char>>& battlefield) = 0;
+    virtual void takeTurn(vector<vector<char>>& battlefield, vector<Robot*>& robots) = 0;
     virtual void think() = 0;
     virtual bool look(int dx, int dy, const vector<vector<char>>& battlefield) = 0;
     virtual void fire(int dx, int dy, vector<vector<char>>& battlefield) = 0;
-    virtual void move(vector<vector<char>>& battlefield) = 0;
+    virtual void move(vector<vector<char>>& battlefield, vector<Robot*>& robots) = 0;
+
 
     string getName() const { return name; }
     int getX() const { return x; }
@@ -39,6 +40,8 @@ public:
     void setPosition(int newX, int newY) { x = newX; y = newY; isRandom = false; }
     bool isRandomPosition() const { return isRandom; }
     bool isAlive() const { return alive; }
+    void kill() { alive = false; }
+
 };
 
 class GenericRobot : public Robot {
@@ -84,15 +87,31 @@ public:
         }
     }
 
-    void move(vector<vector<char>>& battlefield) override {
-        static const int dx[] = {-1, 0, 1, -1, 1, -1, 0, 1};
-        static const int dy[] = {-1, -1, -1, 0, 0, 1, 1, 1};
-        int dir = rand() % 8;
-        int nx = x + dx[dir];
-        int ny = y + dy[dir];
-        if (nx >= 0 && nx < (int)battlefield.size() &&
-            ny >= 0 && ny < (int)battlefield[0].size() &&
-            battlefield[nx][ny] == '-') {
+    void move(vector<vector<char>>& battlefield, vector<Robot*>& robots) override {
+    static const int dx[] = {-1, 0, 1, -1, 1, -1, 0, 1};
+    static const int dy[] = {-1, -1, -1, 0, 0, 1, 1, 1};
+    int dir = rand() % 8;
+    int nx = x + dx[dir];
+    int ny = y + dy[dir];
+
+    if (nx >= 0 && nx < (int)battlefield.size() &&
+        ny >= 0 && ny < (int)battlefield[0].size()) {
+        
+        char target = battlefield[nx][ny];
+        
+        // If not empty and not same robot
+        if (target != '-' && target != name[0]) {
+            // Eliminate any robot at the target position
+            for (Robot* r : robots) {
+                if (r->isAlive() && r->getX() == nx && r->getY() == ny) {
+                    r->kill();
+                    cout << name << " moves into (" << nx << "," << ny << ") and destroys " << r->getName() << "!\n";
+                    break;
+                }
+            }
+        }
+
+        if (target == '-' || target != name[0]) {
             battlefield[x][y] = '-';
             x = nx;
             y = ny;
@@ -100,8 +119,10 @@ public:
             cout << name << " moves to (" << x << "," << y << ")\n";
         }
     }
+}
 
-    void takeTurn(vector<vector<char>>& battlefield) override {
+
+    void takeTurn(vector<vector<char>>& battlefield, vector<Robot*>& robots) override {
         think();
         static const int dx[] = {0, -1, 0, 1, 0, -1, 1, -1, 1};
         static const int dy[] = {0, -1, -1, -1, 1, 0, 0, 1, 1};
@@ -111,9 +132,10 @@ public:
         if (enemySeen && shells > 0) {
             fire(dx[dir], dy[dir], battlefield);
         } else {
-            move(battlefield);
+            move(battlefield, robots);
         }
-    }
+}
+
 };
 
 int main() {
@@ -182,7 +204,7 @@ int main() {
         cout << "\nTurn " << turn + 1 << ":\n";
         for (Robot* r : robots) {
             if (r->isAlive()) {
-                r->takeTurn(matrix);
+                r->takeTurn(matrix, robots);
             }
         }
 
