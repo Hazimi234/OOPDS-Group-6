@@ -5,19 +5,43 @@
 #include <string>
 #include <cstdlib>
 #include <ctime>
+#include <map>
 
 using namespace std;
+
+// Abstract capability interfaces
+class SeeingRobot {
+public:
+    virtual bool look(int dx, int dy, const vector<vector<char>>& battlefield) = 0;
+    virtual ~SeeingRobot() {}
+};
+
+class ShootingRobot {
+public:
+    virtual void shoot(int dx, int dy, vector<vector<char>>& battlefield,
+                       map<pair<int, int>, class Robot*>& positionMap) = 0;
+    virtual ~ShootingRobot() {}
+};
+
+class ThinkingRobot {
+public:
+    virtual void think() = 0;
+    virtual ~ThinkingRobot() {}
+};
+
+class MovingRobot {
+public:
+    virtual void move(vector<vector<char>>& battlefield) = 0;
+    virtual ~MovingRobot() {}
+};
 
 // Abstract base class Robot
 class Robot {
 protected:
-    string type;
-    string name;
+    string type, name;
     int x, y;
-    bool isRandom;
-    bool alive;
-    int lives;
-    int shells;
+    bool isRandom, alive;
+    int lives, shells;
 
 public:
     Robot(string t, string n, string xStr, string yStr)
@@ -26,12 +50,14 @@ public:
           alive(true), lives(3), shells(10) {}
 
     virtual ~Robot() {}
+    virtual void takeTurn(vector<vector<char>>& battlefield,
+                          map<pair<int, int>, Robot*>& positionMap) = 0;
 
-    virtual void takeTurn(vector<vector<char>>& battlefield) = 0;
-    virtual void think() = 0;
-    virtual bool look(int dx, int dy, const vector<vector<char>>& battlefield) = 0;
-    virtual void fire(int dx, int dy, vector<vector<char>>& battlefield) = 0;
-    virtual void move(vector<vector<char>>& battlefield) = 0;
+    void markDead(vector<vector<char>>& battlefield) {
+        alive = false;
+        battlefield[x][y] = '-';
+        cout << name << " has been destroyed!\n";
+    }
 
     string getName() const { return name; }
     int getX() const { return x; }
@@ -41,7 +67,8 @@ public:
     bool isAlive() const { return alive; }
 };
 
-class GenericRobot : public Robot {
+// GenericRobot implements all capabilities
+class GenericRobot : public Robot, public SeeingRobot, public ShootingRobot, public ThinkingRobot, public MovingRobot {
 public:
     GenericRobot(string t, string n, string xStr, string yStr)
         : Robot(t, n, xStr, yStr) {}
@@ -57,29 +84,41 @@ public:
             lookY >= 0 && lookY < (int)battlefield[0].size()) {
             char target = battlefield[lookX][lookY];
             cout << name << " looks at (" << lookX << "," << lookY << "): " << target << "\n";
-            return target != '-' && target != name[0]; // enemy spotted
+            return target != '-' && target != name[0]; // Enemy spotted
         }
         return false;
     }
 
-    void fire(int dx, int dy, vector<vector<char>>& battlefield) override {
+    void shoot(int dx, int dy, vector<vector<char>>& battlefield,
+               map<pair<int, int>, Robot*>& positionMap) override {
         if (shells <= 0) {
             cout << name << " has no shells and self-destructs!\n";
-            alive = false;
-            battlefield[x][y] = '-';
+            markDead(battlefield);
             return;
         }
 
-        int targetX = x + dx;
-        int targetY = y + dy;
-        if (targetX >= 0 && targetX < (int)battlefield.size() &&
-            targetY >= 0 && targetY < (int)battlefield[0].size()) {
-            --shells;
-            if ((rand() % 100) < 70) {
-                cout << name << " hits target at (" << targetX << "," << targetY << ")!\n";
-                battlefield[targetX][targetY] = '-';
+        int tx = x + dx, ty = y + dy;
+        shells--;
+
+        if (tx >= 0 && tx < (int)battlefield.size() &&
+            ty >= 0 && ty < (int)battlefield[0].size()) {
+            if ((rand() % 100)<100) {
+                pair<int, int> pos = {tx, ty};
+                if (positionMap.count(pos)) {
+                    Robot* victim = positionMap[pos];
+                    if (victim != this) {
+                        victim->markDead(battlefield);
+                        positionMap.erase(pos);
+                        cout << name << " hit and killed " << victim->getName()
+                             << " at (" << tx << "," << ty << ")\n";
+                    } else {
+                        cout << name << " tried to shoot itself. Ignored.\n";
+                    }
+                } else {
+                    cout << name << " hit an empty spot.\n";
+                }
             } else {
-                cout << name << " misses target at (" << targetX << "," << targetY << ").\n";
+                cout << name << " missed at (" << tx << "," << ty << ").\n";
             }
         }
     }
@@ -88,8 +127,7 @@ public:
         static const int dx[] = {-1, 0, 1, -1, 1, -1, 0, 1};
         static const int dy[] = {-1, -1, -1, 0, 0, 1, 1, 1};
         int dir = rand() % 8;
-        int nx = x + dx[dir];
-        int ny = y + dy[dir];
+        int nx = x + dx[dir], ny = y + dy[dir];
         if (nx >= 0 && nx < (int)battlefield.size() &&
             ny >= 0 && ny < (int)battlefield[0].size() &&
             battlefield[nx][ny] == '-') {
@@ -101,15 +139,14 @@ public:
         }
     }
 
-    void takeTurn(vector<vector<char>>& battlefield) override {
+    void takeTurn(vector<vector<char>>& battlefield,
+                  map<pair<int, int>, Robot*>& positionMap) override {
         think();
         static const int dx[] = {0, -1, 0, 1, 0, -1, 1, -1, 1};
         static const int dy[] = {0, -1, -1, -1, 1, 0, 0, 1, 1};
         int dir = rand() % 9;
-        bool enemySeen = look(dx[dir], dy[dir], battlefield);
-
-        if (enemySeen && shells > 0) {
-            fire(dx[dir], dy[dir], battlefield);
+        if (look(dx[dir], dy[dir], battlefield) && shells > 0) {
+            shoot(dx[dir], dy[dir], battlefield, positionMap);
         } else {
             move(battlefield);
         }
@@ -134,26 +171,14 @@ int main() {
         }
     }
 
-    if (rows <= 0 || cols <= 0) {
-        cerr << "Invalid battlefield size.\n";
-        return 1;
-    }
-
     vector<vector<char>> matrix(rows, vector<char>(cols, '-'));
-
-    if (getline(file, line)) {
-        istringstream iss(line);
-        string label;
-        iss >> label >> steps;
-    }
-
-    if (getline(file, line)) {
-        istringstream iss(line);
-        string label;
-        iss >> label >> robotCount;
-    }
+    if (getline(file, line)) { istringstream(line) >> line >> steps; }
+    if (getline(file, line)) { istringstream(line) >> line >> robotCount; }
 
     vector<Robot*> robots;
+    map<pair<int, int>, Robot*> positionMap;
+    srand(time(0));
+
     for (int i = 0; i < robotCount; ++i) {
         if (getline(file, line)) {
             istringstream iss(line);
@@ -165,7 +190,6 @@ int main() {
         }
     }
 
-    srand(time(0));
     for (Robot* r : robots) {
         int x = r->getX(), y = r->getY();
         if (r->isRandomPosition()) {
@@ -175,17 +199,25 @@ int main() {
             } while (matrix[x][y] != '-');
             r->setPosition(x, y);
         }
-        matrix[r->getX()][r->getY()] = r->getName()[0];
+        // Add bounds check before accessing matrix
+        if (x >= 0 && x < rows && y >= 0 && y < cols) {
+            matrix[r->getX()][r->getY()] = r->getName()[0];
+            positionMap[{r->getX(), r->getY()}] = r;
+        } else {
+            cout << "Error: Robot " << r->getName() << " has invalid position (" << x << "," << y << ").\n";
+            r->setPosition(0, 0); // Or handle as needed
+            matrix[0][0] = r->getName()[0];
+            positionMap[{0, 0}] = r;
+        }
     }
 
     for (int turn = 0; turn < steps; ++turn) {
         cout << "\nTurn " << turn + 1 << ":\n";
         for (Robot* r : robots) {
             if (r->isAlive()) {
-                r->takeTurn(matrix);
+                r->takeTurn(matrix, positionMap);
             }
         }
-
         cout << "\nBattlefield:\n";
         for (const auto& row : matrix) {
             for (char ch : row) cout << ch;
@@ -194,6 +226,5 @@ int main() {
     }
 
     for (Robot* r : robots) delete r;
-
     return 0;
 }
