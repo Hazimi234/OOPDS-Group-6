@@ -8,36 +8,111 @@
 
 using namespace std;
 
-// Class to store basic robot information (type, name, position)
-class RobotInfo {
-private:
-    string type;    // Robot type (e.g., "GenericRobot")
-    string name;    // Robot name (e.g., "Kidd")
-    int x, y;       // Position in the battlefield
-    bool isRandom;  // True if position is "random random"
+// Abstract base class Robot
+class Robot {
+protected:
+    string type;
+    string name;
+    int x, y;
+    bool isRandom;
+    bool alive;
+    int lives;
+    int shells;
 
 public:
-    // Constructor: sets type, name, and determines if position is random
-    RobotInfo(string t, string n, string xStr, string yStr) {
-        type = t;
-        name = n;
-        isRandom = (xStr == "random" || yStr == "random");
-        x = isRandom ? -1 : stoi(xStr);
-        y = isRandom ? -1 : stoi(yStr);
-    }
+    Robot(string t, string n, string xStr, string yStr)
+        : type(t), name(n), isRandom((xStr == "random" || yStr == "random")),
+          x(isRandom ? -1 : stoi(xStr)), y(isRandom ? -1 : stoi(yStr)),
+          alive(true), lives(3), shells(10) {}
 
-    // Getters
-    string getType() const { return type; }
+    virtual ~Robot() {}
+
+    virtual void takeTurn(vector<vector<char>>& battlefield) = 0;
+    virtual void think() = 0;
+    virtual bool look(int dx, int dy, const vector<vector<char>>& battlefield) = 0;
+    virtual void fire(int dx, int dy, vector<vector<char>>& battlefield) = 0;
+    virtual void move(vector<vector<char>>& battlefield) = 0;
+
     string getName() const { return name; }
     int getX() const { return x; }
     int getY() const { return y; }
-    bool getIsRandom() const { return isRandom; }
+    void setPosition(int newX, int newY) { x = newX; y = newY; isRandom = false; }
+    bool isRandomPosition() const { return isRandom; }
+    bool isAlive() const { return alive; }
+};
 
-    // Sets the position if it was random
-    void setPosition(int row, int col) {
-        x = row;
-        y = col;
-        isRandom = false;
+class GenericRobot : public Robot {
+public:
+    GenericRobot(string t, string n, string xStr, string yStr)
+        : Robot(t, n, xStr, yStr) {}
+
+    void think() override {
+        cout << name << " is thinking...\n";
+    }
+
+    bool look(int dx, int dy, const vector<vector<char>>& battlefield) override {
+        int lookX = x + dx;
+        int lookY = y + dy;
+        if (lookX >= 0 && lookX < (int)battlefield.size() &&
+            lookY >= 0 && lookY < (int)battlefield[0].size()) {
+            char target = battlefield[lookX][lookY];
+            cout << name << " looks at (" << lookX << "," << lookY << "): " << target << "\n";
+            return target != '-' && target != name[0]; // enemy spotted
+        }
+        return false;
+    }
+
+    void fire(int dx, int dy, vector<vector<char>>& battlefield) override {
+        if (shells <= 0) {
+            cout << name << " has no shells and self-destructs!\n";
+            alive = false;
+            battlefield[x][y] = '-';
+            return;
+        }
+
+        int targetX = x + dx;
+        int targetY = y + dy;
+        if (targetX >= 0 && targetX < (int)battlefield.size() &&
+            targetY >= 0 && targetY < (int)battlefield[0].size()) {
+            --shells;
+            if ((rand() % 100) < 70) {
+                cout << name << " hits target at (" << targetX << "," << targetY << ")!\n";
+                battlefield[targetX][targetY] = '-';
+            } else {
+                cout << name << " misses target at (" << targetX << "," << targetY << ").\n";
+            }
+        }
+    }
+
+    void move(vector<vector<char>>& battlefield) override {
+        static const int dx[] = {-1, 0, 1, -1, 1, -1, 0, 1};
+        static const int dy[] = {-1, -1, -1, 0, 0, 1, 1, 1};
+        int dir = rand() % 8;
+        int nx = x + dx[dir];
+        int ny = y + dy[dir];
+        if (nx >= 0 && nx < (int)battlefield.size() &&
+            ny >= 0 && ny < (int)battlefield[0].size() &&
+            battlefield[nx][ny] == '-') {
+            battlefield[x][y] = '-';
+            x = nx;
+            y = ny;
+            battlefield[x][y] = name[0];
+            cout << name << " moves to (" << x << "," << y << ")\n";
+        }
+    }
+
+    void takeTurn(vector<vector<char>>& battlefield) override {
+        think();
+        static const int dx[] = {0, -1, 0, 1, 0, -1, 1, -1, 1};
+        static const int dy[] = {0, -1, -1, -1, 1, 0, 0, 1, 1};
+        int dir = rand() % 9;
+        bool enemySeen = look(dx[dir], dy[dir], battlefield);
+
+        if (enemySeen && shells > 0) {
+            fire(dx[dir], dy[dir], battlefield);
+        } else {
+            move(battlefield);
+        }
     }
 };
 
@@ -49,9 +124,8 @@ int main() {
     }
 
     string line;
-    int rows = 0, cols = 0;
+    int rows = 0, cols = 0, steps = 0, robotCount = 0;
 
-    // Read battlefield dimensions (e.g., "M by N : 40 50")
     if (getline(file, line)) {
         size_t pos = line.find(':');
         if (pos != string::npos) {
@@ -60,68 +134,66 @@ int main() {
         }
     }
 
-    // Check if dimensions are valid
     if (rows <= 0 || cols <= 0) {
         cerr << "Invalid battlefield size.\n";
         return 1;
     }
 
-    //Initialize battlefield with '-' characters
     vector<vector<char>> matrix(rows, vector<char>(cols, '-'));
 
-    //Read number of robots (e.g., "robots: 5")
-    int robotCount = 0;
+    if (getline(file, line)) {
+        istringstream iss(line);
+        string label;
+        iss >> label >> steps;
+    }
+
     if (getline(file, line)) {
         istringstream iss(line);
         string label;
         iss >> label >> robotCount;
     }
 
-    //Read robot entries and store them in a vector of RobotInfo pointers
-    vector<RobotInfo*> robots;
+    vector<Robot*> robots;
     for (int i = 0; i < robotCount; ++i) {
         if (getline(file, line)) {
             istringstream iss(line);
-            string type, name, xStr, yStr;
+            string type, name, xStr = "random", yStr = "random";
             iss >> type >> name >> xStr >> yStr;
 
-            RobotInfo* robot = new RobotInfo(type, name, xStr, yStr);
+            Robot* robot = new GenericRobot(type, name, xStr, yStr);
             robots.push_back(robot);
         }
     }
 
-    //Place robots on the battlefield
-    srand(time(0)); // Seed random number generator once
-    for (RobotInfo* r : robots) {
-        int x = r->getX();
-        int y = r->getY();
-
-        // If the robot has a random position, find an empty spot
-        if (r->getIsRandom()) {
+    srand(time(0));
+    for (Robot* r : robots) {
+        int x = r->getX(), y = r->getY();
+        if (r->isRandomPosition()) {
             do {
                 x = rand() % rows;
                 y = rand() % cols;
-            } while (matrix[x][y] != '-'); // Ensure position is empty
-
-            r->setPosition(x, y); // Set the chosen position
+            } while (matrix[x][y] != '-');
+            r->setPosition(x, y);
         }
-
-        //Place the robot on the battlefield using the first letter of its name
         matrix[r->getX()][r->getY()] = r->getName()[0];
     }
 
-    //Print the battlefield
-    for (const auto& row : matrix) {
-        for (char ch : row) {
-            cout << ch;
+    for (int turn = 0; turn < steps; ++turn) {
+        cout << "\nTurn " << turn + 1 << ":\n";
+        for (Robot* r : robots) {
+            if (r->isAlive()) {
+                r->takeTurn(matrix);
+            }
         }
-        cout << '\n';
+
+        cout << "\nBattlefield:\n";
+        for (const auto& row : matrix) {
+            for (char ch : row) cout << ch;
+            cout << '\n';
+        }
     }
 
-    //Clean up dynamically allocated memory
-    for (RobotInfo* r : robots) {
-        delete r;
-    }
+    for (Robot* r : robots) delete r;
 
     return 0;
 }
