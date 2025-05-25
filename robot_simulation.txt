@@ -1,5 +1,5 @@
 M by N : 5 5
-steps: 15
+steps: 10
 robots: 2
 GenericRobot Star 2 2
 GenericRobot Dude random random
