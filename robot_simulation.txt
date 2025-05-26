@@ -1,7 +1,6 @@
-M by N : 40 50
-robots: 5
-GenericRobot Kidd 3 6
-GenericRobot Jet 12 1
-GenericRobot Alpha 35 20
-GenericRobot Beta 20 37
-GenericRobot Star random random
+10 10
+4
+GenericRobot Alpha 1 1
+GenericRobot Bravo 2 2
+GenericRobot Charlie 3 3
+GenericRobot Delta 4 4
