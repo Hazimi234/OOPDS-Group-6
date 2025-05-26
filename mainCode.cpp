@@ -118,12 +118,14 @@ public:
         int lookY = y + dy;
         if (lookX >= 0 && lookX < (int)battlefield.size() &&
             lookY >= 0 && lookY < (int)battlefield[0].size()) {
-            char target = battlefield[lookX][lookY];
-            cout << name << " looks at (" << lookX << "," << lookY << "): " << target << "\n";
-            return target != '-' && target != name[0]; // Enemy spotted
+                if (lookX == x && lookY==y) return false; // Don't look at self
+                char target = battlefield[lookX][lookY];
+                cout << name << " looks at (" << lookX << "," << lookY << "): " << target << "\n";
+                return target != '-' && target != name[0];  
         }
         return false;
     }
+
 
 void fire(int dx, int dy, vector<vector<char>>& battlefield,
           vector<Robot*>& robots) override {
@@ -163,7 +165,8 @@ void fire(int dx, int dy, vector<vector<char>>& battlefield,
     int dir = rand() % 8;
     int nx = x + dx[dir];
     int ny = y + dy[dir];
-
+    
+    
     if (nx >= 0 && nx < (int)battlefield.size() &&
         ny >= 0 && ny < (int)battlefield[0].size()) {
         
@@ -174,8 +177,8 @@ void fire(int dx, int dy, vector<vector<char>>& battlefield,
             // Eliminate any robot at the target position
             for (Robot* r : robots) {
                 if (r->isAlive() && r->getX() == nx && r->getY() == ny) {
-                    r->kill(battlefield);
                     cout << name << " moves into (" << nx << "," << ny << ") and destroys " << r->getName() << "!\n";
+                    r->kill(battlefield);  // ✅ Call the version that clears battlefield
                     break;
                 }
             }
