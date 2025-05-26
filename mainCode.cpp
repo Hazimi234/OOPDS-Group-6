@@ -5,6 +5,7 @@
 #include <string>
 #include <cstdlib>
 #include <ctime>
+#include <iomanip>
 
 
 using namespace std;
@@ -288,13 +289,35 @@ int main() {
         }
         
 
-        cout << "\nBattlefield:\n";
-        for (const auto& row : matrix) {
-            for (char ch : row) cout << ch;
-            cout << '\n';
-        }
-    }
+cout << "\nBattlefield:\n";
 
-    for (Robot* r : robots) delete r;
-    return 0;
+// Tens digits
+cout << "    ";
+for (int c = 0; c < cols; ++c) {
+    cout << " ";
+    if (c >= 10) cout << c / 10;
+    else cout << " ";
+}
+cout << '\n';
+
+// Units digits
+cout << "    ";
+for (int c = 0; c < cols; ++c) {
+    cout << " " << c % 10;
+}
+cout << '\n';
+
+// Battlefield rows
+for (int r = 0; r < rows; ++r) {
+    cout << setw(3) << r << " ";
+    for (int c = 0; c < cols; ++c) {
+        cout << " " << matrix[r][c];
+    }
+    cout << '\n';
+}
+
+}
+// Cleanup and exit after the simulation loop
+for (Robot* r : robots) delete r;
+return 0;
 }
