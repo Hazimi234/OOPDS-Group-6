@@ -65,7 +65,32 @@ public:
     void setPosition(int newX, int newY) { x = newX; y = newY; isRandom = false; }
     bool isRandomPosition() const { return isRandom; }
     bool isAlive() const { return alive; }
-    void kill() { alive = false; }
+    void kill(vector<vector<char>>& battlefield) { 
+        alive = false; 
+        lives--; 
+        battlefield[x][y] = '-'; // Clear the position on the battlefield
+        if (lives <= 0) {
+            cout << name << " has been destroyed!\n";
+        } else {
+            cout << name << " has lost a life! Remaining lives: " << lives << "\n";
+        }
+    }
+    bool canRespawn() const{
+        return lives > 0;
+    }
+    void respawn(vector<vector<char>>&battlefield, int rows, int cols){
+        int newX, newY;
+        do{
+            newX= rand()% rows;
+            newY= rand()% cols;
+        }
+        while(battlefield[newX][newY] != '-');
+        x = newX;
+        y = newY;
+        alive = true;
+        battlefield[x][y] = name[0];
+        cout << name << " has respawned at (" << x << "," << y << ")!\n";
+    }
 
 };
 
@@ -100,26 +125,25 @@ public:
         return false;
     }
 
-    void fire(int dx, int dy, vector<vector<char>>& battlefield,
-               vector<Robot*>& robots) override {
-        if (shells <= 0) {
-            cout << name << " has no shells and self-destructs!\n";
-            kill();
-            battlefield[x][y]='-';
-            return;
-        }
+void fire(int dx, int dy, vector<vector<char>>& battlefield,
+          vector<Robot*>& robots) override {
+    if (shells <= 0) {
+        cout << name << " has no shells and self-destructs!\n";
+        kill(battlefield);  // ✅ Call the correct version
+        return;
+    }
 
-        int tx = x + dx, ty = y + dy;
-        shells--;
+    int tx = x + dx;
+    int ty = y + dy;
+    shells--;
 
-        if (tx >= 0 && tx < (int)battlefield.size() &&
-            ty >= 0 && ty < (int)battlefield[0].size()) 
-            {
+    if (tx >= 0 && tx < (int)battlefield.size() &&
+        ty >= 0 && ty < (int)battlefield[0].size()) {
+
         if ((rand() % 100) < 70) {
             for (Robot* r : robots) {
                 if (r->isAlive() && r != this && r->getX() == tx && r->getY() == ty) {
-                    r->kill();
-                    battlefield[tx][ty] = '-';
+                    r->kill(battlefield);  // ✅ Call the version that clears battlefield
                     cout << name << " hit and killed " << r->getName()
                          << " at (" << tx << "," << ty << ")\n";
                     return;
@@ -131,6 +155,7 @@ public:
         }
     }
 }
+
 
     void move(vector<vector<char>>& battlefield, vector<Robot*>& robots) override {
     static const int dx[] = {-1, 0, 1, -1, 1, -1, 0, 1};
@@ -149,7 +174,7 @@ public:
             // Eliminate any robot at the target position
             for (Robot* r : robots) {
                 if (r->isAlive() && r->getX() == nx && r->getY() == ny) {
-                    r->kill();
+                    r->kill(battlefield);
                     cout << name << " moves into (" << nx << "," << ny << ") and destroys " << r->getName() << "!\n";
                     break;
                 }
@@ -205,6 +230,7 @@ int main() {
 
     vector<Robot*> robots;
     srand(time(0));
+    int deathsThisTurn=0;
 
     for (int i = 0; i < robotCount; ++i) {
         if (getline(file, line)) {
@@ -238,11 +264,27 @@ int main() {
 
     for (int turn = 0; turn < steps; ++turn) {
         cout << "\nTurn " << turn + 1 << ":\n";
+        int deathsThisTurn = 0;
+        int activeCount = 0;
         for (Robot* r : robots) {
             if (r->isAlive()) {
                 r->takeTurn(matrix, robots);
+                activeCount++;
             }
         }
+        for (Robot* r:robots){
+            if (!r->isAlive() && r->canRespawn()) {
+                deathsThisTurn++;
+            }
+        }
+        for (Robot* r:robots){
+            if (!r->isAlive() && r->canRespawn() && activeCount<5){
+                r->respawn(matrix, rows, cols);
+                activeCount++;
+            }
+        }
+        
+
         cout << "\nBattlefield:\n";
         for (const auto& row : matrix) {
             for (char ch : row) cout << ch;
