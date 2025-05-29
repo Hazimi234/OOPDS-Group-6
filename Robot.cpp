@@ -1,6 +1,8 @@
 #include "Robot.h"
 #include <iostream>
 #include <cstdlib>
+#include <fstream>
+
 
 using namespace std;
 
@@ -48,8 +50,10 @@ void Robot::kill(vector<vector<char>>& battlefield, ofstream& log) {
     battlefield[x][y] = '-';
     if (lives <= 0) {
         cout << name << " has been destroyed!\n";
+        log << name << " has been destroyed!\n";
     } else {
         cout << name << " has lost a life! Remaining lives: " << lives << "\n";
+        log << name << " has lost a life! Remaining lives: " << lives << "\n";
     }
 }
 

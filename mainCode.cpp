@@ -19,6 +19,7 @@ int main() {
         return 1;
     }
 
+    
     // for log file
     ofstream log("log_turns.txt");
     if (!log) {
@@ -78,101 +79,98 @@ int main() {
         }
     }
 
-for (int turn = 0; turn < steps; ++turn) {
-    cout << "\nTurn " << turn + 1 << ":\n";
-    log << "\nTurn " << turn + 1 << ":\n";
+    for (int turn = 0; turn < steps; ++turn) {
+        cout << "\nTurn " << turn + 1 << ":\n";
+        log << "\nTurn " << turn + 1 << ":\n";
 
-    // Clear battlefield matrix
-    for (int r = 0; r < rows; ++r) {
+        // Clear battlefield matrix
+        for (int r = 0; r < rows; ++r) {
+            for (int c = 0; c < cols; ++c) {
+                matrix[r][c] = '-';
+            }
+        }
+
+        // Place alive robots on battlefield
+        for (Robot* r : robots) {
+            if (r->isAlive()) {
+                int x = r->getX();
+                int y = r->getY();
+                matrix[x][y] = r->getName()[0];
+            }
+        }
+
+        int deathsThisTurn = 0;
+        int activeCount = 0;
+
+        // Each alive robot takes its turn
+        for (Robot* r : robots) {
+            if (r->isAlive()) {
+                r->takeTurn(matrix, robots, log);
+                activeCount++;
+            }
+        }
+
+        // Count deaths this turn that can respawn
+        for (Robot* r : robots) {
+            if (!r->isAlive() && r->canRespawn()) {
+                deathsThisTurn++;
+            }
+        }
+
+        // Respawn robots if possible and room available
+        for (Robot* r : robots) {
+            if (!r->isAlive() && r->canRespawn() && activeCount < 5) {
+                r->respawn(matrix, rows, cols, log);
+                activeCount++;
+            }
+        }
+
+        cout << "\nBattlefield";
+        log << "\nBattlefield";
+
+        // Tens digits
+        cout << "    ";
+        log << "    ";
         for (int c = 0; c < cols; ++c) {
-            matrix[r][c] = '-';
-        }
-    }
-
-    // Place alive robots on battlefield
-    for (Robot* r : robots) {
-        if (r->isAlive()) {
-            int x = r->getX();
-            int y = r->getY();
-            matrix[x][y] = r->getName()[0];
-        }
-    }
-
-    int deathsThisTurn = 0;
-    int activeCount = 0;
-
-    // Each alive robot takes its turn
-    for (Robot* r : robots) {
-        if (r->isAlive()) {
-            r->takeTurn(matrix, robots, log);
-            activeCount++;
-        }
-    }
-
-    // Count deaths this turn that can respawn
-    for (Robot* r : robots) {
-        if (!r->isAlive() && r->canRespawn()) {
-            deathsThisTurn++;
-        }
-    }
-
-    // Respawn robots if possible and room available
-    for (Robot* r : robots) {
-        if (!r->isAlive() && r->canRespawn() && activeCount < 5) {
-            r->respawn(matrix, rows, cols, log);
-            activeCount++;
-        }
-    }
-}
-
-    cout << "\nBattlefield:\n";
-    log << "\nBattlefield:\n";
-
-    // Tens digits
-    cout << "    ";
-    log << "    ";
-    for (int c = 0; c < cols; ++c) {
-        cout << " ";
-        log << " ";
-        if (c >= 10) {
-            cout << c / 10;
-            log << c / 10;
-        } else {
             cout << " ";
             log << " ";
-        }
-    }
-    cout << '\n';
-    log << '\n';
-
-    // Units digits
-    cout << "    ";
-    log << "    ";
-    for (int c = 0; c < cols; ++c) {
-        cout << " " << c % 10;
-        log << " " << c % 10;
-    }
-    cout << '\n';
-    log << '\n';
-
-    // Battlefield rows
-    for (int r = 0; r < rows; ++r) {
-        cout << setw(3) << r << " ";
-        log << setw(3) << r << " ";
-        for (int c = 0; c < cols; ++c) {
-            cout << " " << matrix[r][c];
-            log << " " << matrix[r][c];
+            if (c >= 10) {
+                cout << c / 10;
+                log << c / 10;
+            } else {
+                cout << " ";
+                log << " ";
+            }
         }
         cout << '\n';
         log << '\n';
-    }
 
-    // Cleanup and exit after the simulation loop
-    for (Robot* r : robots){
-        delete r;
+        // Units digits
+        cout << "    ";
+        log << "    ";
+        for (int c = 0; c < cols; ++c) {
+            cout << " " << c % 10;
+            log << " " << c % 10;
+        }
+        cout << '\n';
+        log << '\n';
+
+        // Battlefield rows
+        for (int r = 0; r < rows; ++r) {
+            cout << setw(3) << r << " ";
+            log << setw(3) << r << " ";
+            for (int c = 0; c < cols; ++c) {
+                cout << " " << matrix[r][c];
+                log << " " << matrix[r][c];
+            }
+            cout << '\n';
+            log << '\n';
+        }
     }
 
     log.close();
-
+    // Cleanup and exit after the simulation loop
+    for (Robot* r : robots) delete r;
     return 0;
+    
 }

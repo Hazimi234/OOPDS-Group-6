@@ -16,8 +16,8 @@ public:
     virtual ~Robot();
 
     virtual void takeTurn(std::vector<std::vector<char>>&, std::vector<Robot*>&, std::ofstream& log) = 0;
-    virtual void think() = 0;
-    virtual bool look(int dx, int dy, const std::vector<std::vector<char>>&) = 0;
+    virtual void think(std::ofstream& log) = 0;
+    virtual bool look(int dx, int dy, const std::vector<std::vector<char>>&, std::ofstream& log) = 0;
     virtual void fire(int dx, int dy, std::vector<std::vector<char>>&, std::vector<Robot*>&, std::ofstream& log) = 0;
     virtual void move(std::vector<std::vector<char>>&, std::vector<Robot*>&, std::ofstream& log) = 0;
 

@@ -10,8 +10,8 @@ class GenericRobot : public Robot {
 public:
     GenericRobot(std::string t, std::string n, std::string xStr, std::string yStr);
 
-    void think() override;
-    bool look(int dx, int dy, const std::vector<std::vector<char>>& battlefield) override;
+    void think(std::ofstream& log) override;
+    bool look(int dx, int dy, const std::vector<std::vector<char>>& battlefield, std::ofstream& log) override;
     void fire(int dx, int dy, std::vector<std::vector<char>>& battlefield,
               std::vector<Robot*>& robots, std::ofstream& log) override;
     void move(std::vector<std::vector<char>>& battlefield, std::vector<Robot*>& robots, std::ofstream& log) override;
