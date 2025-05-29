@@ -6,17 +6,19 @@
 #include <string>
 #include "Robot.h"
 
+using namespace std;
+
 class GenericRobot : public Robot {
 public:
-    GenericRobot(std::string t, std::string n, std::string xStr, std::string yStr);
+    GenericRobot(string t, string n, string xStr, string yStr);
 
     void think() override;
-    bool look(int dx, int dy, const std::vector<std::vector<char>>& battlefield) override;
-    void fire(int dx, int dy, std::vector<std::vector<char>>& battlefield,
-              std::vector<Robot*>& robots) override;
-    void move(std::vector<std::vector<char>>& battlefield);
-    void move(std::vector<std::vector<char>>& battlefield, std::vector<Robot*>& robots) override;
-    void takeTurn(std::vector<std::vector<char>>& battlefield, std::vector<Robot*>& robots) override;
+    bool look(int dx, int dy, const vector<vector<char>>& battlefield) override;
+    void fire(int dx, int dy, vector<vector<char>>& battlefield,
+              vector<Robot*>& robots) override;
+    void move(vector<vector<char>>& battlefield);
+    void move(vector<vector<char>>& battlefield, vector<Robot*>& robots) override;
+    void takeTurn(vector<vector<char>>& battlefield, vector<Robot*>& robots) override;
 };
 
 #endif // GENERICROBOT_H

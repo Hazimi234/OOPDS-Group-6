@@ -1,30 +1,32 @@
 #include "GenericRobot.h"
 #include <cstdlib>
 
-GenericRobot::GenericRobot(std::string t, std::string n, std::string xStr, std::string yStr)
+using namespace std;
+
+GenericRobot::GenericRobot(string t, string n, string xStr, string yStr)
     : Robot(t, n, xStr, yStr) {}
 
 void GenericRobot::think() {
-    std::cout << name << " is thinking...\n";
+    cout << name << " is thinking...\n";
 }
 
-bool GenericRobot::look(int dx, int dy, const std::vector<std::vector<char>>& battlefield) {
+bool GenericRobot::look(int dx, int dy, const vector<vector<char>>& battlefield) {
     int lookX = x + dx;
     int lookY = y + dy;
     if (lookX >= 0 && lookX < (int)battlefield.size() &&
         lookY >= 0 && lookY < (int)battlefield[0].size()) {
         if (lookX == x && lookY == y) return false;
         char target = battlefield[lookX][lookY];
-        std::cout << name << " looks at (" << lookX << "," << lookY << "): " << target << "\n";
+        cout << name << " looks at (" << lookX << "," << lookY << "): " << target << "\n";
         return target != '-' && target != name[0];
     }
     return false;
 }
 
-void GenericRobot::fire(int dx, int dy, std::vector<std::vector<char>>& battlefield,
-                        std::vector<Robot*>& robots) {
+void GenericRobot::fire(int dx, int dy, vector<vector<char>>& battlefield,
+                        vector<Robot*>& robots) {
     if (shells <= 0) {
-        std::cout << name << " has no shells and self-destructs!\n";
+        cout << name << " has no shells and self-destructs!\n";
         kill(battlefield);
         return;
     }
@@ -39,19 +41,19 @@ void GenericRobot::fire(int dx, int dy, std::vector<std::vector<char>>& battlefi
             for (Robot* r : robots) {
                 if (r->isAlive() && r != this && r->getX() == tx && r->getY() == ty) {
                     r->kill(battlefield);
-                    std::cout << name << " hit and killed " << r->getName()
+                    cout << name << " hit and killed " << r->getName()
                               << " at (" << tx << "," << ty << ")\n";
                     return;
                 }
             }
-            std::cout << name << " hit an empty spot.\n";
+            cout << name << " hit an empty spot.\n";
         } else {
-            std::cout << name << " missed at (" << tx << "," << ty << ").\n";
+            cout << name << " missed at (" << tx << "," << ty << ").\n";
         }
     }
 }
 
-void GenericRobot::move(std::vector<std::vector<char>>& battlefield, std::vector<Robot*>& robots) {
+void GenericRobot::move(vector<vector<char>>& battlefield, vector<Robot*>& robots) {
     static const int dx[] = {-1, 0, 1, -1, 1, -1, 0, 1};
     static const int dy[] = {-1, -1, -1, 0, 0, 1, 1, 1};
     int dir = rand() % 8;
@@ -64,7 +66,7 @@ void GenericRobot::move(std::vector<std::vector<char>>& battlefield, std::vector
         if (target != '-' && target != name[0]) {
             for (Robot* r : robots) {
                 if (r->isAlive() && r->getX() == nx && r->getY() == ny) {
-                    std::cout << name << " moves into (" << nx << "," << ny << ") and destroys " << r->getName() << "!\n";
+                    cout << name << " moves into (" << nx << "," << ny << ") and destroys " << r->getName() << "!\n";
                     r->kill(battlefield);
                     break;
                 }
@@ -76,12 +78,12 @@ void GenericRobot::move(std::vector<std::vector<char>>& battlefield, std::vector
             x = nx;
             y = ny;
             battlefield[x][y] = name[0];
-            std::cout << name << " moves to (" << x << "," << y << ")\n";
+            cout << name << " moves to (" << x << "," << y << ")\n";
         }
     }
 }
 
-void GenericRobot::takeTurn(std::vector<std::vector<char>>& battlefield, std::vector<Robot*>& robots) {
+void GenericRobot::takeTurn(vector<vector<char>>& battlefield, vector<Robot*>& robots) {
     think();
     static const int dx[] = {0, -1, 0, 1, 0, -1, 1, -1, 1};
     static const int dy[] = {0, -1, -1, -1, 1, 0, 0, 1, 1};
