@@ -132,7 +132,7 @@ void fire(int dx, int dy, vector<vector<char>>& battlefield,
           vector<Robot*>& robots) override {
     if (shells <= 0) {
         cout << name << " has no shells and self-destructs!\n";
-        kill(battlefield);  // ✅ Call the correct version
+        kill(battlefield);  
         return;
     }
 
@@ -179,7 +179,7 @@ void fire(int dx, int dy, vector<vector<char>>& battlefield,
             for (Robot* r : robots) {
                 if (r->isAlive() && r->getX() == nx && r->getY() == ny) {
                     cout << name << " moves into (" << nx << "," << ny << ") and destroys " << r->getName() << "!\n";
-                    r->kill(battlefield);  // ✅ Call the version that clears battlefield
+                    r->kill(battlefield);  
                     break;
                 }
             }
