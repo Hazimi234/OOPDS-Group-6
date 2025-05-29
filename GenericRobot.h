@@ -13,10 +13,9 @@ public:
     void think() override;
     bool look(int dx, int dy, const std::vector<std::vector<char>>& battlefield) override;
     void fire(int dx, int dy, std::vector<std::vector<char>>& battlefield,
-              std::vector<Robot*>& robots) override;
-    void move(std::vector<std::vector<char>>& battlefield);
-    void move(std::vector<std::vector<char>>& battlefield, std::vector<Robot*>& robots) override;
-    void takeTurn(std::vector<std::vector<char>>& battlefield, std::vector<Robot*>& robots) override;
+              std::vector<Robot*>& robots, std::ofstream& log) override;
+    void move(std::vector<std::vector<char>>& battlefield, std::vector<Robot*>& robots, std::ofstream& log) override;
+    void takeTurn(std::vector<std::vector<char>>& battlefield, std::vector<Robot*>& robots, std::ofstream& log) override;
 };
 
 #endif // GENERICROBOT_H

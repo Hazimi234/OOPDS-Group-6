@@ -22,10 +22,10 @@ bool GenericRobot::look(int dx, int dy, const std::vector<std::vector<char>>& ba
 }
 
 void GenericRobot::fire(int dx, int dy, std::vector<std::vector<char>>& battlefield,
-                        std::vector<Robot*>& robots) {
+                        std::vector<Robot*>& robots, std::ofstream& log) {
     if (shells <= 0) {
         std::cout << name << " has no shells and self-destructs!\n";
-        kill(battlefield);
+        kill(battlefield, log);
         return;
     }
 
@@ -38,7 +38,7 @@ void GenericRobot::fire(int dx, int dy, std::vector<std::vector<char>>& battlefi
         if ((rand() % 100) < 70) {
             for (Robot* r : robots) {
                 if (r->isAlive() && r != this && r->getX() == tx && r->getY() == ty) {
-                    r->kill(battlefield);
+                    r->kill(battlefield, log);
                     std::cout << name << " hit and killed " << r->getName()
                               << " at (" << tx << "," << ty << ")\n";
                     return;
@@ -51,7 +51,7 @@ void GenericRobot::fire(int dx, int dy, std::vector<std::vector<char>>& battlefi
     }
 }
 
-void GenericRobot::move(std::vector<std::vector<char>>& battlefield, std::vector<Robot*>& robots) {
+void GenericRobot::move(std::vector<std::vector<char>>& battlefield, std::vector<Robot*>& robots, std::ofstream& log) {
     static const int dx[] = {-1, 0, 1, -1, 1, -1, 0, 1};
     static const int dy[] = {-1, -1, -1, 0, 0, 1, 1, 1};
     int dir = rand() % 8;
@@ -65,7 +65,7 @@ void GenericRobot::move(std::vector<std::vector<char>>& battlefield, std::vector
             for (Robot* r : robots) {
                 if (r->isAlive() && r->getX() == nx && r->getY() == ny) {
                     std::cout << name << " moves into (" << nx << "," << ny << ") and destroys " << r->getName() << "!\n";
-                    r->kill(battlefield);
+                    r->kill(battlefield, log);
                     break;
                 }
             }
@@ -81,14 +81,14 @@ void GenericRobot::move(std::vector<std::vector<char>>& battlefield, std::vector
     }
 }
 
-void GenericRobot::takeTurn(std::vector<std::vector<char>>& battlefield, std::vector<Robot*>& robots) {
+void GenericRobot::takeTurn(std::vector<std::vector<char>>& battlefield, std::vector<Robot*>& robots, std::ofstream& log) {
     think();
     static const int dx[] = {0, -1, 0, 1, 0, -1, 1, -1, 1};
     static const int dy[] = {0, -1, -1, -1, 1, 0, 0, 1, 1};
     int dir = rand() % 9;
     if (look(dx[dir], dy[dir], battlefield) && shells > 0) {
-        fire(dx[dir], dy[dir], battlefield, robots);
+        fire(dx[dir], dy[dir], battlefield, robots, log);
     } else {
-        move(battlefield, robots);
+        move(battlefield, robots, log);
     }
 }

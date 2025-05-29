@@ -1,0 +1,50 @@
+Error: Robot Bolt has invalid position (3,7).
+
+Turn 1:
+
+Turn 2:
+
+Turn 3:
+
+Turn 4:
+
+Turn 5:
+
+Turn 6:
+
+Turn 7:
+
+Turn 8:
+
+Turn 9:
+
+Turn 10:
+
+Turn 11:
+
+Turn 12:
+
+Turn 13:
+
+Turn 14:
+
+Turn 15:
+
+Turn 16:
+
+Turn 17:
+
+Turn 18:
+
+Turn 19:
+
+Turn 20:
+
+Battlefield:
+              
+     0 1 2 3 4
+  0  B - - - -
+  1  - - - J -
+  2  - - - - -
+  3  - - - K -
+  4  - - - - A

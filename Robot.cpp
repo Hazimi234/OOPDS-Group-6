@@ -42,7 +42,7 @@ bool Robot::isAlive() const {
     return alive;
 }
 
-void Robot::kill(vector<vector<char>>& battlefield) {
+void Robot::kill(vector<vector<char>>& battlefield, ofstream& log) {
     alive = false;
     lives--;
     battlefield[x][y] = '-';
@@ -57,7 +57,7 @@ bool Robot::canRespawn() const {
     return lives > 0;
 }
 
-void Robot::respawn(vector<vector<char>>& battlefield, int rows, int cols) {
+void Robot::respawn(vector<vector<char>>& battlefield, int rows, int cols, ofstream& log) {
     int newX, newY;
     do {
         newX = rand() % rows;
