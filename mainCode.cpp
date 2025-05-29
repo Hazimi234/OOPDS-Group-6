@@ -239,10 +239,8 @@ int main() {
     for (int i = 0; i < robotCount; ++i) {
         if (getline(file, line)) {
             istringstream iss(line);
-            string type, name, xStr, yStr;
-            iss >> type >> name;
-            if (!(iss>>xStr)) xStr="random";
-            if (!(iss>>yStr)) yStr="random";
+            string type, name, xStr = "random", yStr = "random";
+            iss >> type >> name >> xStr >> yStr;
 
             Robot* robot = new GenericRobot(type, name, xStr, yStr);
             robots.push_back(robot);
