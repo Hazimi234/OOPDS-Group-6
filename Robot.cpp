@@ -1,6 +1,8 @@
 #include "Robot.h"
 #include <iostream>
 #include <cstdlib>
+#include <fstream>
+
 
 using namespace std;
 
@@ -42,14 +44,16 @@ bool Robot::isAlive() const {
     return alive;
 }
 
-void Robot::kill(vector<vector<char>>& battlefield) {
+void Robot::kill(vector<vector<char>>& battlefield, ofstream& log) {
     alive = false;
     lives--;
     battlefield[x][y] = '-';
     if (lives <= 0) {
         cout << name << " has been destroyed!\n";
+        log << name << " has been destroyed!\n";
     } else {
         cout << name << " has lost a life! Remaining lives: " << lives << "\n";
+        log << name << " has lost a life! Remaining lives: " << lives << "\n";
     }
 }
 
@@ -57,7 +61,7 @@ bool Robot::canRespawn() const {
     return lives > 0;
 }
 
-void Robot::respawn(vector<vector<char>>& battlefield, int rows, int cols) {
+void Robot::respawn(vector<vector<char>>& battlefield, int rows, int cols, ofstream& log) {
     int newX, newY;
     do {
         newX = rand() % rows;

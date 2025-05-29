@@ -1,0 +1,368 @@
+Error: Robot Bolt has invalid position (3,7).
+
+Turn 1:
+Jet is thinking...
+Kidd is thinking...
+Kidd looks at (1,2): -
+Kidd moves to (2,0)
+Bolt is thinking...
+Bolt looks at (0,1): -
+Alpha is thinking...
+Alpha looks at (0,3): -
+Alpha moves to (1,2)
+
+Battlefield              
+     0 1 2 3 4
+  0  B - - - -
+  1  - - A - -
+  2  K - - - -
+  3  - - - - -
+  4  - - - - J
+
+Turn 2:
+Jet is thinking...
+Kidd is thinking...
+Kidd looks at (1,0): -
+Kidd moves to (3,0)
+Bolt is thinking...
+Alpha is thinking...
+Alpha looks at (1,3): -
+Alpha moves to (1,1)
+
+Battlefield              
+     0 1 2 3 4
+  0  B - - - -
+  1  - A - - -
+  2  - - - - -
+  3  K - - - -
+  4  - - - - J
+
+Turn 3:
+Jet is thinking...
+Kidd is thinking...
+Kidd looks at (2,1): -
+Bolt is thinking...
+Alpha is thinking...
+Alpha looks at (2,1): -
+Alpha moves to (2,2)
+
+Battlefield              
+     0 1 2 3 4
+  0  B - - - -
+  1  - - - - -
+  2  - - A - -
+  3  K - - - -
+  4  - - - - J
+
+Turn 4:
+Jet is thinking...
+Kidd is thinking...
+Kidd moves to (4,1)
+Bolt is thinking...
+Alpha is thinking...
+Alpha looks at (3,1): -
+Alpha moves to (3,1)
+
+Battlefield              
+     0 1 2 3 4
+  0  B - - - -
+  1  - - - - -
+  2  - - - - -
+  3  - A - - -
+  4  - K - - J
+
+Turn 5:
+Jet is thinking...
+Jet moves to (4,3)
+Kidd is thinking...
+Kidd moves to (4,0)
+Bolt is thinking...
+Bolt looks at (1,0): -
+Bolt moves to (1,0)
+Alpha is thinking...
+Alpha moves to (2,0)
+
+Battlefield              
+     0 1 2 3 4
+  0  - - - - -
+  1  B - - - -
+  2  A - - - -
+  3  - - - - -
+  4  K - - J -
+
+Turn 6:
+Jet is thinking...
+Jet moves to (3,4)
+Kidd is thinking...
+Kidd moves to (3,1)
+Bolt is thinking...
+Bolt moves to (0,1)
+Alpha is thinking...
+Alpha looks at (2,1): -
+
+Battlefield              
+     0 1 2 3 4
+  0  - B - - -
+  1  - - - - -
+  2  A - - - -
+  3  - K - - J
+  4  - - - - -
+
+Turn 7:
+Jet is thinking...
+Jet looks at (2,3): -
+Kidd is thinking...
+Kidd looks at (4,1): -
+Kidd moves to (4,2)
+Bolt is thinking...
+Bolt looks at (0,0): -
+Alpha is thinking...
+Alpha looks at (3,0): -
+
+Battlefield              
+     0 1 2 3 4
+  0  - B - - -
+  1  - - - - -
+  2  A - - - -
+  3  - - - - J
+  4  - - K - -
+
+Turn 8:
+Jet is thinking...
+Jet looks at (2,4): -
+Kidd is thinking...
+Kidd looks at (4,3): -
+Bolt is thinking...
+Bolt looks at (1,1): -
+Bolt moves to (1,0)
+Alpha is thinking...
+Alpha looks at (3,1): -
+Alpha moves to (3,0)
+
+Battlefield              
+     0 1 2 3 4
+  0  - - - - -
+  1  B - - - -
+  2  - - - - -
+  3  A - - - J
+  4  - - K - -
+
+Turn 9:
+Jet is thinking...
+Jet looks at (2,3): -
+Jet moves to (4,3)
+Kidd is thinking...
+Kidd looks at (3,1): -
+Bolt is thinking...
+Alpha is thinking...
+Alpha looks at (2,0): -
+
+Battlefield              
+     0 1 2 3 4
+  0  - - - - -
+  1  B - - - -
+  2  - - - - -
+  3  A - - - -
+  4  - - K J -
+
+Turn 10:
+Jet is thinking...
+Jet looks at (3,4): -
+Kidd is thinking...
+Bolt is thinking...
+Bolt moves to (2,0)
+Alpha is thinking...
+Alpha looks at (2,0): B
+Bolt has lost a life! Remaining lives: 2
+Alpha hit and killed Bolt at (2,0)
+
+Battlefield              
+     0 1 2 3 4
+  0  - - - - -
+  1  - - - - -
+  2  - - - - -
+  3  A - B - -
+  4  - - K J -
+
+Turn 11:
+Jet is thinking...
+Jet looks at (3,3): -
+Kidd is thinking...
+Bolt is thinking...
+Bolt looks at (2,1): -
+Bolt moves to (2,3)
+Alpha is thinking...
+Alpha looks at (2,1): -
+Alpha moves to (2,0)
+
+Battlefield              
+     0 1 2 3 4
+  0  - - - - -
+  1  - - - - -
+  2  A - - B -
+  3  - - - - -
+  4  - - K J -
+
+Turn 12:
+Jet is thinking...
+Jet moves to (3,4)
+Kidd is thinking...
+Kidd looks at (3,3): -
+Kidd moves to (3,2)
+Bolt is thinking...
+Bolt moves into (3,4) and destroys Jet!
+Jet has lost a life! Remaining lives: 2
+Bolt moves to (3,4)
+Alpha is thinking...
+Alpha looks at (1,0): -
+
+Battlefield              
+     0 1 2 3 4
+  0  - - - - J
+  1  - - - - -
+  2  A - - - -
+  3  - - K - B
+  4  - - - - -
+
+Turn 13:
+Jet is thinking...
+Kidd is thinking...
+Kidd looks at (4,1): -
+Kidd moves to (4,1)
+Bolt is thinking...
+Bolt moves to (3,3)
+Alpha is thinking...
+Alpha looks at (3,0): -
+
+Battlefield              
+     0 1 2 3 4
+  0  - - - - J
+  1  - - - - -
+  2  A - - - -
+  3  - - - B -
+  4  - K - - -
+
+Turn 14:
+Jet is thinking...
+Jet moves to (1,3)
+Kidd is thinking...
+Kidd moves to (3,2)
+Bolt is thinking...
+Bolt looks at (2,4): -
+Bolt moves into (3,2) and destroys Kidd!
+Kidd has lost a life! Remaining lives: 2
+Bolt moves to (3,2)
+Alpha is thinking...
+Alpha moves to (3,0)
+
+Battlefield              
+     0 1 2 3 4
+  0  - - - - -
+  1  - - - J -
+  2  - - - - -
+  3  A - B - -
+  4  - - - - K
+
+Turn 15:
+Jet is thinking...
+Jet looks at (2,3): -
+Jet moves to (0,4)
+Kidd is thinking...
+Bolt is thinking...
+Bolt looks at (2,3): -
+Bolt moves to (2,3)
+Alpha is thinking...
+Alpha looks at (2,1): -
+Alpha moves to (4,0)
+
+Battlefield              
+     0 1 2 3 4
+  0  - - - - J
+  1  - - - - -
+  2  - - - B -
+  3  - - - - -
+  4  A - - - K
+
+Turn 16:
+Jet is thinking...
+Jet looks at (1,3): -
+Kidd is thinking...
+Bolt is thinking...
+Bolt looks at (1,2): -
+Bolt moves to (1,3)
+Alpha is thinking...
+
+Battlefield              
+     0 1 2 3 4
+  0  - - - - J
+  1  - - - B -
+  2  - - - - -
+  3  - - - - -
+  4  A - - - K
+
+Turn 17:
+Jet is thinking...
+Kidd is thinking...
+Bolt is thinking...
+Bolt looks at (1,4): -
+Bolt moves to (0,3)
+Alpha is thinking...
+
+Battlefield              
+     0 1 2 3 4
+  0  - - - B J
+  1  - - - - -
+  2  - - - - -
+  3  - - - - -
+  4  A - - - K
+
+Turn 18:
+Jet is thinking...
+Jet moves to (1,4)
+Kidd is thinking...
+Bolt is thinking...
+Alpha is thinking...
+
+Battlefield              
+     0 1 2 3 4
+  0  - - - B -
+  1  - - - - J
+  2  - - - - -
+  3  - - - - -
+  4  A - - - K
+
+Turn 19:
+Jet is thinking...
+Jet looks at (0,4): -
+Jet moves to (2,3)
+Kidd is thinking...
+Bolt is thinking...
+Bolt looks at (0,2): -
+Alpha is thinking...
+Alpha looks at (3,0): -
+
+Battlefield              
+     0 1 2 3 4
+  0  - - - B -
+  1  - - - - -
+  2  - - - J -
+  3  - - - - -
+  4  A - - - K
+
+Turn 20:
+Jet is thinking...
+Jet looks at (1,2): -
+Jet moves to (1,2)
+Kidd is thinking...
+Bolt is thinking...
+Bolt looks at (0,4): -
+Bolt moves to (0,2)
+Alpha is thinking...
+
+Battlefield              
+     0 1 2 3 4
+  0  - - B - -
+  1  - - J - -
+  2  - - - - -
+  3  - - - - -
+  4  A - - - K
