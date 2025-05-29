@@ -12,16 +12,42 @@
 
 using namespace std;
 
+bool fileExists(const string& filename) {
+    ifstream f(filename);
+    return f.good();
+}
+
+string getNextLogFilename() {
+    int index = 1;
+    string newName;
+    do {
+        newName = "log_" + to_string(index++) + ".txt";
+    } while (fileExists(newName));
+    return newName;
+}
+
 int main() {
     ifstream file("robot_simulation.txt");
     if (!file) {
         cout << "Error: Cannot open file.\n";
         return 1;
     }
-
     
+
     // for log file
-    ofstream log("log_turns.txt");
+
+    string baseLog = "current_log.txt";
+
+    // If current_log.txt already exists, rename it
+    if (fileExists(baseLog)) {
+        string newName = getNextLogFilename();
+        if (rename(baseLog.c_str(), newName.c_str()) != 0) {
+            cerr << "Failed to rename existing log file.\n";
+            return 1;
+        }
+    }
+
+    ofstream log(baseLog);
     if (!log) {
         cout << "Error: Cannot create log file.\n";
         return 1;
