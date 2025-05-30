@@ -17,6 +17,8 @@ Phone: +60 18-355-5944|| +60 17-779 3199 || +60 19-752 1755 ||+60 11-5372 6266
 #include <vector>
 #include <string>
 #include "Robot.h"
+#include "Ability.h"
+
 
 class GenericRobot : public Robot {
 public:
@@ -28,6 +30,19 @@ public:
               std::vector<Robot*>& robots, std::ofstream& log) override;
     void move(std::vector<std::vector<char>>& battlefield, std::vector<Robot*>& robots, std::ofstream& log) override;
     void takeTurn(std::vector<std::vector<char>>& battlefield, std::vector<Robot*>& robots, std::ofstream& log) override;
+
+    Ability* ability = nullptr;
+    bool scoutVisionThisTurn = false;
+
+    bool hasScoutVision() const { return scoutVisionThisTurn; }
+    void enableScoutVision(bool state) { scoutVisionThisTurn = state; }
+    Ability* getAbility() const { return ability; }
+    void setAbility(Ability* a) { ability = a; }
+
+    ~GenericRobot();
+
 };
+
+
 
 #endif // GENERICROBOT_H

@@ -11,9 +11,12 @@ Phone: +60 18-355-5944|| +60 17-779 3199 || +60 19-752 1755 ||+60 11-5372 6266
 **********|**********|**********/
 
 
-#include "GenericRobot.h"
+
 #include <cstdlib>
 #include <fstream>
+#include "GenericRobot.h"
+#include "ScoutBot.h"
+
 
 using namespace std;
 
@@ -26,6 +29,8 @@ void GenericRobot::think(ofstream& log) {
 }
 
 bool GenericRobot::look(int dx, int dy, const vector<vector<char>>& battlefield, ofstream& log) {
+    if (scoutVisionThisTurn) return true; // Always return true if ScoutBot active
+
     int lookX = x + dx;
     int lookY = y + dy;
     if (lookX >= 0 && lookX < (int)battlefield.size() &&
@@ -62,6 +67,13 @@ void GenericRobot::fire(int dx, int dy, vector<vector<char>>& battlefield,
                          << " at (" << tx << "," << ty << ")\n";
                     log << name << " hit and killed " << r->getName()
                         << " at (" << tx << "," << ty << ")\n";
+
+                    // This gives the ability (scoutbot only for now)
+                    if (!ability) {
+                        ability = new ScoutBot();
+                        cout << name << " gained the ScoutBot ability!\n";
+                        log << name << " gained the ScoutBot ability!\n";
+                    }
                     return;
                 }
             }
@@ -90,6 +102,12 @@ void GenericRobot::move(vector<vector<char>>& battlefield, vector<Robot*>& robot
                     cout << name << " moves into (" << nx << "," << ny << ") and destroys " << r->getName() << "!\n";
                     log << name << " moves into (" << nx << "," << ny << ") and destroys " << r->getName() << "!\n";
                     r->kill(battlefield, log);
+                    
+                    // This gives the ability too 
+                    if (!ability) {
+                    ability = new ScoutBot();
+                    log << name << " gained the ScoutBot ability!\n";
+                    }
                     break;
                 }
             }
@@ -106,9 +124,16 @@ void GenericRobot::move(vector<vector<char>>& battlefield, vector<Robot*>& robot
     }
 }
 
+
+
 void GenericRobot::takeTurn(vector<vector<char>>& battlefield, vector<Robot*>& robots, ofstream& log) {
     think(log); 
 
+    if (ability && ability->isScoutBot()) {
+    ability->activate(this, battlefield, log);
+    enableScoutVision(true);
+    }
+    
     static const int dx[] = {0, -1, 0, 1, 0, -1, 1, -1, 1};
     static const int dy[] = {0, -1, -1, -1, 1, 0, 0, 1, 1};
     int dir = rand() % 9;
@@ -117,4 +142,12 @@ void GenericRobot::takeTurn(vector<vector<char>>& battlefield, vector<Robot*>& r
     } else {
         move(battlefield, robots, log);
     }
+
+    enableScoutVision(false);
+
 }
+
+GenericRobot::~GenericRobot() {
+    delete ability;
+}
+
