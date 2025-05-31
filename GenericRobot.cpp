@@ -18,6 +18,7 @@ Phone: +60 18-355-5944|| +60 17-779 3199 || +60 19-752 1755 ||+60 11-5372 6266
 #include "SemiAutoBot.h"
 #include "LongShotBot.h"
 #include "TrackBot.h"
+#include "HideBot.h"
 #include <algorithm>
 
 using namespace std;
@@ -107,6 +108,24 @@ void GenericRobot::fire(int dx, int dy, vector<vector<char>> &battlefield,
     {
         if (r->isAlive() && r != this && r->getX() == tx && r->getY() == ty)
         {
+
+            GenericRobot *targetRobot = dynamic_cast<GenericRobot *>(r);
+            if (targetRobot && targetRobot->getAbility() && targetRobot->getAbility()->isHideBot())
+            {
+                // Always show the intent to shoot
+                std::cout << name << " tried to shoot " << targetRobot->getName()
+                          << " at (" << tx << "," << ty << ")\n";
+                log << name << " tried to shoot " << targetRobot->getName()
+                    << " at (" << tx << "," << ty << ")\n";
+
+                HideBot *hideAbility = dynamic_cast<HideBot *>(targetRobot->getAbility());
+                if (hideAbility && hideAbility->tryHide(targetRobot, log))
+                {
+                    // Hide successful, stop here
+                    return;
+                }
+            }
+
             if (hits > 0)
             {
                 cout << name << " hit and killed " << r->getName();
@@ -123,7 +142,7 @@ void GenericRobot::fire(int dx, int dy, vector<vector<char>> &battlefield,
 
                 if (!ability)
                 {
-                    int choice = rand() % 4;
+                    int choice = rand() % 6;
                     if (choice == 0)
                     {
                         ability = new ThirtyShotBot();
@@ -153,6 +172,12 @@ void GenericRobot::fire(int dx, int dy, vector<vector<char>> &battlefield,
                         ability = new TrackBot();
                         cout << name << " gained the TrackBot ability!\n";
                         log << name << " gained the TrackBot ability!\n";
+                    }
+                    else if (choice == 5)
+                    {
+                        ability = new HideBot();
+                        cout << name << " gained the HideBot ability!\n";
+                        log << name << " gained the HideBot ability!\n";
                     }
                 }
             }
@@ -213,7 +238,7 @@ void GenericRobot::move(vector<vector<char>> &battlefield, vector<Robot *> &robo
                     // Grant ability if none
                     if (!ability)
                     {
-                        int choice = rand() % 5;
+                        int choice = rand() % 6;
 
                         if (choice == 0)
                         {
@@ -244,6 +269,12 @@ void GenericRobot::move(vector<vector<char>> &battlefield, vector<Robot *> &robo
                             ability = new TrackBot();
                             cout << name << " gained the TrackBot ability!\n";
                             log << name << " gained the TrackBot ability!\n";
+                        }
+                        else if (choice == 5)
+                        {
+                            ability = new HideBot();
+                            cout << name << " gained the HideBot ability!\n";
+                            log << name << " gained the HideBot ability!\n";
                         }
                     }
 

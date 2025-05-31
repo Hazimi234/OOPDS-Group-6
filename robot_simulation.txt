@@ -1,5 +1,5 @@
 M by N : 4 4
-steps: 10
+steps: 30
 robots: 4
 GenericRobot Jet random random
 GenericRobot Kidd random random

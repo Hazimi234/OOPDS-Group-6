@@ -18,6 +18,7 @@ public:
     virtual bool isSemiAutoBot() const { return false; }
     virtual bool isLongShotBot() const { return false; }
     virtual bool isTrackBot() const { return false; }
+    virtual bool isHideBot() const { return false; }
 
     virtual bool isShootingAbility() const { return false; }
     virtual bool isMovingAbility() const { return false; }
