@@ -19,6 +19,8 @@ public:
     virtual bool isLongShotBot() const { return false; }
     virtual bool isTrackBot() const { return false; }
     virtual bool isHideBot() const { return false; }
+    virtual bool isJumpBot() const { return false; } 
+    virtual bool hasUses() const { return false; } // Default implementation
 
     virtual bool isShootingAbility() const { return false; }
     virtual bool isMovingAbility() const { return false; }

@@ -170,18 +170,11 @@ int main() {
         cout << "    ";
         log << "    ";
         for (int c = 0; c < cols; ++c) {
-            cout << " ";
-            log << " ";
-            if (c >= 10) {
-                cout << c / 10;
-                log << c / 10;
-            } else {
-                cout << " ";
-                log << " ";
-            }
+            cout<< " " << (c/10==0? " ": to_string(c/10));
+            log<< " " << (c/10==0? " ": to_string(c/10));      
         }
-        cout << '\n';
-        log << '\n';
+        cout << endl;
+        log << endl;
 
         // Units digits
         cout << "    ";
@@ -190,19 +183,22 @@ int main() {
             cout << " " << c % 10;
             log << " " << c % 10;
         }
-        cout << '\n';
-        log << '\n';
+        cout << endl;
+        log << endl;
+        
 
+        cout<< "    +"<< string(cols*2,'-')<<endl;
+        log<< "    +"<< string(cols*2,'-')<<endl;
         // Battlefield rows
         for (int r = 0; r < rows; ++r) {
-            cout << setw(3) << r << " ";
-            log << setw(3) << r << " ";
+            cout << setw(3) << r << " |";
+            log << setw(3) << r << " |";
             for (int c = 0; c < cols; ++c) {
                 cout << " " << matrix[r][c];
                 log << " " << matrix[r][c];
             }
-            cout << '\n';
-            log << '\n';
+            cout <<endl;
+            log << endl;
         }
     }
 

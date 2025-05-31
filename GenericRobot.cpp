@@ -19,6 +19,7 @@ Phone: +60 18-355-5944|| +60 17-779 3199 || +60 19-752 1755 ||+60 11-5372 6266
 #include "LongShotBot.h"
 #include "TrackBot.h"
 #include "HideBot.h"
+#include "JumpBot.h"
 #include <algorithm>
 
 using namespace std;
@@ -142,7 +143,7 @@ void GenericRobot::fire(int dx, int dy, vector<vector<char>> &battlefield,
 
                 if (!ability)
                 {
-                    int choice = rand() % 6;
+                    int choice = rand() % 7;
                     if (choice == 0)
                     {
                         ability = new ThirtyShotBot();
@@ -178,6 +179,12 @@ void GenericRobot::fire(int dx, int dy, vector<vector<char>> &battlefield,
                         ability = new HideBot();
                         cout << name << " gained the HideBot ability!\n";
                         log << name << " gained the HideBot ability!\n";
+                    }
+                    else if (choice == 6)
+                    {
+                        ability = new JumpBot();
+                        cout << name << " gained the JumpBot ability!\n";
+                        log << name << " gained the JumpBot ability!\n";
                     }
                 }
             }
@@ -238,7 +245,7 @@ void GenericRobot::move(vector<vector<char>> &battlefield, vector<Robot *> &robo
                     // Grant ability if none
                     if (!ability)
                     {
-                        int choice = rand() % 6;
+                        int choice = rand() % 7;
 
                         if (choice == 0)
                         {
@@ -275,6 +282,12 @@ void GenericRobot::move(vector<vector<char>> &battlefield, vector<Robot *> &robo
                             ability = new HideBot();
                             cout << name << " gained the HideBot ability!\n";
                             log << name << " gained the HideBot ability!\n";
+                        }
+                        else if (choice == 6)
+                        {
+                            ability = new JumpBot();
+                            cout << name << " gained the JumpBot ability!\n";
+                            log << name << " gained the JumpBot ability!\n";
                         }
                     }
 
@@ -370,6 +383,26 @@ void GenericRobot::takeTurn(vector<vector<char>> &battlefield, vector<Robot *> &
             move(battlefield, robots, log); // No tracked enemy, fallback
         }
     }
+    else if (ability && ability->isJumpBot())
+    {
+        if (ability->hasUses())
+        {
+            // 30% chance to jump, 70% chance to act normally
+            if (rand() % 100 < 30)
+            {
+                ability->activate(this, battlefield, log, robots);
+                return; // Only jump this turn
+            }
+            // else: fall through to normal action
+        }
+        else
+        {
+            cout << name << " has no jumps left.\n";
+            log << name << " has no jumps left.\n";
+            // Fall through to normal action
+        }
+    }
+
     // random movement or firing
     else
     {
