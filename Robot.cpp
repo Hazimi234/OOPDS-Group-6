@@ -42,6 +42,15 @@ string Robot::getName() const { return name; }
 int Robot::getX() const { return x; }
 int Robot::getY() const { return y; }
 
+void Robot::setShells(int s) {
+    shells = s;
+}
+
+int Robot::getShells() const {
+    return shells;
+}
+
+
 void Robot::setPosition(int newX, int newY) {
     x = newX;
     y = newY;

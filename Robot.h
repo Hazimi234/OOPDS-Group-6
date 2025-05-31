@@ -22,10 +22,15 @@ protected:
     int x, y;
     bool isRandom, alive;
     int lives, shells;
+    
+
 
 public:
     Robot(std::string t, std::string n, std::string xStr, std::string yStr);
     virtual ~Robot();
+
+    void setShells(int s);
+    int getShells() const;
 
     virtual void takeTurn(std::vector<std::vector<char>>&, std::vector<Robot*>&, std::ofstream& log) = 0;
     virtual void think(std::ofstream& log) = 0;

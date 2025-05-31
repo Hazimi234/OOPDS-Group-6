@@ -1,0 +1,87 @@
+
+Turn 1:
+Jet is thinking...
+Jet moves into (0,0) and destroys Bolt!
+Bolt has lost a life! Remaining lives: 2
+Jet gained the ScoutBot ability!
+Jet moves to (0,0)
+Kidd is thinking...
+Kidd looks at (0,1): -
+Kidd moves into (1,0) and destroys Alpha!
+Alpha has lost a life! Remaining lives: 2
+Kidd gained the ThirtyShotBot ability!
+Kidd moves to (1,0)
+
+Battlefield        
+     0 1
+  0  J A
+  1  K B
+
+Turn 2:
+Jet is thinking...
+Jet uses ScoutBot ability! Scans entire battlefield:
+ (0,0): J  (0,1): A 
+ (1,0): K  (1,1): B 
+Kidd is thinking...
+Kidd uses ThirtyShotBot: reloaded to 30 shells!
+Kidd moves into (0,1) and destroys Alpha!
+Alpha has lost a life! Remaining lives: 1
+Kidd moves to (0,1)
+Bolt is thinking...
+Bolt looks at (0,1): K
+Bolt missed at (0,1).
+
+Battlefield        
+     0 1
+  0  J K
+  1  A B
+
+Turn 3:
+Jet is thinking...
+Jet uses ScoutBot ability! Scans entire battlefield:
+ (0,0): J  (0,1): K 
+ (1,0): A  (1,1): B 
+Kidd is thinking...
+Kidd looks at (1,0): A
+Kidd missed at (1,0).
+Bolt is thinking...
+Bolt moves into (1,0) and destroys Alpha!
+Alpha has been destroyed!
+Bolt gained the ScoutBot ability!
+Bolt moves to (1,0)
+
+Battlefield        
+     0 1
+  0  J K
+  1  B -
+
+Turn 4:
+Jet is thinking...
+Jet uses ScoutBot ability! Scans entire battlefield:
+ (0,0): J  (0,1): K 
+ (1,0): B  (1,1): - 
+Jet hit an empty spot.
+Kidd is thinking...
+Bolt is thinking...
+Bolt uses ScoutBot ability! Scans entire battlefield:
+ (0,0): J  (0,1): K 
+ (1,0): B  (1,1): - 
+
+Battlefield        
+     0 1
+  0  J K
+  1  B -
+
+Turn 5:
+Jet is thinking...
+Jet hit and killed Kidd at (0,1)
+Kidd has lost a life! Remaining lives: 2
+Bolt is thinking...
+Bolt uses ScoutBot ability! Scans entire battlefield:
+ (0,0): J  (0,1): - 
+ (1,0): B  (1,1): - 
+
+Battlefield        
+     0 1
+  0  J -
+  1  B K

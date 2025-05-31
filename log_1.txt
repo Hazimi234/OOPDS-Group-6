@@ -1,0 +1,77 @@
+
+Turn 1:
+Jet is thinking...
+Jet looks at (0,0): A
+Jet missed at (0,0).
+Kidd is thinking...
+Kidd moves into (1,1) and destroys Jet!
+Jet has lost a life! Remaining lives: 2
+Kidd moves to (1,1)
+Bolt is thinking...
+Bolt looks at (1,0): -
+Alpha is thinking...
+Alpha moves into (0,1) and destroys Bolt!
+Bolt has lost a life! Remaining lives: 2
+Alpha moves to (0,1)
+
+Battlefield        
+     0 1
+  0  - A
+  1  J K
+
+Turn 2:
+Jet is thinking...
+Kidd is thinking...
+Kidd uses ThirtyShotBot: reloaded to 30 shells!
+Kidd looks at (0,1): A
+Kidd hit and killed Alpha at (0,1)
+Alpha has lost a life! Remaining lives: 2
+
+Battlefield        
+     0 1
+  0  B A
+  1  J K
+
+Turn 3:
+Jet is thinking...
+Jet moves into (1,1) and destroys Kidd!
+Kidd has lost a life! Remaining lives: 2
+Jet moves to (1,1)
+Bolt is thinking...
+Bolt looks at (0,1): A
+Bolt hit and killed Alpha at (0,1)
+Alpha has lost a life! Remaining lives: 1
+
+Battlefield        
+     0 1
+  0  B A
+  1  K J
+
+Turn 4:
+Jet is thinking...
+Jet uses ThirtyShotBot: reloaded to 30 shells!
+Jet looks at (0,1): A
+Jet hit and killed Alpha at (0,1)
+Alpha has been destroyed!
+Kidd is thinking...
+Bolt is thinking...
+Bolt uses ThirtyShotBot: reloaded to 30 shells!
+
+Battlefield        
+     0 1
+  0  B -
+  1  K J
+
+Turn 5:
+Jet is thinking...
+Jet moves to (0,1)
+Kidd is thinking...
+Kidd moves into (0,1) and destroys Jet!
+Jet has lost a life! Remaining lives: 1
+Kidd moves to (0,1)
+Bolt is thinking...
+
+Battlefield        
+     0 1
+  0  B K
+  1  J -
