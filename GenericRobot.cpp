@@ -35,11 +35,22 @@ void GenericRobot::think(ofstream &log)
 
 bool GenericRobot::look(int dx, int dy, const vector<vector<char>> &battlefield, ofstream &log)
 {
-    if (scoutVisionThisTurn)
-        return true; // Always return true if ScoutBot active
-
     int lookX = x + dx;
     int lookY = y + dy;
+
+    // tries to adjust dx and dy if its out of bounds 
+    while ((lookX < 0 || lookX >= (int)battlefield.size() || lookY < 0 || lookY >= (int)battlefield[0].size()) &&
+           (dx != 0 || dy != 0))
+    {
+        if (dx > 0) dx--;
+        else if (dx < 0) dx++;
+        if (dy > 0) dy--;
+        else if (dy < 0) dy++;
+
+        lookX = x + dx;
+        lookY = y + dy;
+    }
+    
     if (lookX >= 0 && lookX < (int)battlefield.size() &&
         lookY >= 0 && lookY < (int)battlefield[0].size())
     {
@@ -50,10 +61,8 @@ bool GenericRobot::look(int dx, int dy, const vector<vector<char>> &battlefield,
         log << name << " looks at (" << lookX << "," << lookY << "): " << target << "\n";
         return target != '-' && target != name[0];
     }
-    else
-    {
-        cout << name << " looks out of bounds at (" << lookX << "," << lookY << ")\n";
-        log << name << " looks out of bounds at (" << lookX << "," << lookY << ")\n";
+    else{
+        log << "broken";
     }
     return false;
 }
@@ -135,6 +144,11 @@ void GenericRobot::fire(int dx, int dy, vector<vector<char>> &battlefield,
                 {
                     cout << " with SemiAutoBot (" << hits << "/3 hits)";
                     log << " with SemiAutoBot (" << hits << "/3 hits)";
+                }
+                if (ability && ability->isLongShotBot())
+                {
+                    cout << " with LongShotBot";
+                    log << " with LongShotBot" ;
                 }
                 cout << " at (" << tx << "," << ty << ")\n";
                 log << " at (" << tx << "," << ty << ")\n";
@@ -227,6 +241,17 @@ void GenericRobot::move(vector<vector<char>> &battlefield, vector<Robot *> &robo
     int nx = x + dx[dir];
     int ny = y + dy[dir];
 
+    // tries to adjust dx and dy if its out of bounds 
+    while ((nx < 0 || nx >= (int)battlefield.size() || ny < 0 || ny >= (int)battlefield[0].size()) &&
+           (dx != 0 || dy != 0))
+    {
+        if (nx > 0) nx--;
+        else if (nx < 0) nx++;
+        if (ny > 0) ny--;
+        else if (ny < 0) ny++;
+    }
+
+    // check if the new position is valid again
     if (nx >= 0 && nx < (int)battlefield.size() &&
         ny >= 0 && ny < (int)battlefield[0].size())
     {
@@ -321,6 +346,21 @@ void GenericRobot::takeTurn(vector<vector<char>> &battlefield, vector<Robot *> &
     {
         ability->activate(this, battlefield, log, robots);
     }
+
+    if (ability && ability->isLongShotBot())
+    {
+        int dx = (rand() % 7) - 3;
+        int dy = (rand() % 7) - 3;
+
+        if ((dx != 0 || dy != 0) && abs(dx) + abs(dy) <= 3)
+        {
+            if (look(dx, dy, battlefield, log))
+            {
+                fire(dx, dy, battlefield, robots, log);
+            }
+        }
+    }
+
 
     // ScoutBot ability handling
     if (ability && ability->isScoutBot())
