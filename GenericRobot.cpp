@@ -62,11 +62,11 @@ void GenericRobot::fire(int dx, int dy, vector<vector<char>>& battlefield,
         if ((rand() % 100) < 70) {
             for (Robot* r : robots) {
                 if (r->isAlive() && r != this && r->getX() == tx && r->getY() == ty) {
-                    r->kill(battlefield, log);
                     cout << name << " hit and killed " << r->getName()
                          << " at (" << tx << "," << ty << ")\n";
                     log << name << " hit and killed " << r->getName()
                         << " at (" << tx << "," << ty << ")\n";
+                    r->kill(battlefield, log);
 
                     // This gives the ability (scoutbot only for now)
                     if (!ability) {
