@@ -47,6 +47,19 @@
         "iterator": "cpp",
         "numeric": "cpp",
         "random": "cpp",
-        "set": "cpp"
+        "set": "cpp",
+        "bit": "cpp",
+        "charconv": "cpp",
+        "compare": "cpp",
+        "concepts": "cpp",
+        "map": "cpp",
+        "format": "cpp",
+        "numbers": "cpp",
+        "semaphore": "cpp",
+        "span": "cpp",
+        "stop_token": "cpp",
+        "text_encoding": "cpp",
+        "thread": "cpp",
+        "variant": "cpp"
     }
 }
