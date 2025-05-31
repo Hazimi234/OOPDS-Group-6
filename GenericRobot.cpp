@@ -45,6 +45,10 @@ bool GenericRobot::look(int dx, int dy, const vector<vector<char>>& battlefield,
         log << name << " looks at (" << lookX << "," << lookY << "): " << target << "\n";
         return target != '-' && target != name[0];
     }
+    else {
+        cout << name << " looks out of bounds at (" << lookX << "," << lookY << ")\n";
+        log << name << " looks out of bounds at (" << lookX << "," << lookY << ")\n";
+    }
     return false;
 }
 
@@ -141,6 +145,10 @@ void GenericRobot::move(vector<vector<char>>& battlefield, vector<Robot*>& robot
             cout << name << " moves to (" << x << "," << y << ")\n";
             log << name << " moves to (" << x << "," << y << ")\n";
         }
+    }
+    else {
+        cout << name << " cannot move to (" << nx << "," << ny << ")\n";
+        log << name << " cannot move to (" << nx << "," << ny << ")\n";
     }
 }
 
