@@ -10,7 +10,7 @@ class GenericRobot; // Forward declaration
 class Ability
 {
 public:
-    virtual void activate(GenericRobot *robot, std::vector<std::vector<char>> &battlefield, std::ostream &log) = 0;
+    virtual void activate(GenericRobot *robot, std::vector<std::vector<char>> &battlefield, std::ostream &log, const std::vector<Robot*>& robots) = 0;
 
     // Category checkers
     virtual bool isScoutBot() const { return false; }

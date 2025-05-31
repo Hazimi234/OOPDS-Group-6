@@ -1,183 +1,220 @@
 
 Turn 1:
 Jet is thinking...
+Jet looks out of bounds at (-1,0)
+Jet moves to (0,2)
 Kidd is thinking...
-Kidd moves to (2,3)
+Kidd looks out of bounds at (1,4)
+Kidd cannot move to (0,4)
 Bolt is thinking...
-Bolt moves to (0,1)
+Bolt looks at (1,3): -
+Bolt moves to (1,3)
 Alpha is thinking...
-Alpha looks at (0,0): -
-Alpha moves to (0,0)
+Alpha looks at (1,0): -
+Alpha moves to (3,2)
 
 Battlefield            
      0 1 2 3
-  0  A B - J
-  1  - - - -
-  2  - - - K
-  3  - - - -
+  0  - - J K
+  1  - - - B
+  2  - - - -
+  3  - - A -
 
 Turn 2:
 Jet is thinking...
+Jet looks at (1,3): B
+Jet missed all shots at (1,3).
 Kidd is thinking...
-Kidd looks at (3,2): -
-Kidd moves to (1,2)
+Kidd looks out of bounds at (1,4)
+Kidd cannot move to (-1,4)
 Bolt is thinking...
-Bolt looks at (1,1): -
-Bolt moves into (1,2) and destroys Kidd!
+Bolt looks at (1,2): -
+Bolt moves into (0,3) and destroys Kidd!
 Kidd has lost a life! Remaining lives: 2
-Bolt gained the LongShotBot ability!
-Bolt moves to (1,2)
+Bolt gained the ScoutBot ability!
+Bolt moves to (0,3)
 Alpha is thinking...
-Alpha looks at (1,0): -
+Alpha looks at (2,2): -
+Alpha cannot move to (4,1)
 
 Battlefield            
      0 1 2 3
-  0  A - - J
-  1  - - B -
-  2  - - - K
-  3  - - - -
+  0  - - J B
+  1  - - - -
+  2  - - - -
+  3  K - A -
 
 Turn 3:
 Jet is thinking...
-Jet looks at (0,2): -
+Jet looks at (1,2): -
+Jet cannot move to (-1,3)
 Kidd is thinking...
-Kidd looks at (1,2): B
-Kidd hit and killed Bolt at (1,2)
-Bolt has lost a life! Remaining lives: 2
-Kidd gained the ScoutBot ability!
-Alpha is thinking...
-Alpha looks at (1,0): -
-
-Battlefield            
-     0 1 2 3
-  0  A - - J
-  1  - - - -
-  2  - - - K
-  3  - - - B
-
-Turn 4:
-Jet is thinking...
-Jet looks at (0,2): -
-Jet moves to (1,3)
-Kidd is thinking...
-Kidd uses ScoutBot ability! Scans entire battlefield:
- (0,0): A  (0,1): -  (0,2): -  (0,3): - 
- (1,0): -  (1,1): -  (1,2): -  (1,3): J 
- (2,0): -  (2,1): -  (2,2): -  (2,3): K 
- (3,0): -  (3,1): -  (3,2): -  (3,3): B 
-Kidd hit and killed Jet at (1,3)
-Jet has lost a life! Remaining lives: 2
+Kidd looks out of bounds at (4,-1)
+Kidd cannot move to (4,1)
 Bolt is thinking...
-Alpha is thinking...
-Alpha looks at (1,1): -
-Alpha moves to (0,1)
-
-Battlefield            
-     0 1 2 3
-  0  - A - -
-  1  - - - -
-  2  - - - K
-  3  - - J B
-
-Turn 5:
-Jet is thinking...
-Jet looks at (2,1): -
-Kidd is thinking...
-Kidd uses ScoutBot ability! Scans entire battlefield:
- (0,0): -  (0,1): A  (0,2): -  (0,3): - 
+Bolt uses ScoutBot ability! Scans entire battlefield:
+ (0,0): -  (0,1): -  (0,2): J  (0,3): B 
  (1,0): -  (1,1): -  (1,2): -  (1,3): - 
- (2,0): -  (2,1): -  (2,2): -  (2,3): K 
- (3,0): -  (3,1): -  (3,2): J  (3,3): B 
-Kidd missed all shots at (3,2).
-Bolt is thinking...
-Bolt looks at (3,2): J
-Bolt hit and killed Jet at (3,2)
-Jet has lost a life! Remaining lives: 1
+ (2,0): -  (2,1): -  (2,2): -  (2,3): - 
+ (3,0): K  (3,1): -  (3,2): A  (3,3): - 
+Bolt missed all shots at (0,2).
 Alpha is thinking...
-Alpha looks at (0,2): -
-
-Battlefield            
-     0 1 2 3
-  0  - A - -
-  1  - - - -
-  2  - J - K
-  3  - - - B
-
-Turn 6:
-Jet is thinking...
-Jet looks at (3,2): -
-Jet moves to (1,1)
-Kidd is thinking...
-Kidd uses ScoutBot ability! Scans entire battlefield:
- (0,0): -  (0,1): A  (0,2): -  (0,3): - 
- (1,0): -  (1,1): J  (1,2): -  (1,3): - 
- (2,0): -  (2,1): -  (2,2): -  (2,3): K 
- (3,0): -  (3,1): -  (3,2): -  (3,3): B 
-Kidd hit and killed Bolt at (3,3)
-Bolt has lost a life! Remaining lives: 1
-Alpha is thinking...
-Alpha looks at (1,1): J
-Alpha hit and killed Jet at (1,1)
-Jet has been destroyed!
-Alpha gained the LongShotBot ability!
-
-Battlefield            
-     0 1 2 3
-  0  - A - -
-  1  - - - -
-  2  - - - K
-  3  - - - B
-
-Turn 7:
-Kidd is thinking...
-Kidd missed all shots at (3,3).
-Bolt is thinking...
-Alpha is thinking...
-Alpha moves to (1,1)
-
-Battlefield            
-     0 1 2 3
-  0  - - - -
-  1  - A - -
-  2  - - - K
-  3  - - - B
-
-Turn 8:
-Kidd is thinking...
-Kidd hit and killed Bolt at (3,3)
-Bolt has been destroyed!
-Alpha is thinking...
-Alpha looks at (0,1): -
+Alpha looks at (3,1): -
 Alpha moves to (2,2)
 
 Battlefield            
      0 1 2 3
-  0  - - - -
+  0  - - J B
   1  - - - -
-  2  - - A K
-  3  - - - -
+  2  - - A -
+  3  K - - -
 
-Turn 9:
+Turn 4:
+Jet is thinking...
+Jet looks at (1,3): -
+Jet moves to (1,1)
 Kidd is thinking...
-Kidd hit and killed Alpha at (2,2)
+Kidd looks out of bounds at (3,-1)
+Kidd cannot move to (2,-1)
+Bolt is thinking...
+Bolt uses ScoutBot ability! Scans entire battlefield:
+ (0,0): -  (0,1): -  (0,2): -  (0,3): B 
+ (1,0): -  (1,1): J  (1,2): -  (1,3): - 
+ (2,0): -  (2,1): -  (2,2): A  (2,3): - 
+ (3,0): K  (3,1): -  (3,2): -  (3,3): - 
+Bolt cannot move to (1,4)
+Alpha is thinking...
+Alpha looks at (2,3): -
+Alpha moves to (1,2)
+
+Battlefield            
+     0 1 2 3
+  0  - - - B
+  1  - J A -
+  2  - - - -
+  3  K - - -
+
+Turn 5:
+Jet is thinking...
+Jet moves to (2,0)
+Kidd is thinking...
+Kidd looks out of bounds at (4,1)
+Kidd cannot move to (4,0)
+Bolt is thinking...
+Bolt uses ScoutBot ability! Scans entire battlefield:
+ (0,0): -  (0,1): -  (0,2): -  (0,3): B 
+ (1,0): -  (1,1): -  (1,2): A  (1,3): - 
+ (2,0): J  (2,1): -  (2,2): -  (2,3): - 
+ (3,0): K  (3,1): -  (3,2): -  (3,3): - 
+Bolt hit and killed Alpha at (1,2)
 Alpha has lost a life! Remaining lives: 2
 
 Battlefield            
      0 1 2 3
-  0  - - - -
+  0  - - A B
   1  - - - -
-  2  - - - K
-  3  - A - -
+  2  J - - -
+  3  K - - -
 
-Turn 10:
+Turn 6:
+Jet is thinking...
+Jet looks at (1,1): -
+Jet cannot move to (1,-1)
 Kidd is thinking...
+Kidd looks out of bounds at (3,-1)
+Kidd cannot move to (2,-1)
+Bolt is thinking...
+Bolt hit and killed Alpha at (0,2)
+Alpha has lost a life! Remaining lives: 1
+
+Battlefield            
+     0 1 2 3
+  0  - - - B
+  1  - - - -
+  2  J - - -
+  3  K - - A
+
+Turn 7:
+Jet is thinking...
+Jet looks out of bounds at (3,-1)
+Jet moves to (2,1)
+Kidd is thinking...
+Kidd looks out of bounds at (3,-1)
+Kidd cannot move to (3,-1)
+Bolt is thinking...
+Bolt moves to (1,2)
 Alpha is thinking...
-Alpha looks at (2,1): -
-Alpha moves to (2,2)
+Alpha looks out of bounds at (4,3)
+Alpha cannot move to (3,4)
 
 Battlefield            
      0 1 2 3
   0  - - - -
+  1  - - B -
+  2  - J - -
+  3  K - - A
+
+Turn 8:
+Jet is thinking...
+Jet looks at (1,0): -
+Jet moves to (3,2)
+Kidd is thinking...
+Kidd looks out of bounds at (4,-1)
+Kidd moves to (2,0)
+Bolt is thinking...
+Bolt moves to (0,3)
+Alpha is thinking...
+Alpha looks out of bounds at (4,2)
+Alpha cannot move to (4,4)
+
+Battlefield            
+     0 1 2 3
+  0  - - - B
   1  - - - -
-  2  - - A K
-  3  - - - -
+  2  K - - -
+  3  - - J A
+
+Turn 9:
+Jet is thinking...
+Jet cannot move to (4,1)
+Kidd is thinking...
+Kidd moves to (1,0)
+Bolt is thinking...
+Bolt moves to (0,2)
+Alpha is thinking...
+Alpha moves into (3,2) and destroys Jet!
+Jet has lost a life! Remaining lives: 2
+Alpha gained the ScoutBot ability!
+Alpha moves to (3,2)
+
+Battlefield            
+     0 1 2 3
+  0  - - B -
+  1  K - J -
+  2  - - - -
+  3  - - A -
+
+Turn 10:
+Jet is thinking...
+Jet looks at (0,1): -
+Jet moves into (0,2) and destroys Bolt!
+Bolt has lost a life! Remaining lives: 2
+Jet gained the ThirtyShotBot ability!
+Jet moves to (0,2)
+Kidd is thinking...
+Kidd looks at (0,1): -
+Kidd moves to (0,1)
+Alpha is thinking...
+Alpha uses ScoutBot ability! Scans entire battlefield:
+ (0,0): -  (0,1): K  (0,2): J  (0,3): - 
+ (1,0): -  (1,1): -  (1,2): -  (1,3): - 
+ (2,0): -  (2,1): -  (2,2): -  (2,3): - 
+ (3,0): -  (3,1): -  (3,2): A  (3,3): - 
+Alpha moves to (2,1)
+
+Battlefield            
+     0 1 2 3
+  0  - K J -
+  1  - - - -
+  2  - A - -
+  3  B - - -

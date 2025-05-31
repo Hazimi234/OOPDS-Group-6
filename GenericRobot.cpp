@@ -275,7 +275,7 @@ void GenericRobot::takeTurn(vector<vector<char>> &battlefield, vector<Robot *> &
 
     if (ability && ability->isThirtyShotBot())
     {
-        ability->activate(this, battlefield, log);
+        ability->activate(this, battlefield, log, robots);
     }
 
     // ScoutBot ability handling

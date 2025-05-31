@@ -9,7 +9,7 @@ private:
     bool used = false;  // One-time activation
 
 public:
-    void activate(GenericRobot* robot, std::vector<std::vector<char>>& battlefield, std::ostream& log) override;
+    void activate(GenericRobot* robot, std::vector<std::vector<char>>& battlefield, std::ostream& log, const std::vector<Robot*>& /*robots*/) override;
 
     bool isThirtyShotBot() const override { return true; }
 };
