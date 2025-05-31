@@ -1,16 +1,19 @@
-#ifndef SCOUTBOT_H
-#define SCOUTBOT_H
+#ifndef TRACKBOT_H
+#define TRACKBOT_H
 
-#include "Ability.h"
+#include "Ability.h" // Assuming Ability is the base class
 #include "GenericRobot.h"
+#include <vector>
+#include <iostream>
 
-class ScoutBot : public Ability {
+class TrackBot : public Ability {
 private:
     int usesLeft = 3;
 
 public:
     void activate(GenericRobot* robot, std::vector<std::vector<char>>& battlefield, std::ostream& log, const std::vector<Robot*>& robots) override;
-    bool isScoutBot() const override { return true; }
+
+    bool isTrackBot() const override { return true; }
 
     void decrementUse() { usesLeft--; }
     bool hasUses() const { return usesLeft > 0; }
