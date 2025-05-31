@@ -17,6 +17,7 @@ Phone: +60 18-355-5944|| +60 17-779 3199 || +60 19-752 1755 ||+60 11-5372 6266
 #include "GenericRobot.h"
 #include "ScoutBot.h"
 #include "TrackBot.h"
+#include "JumpBot.h"
 #include <algorithm>
 
 
@@ -78,24 +79,28 @@ void GenericRobot::fire(int dx, int dy, vector<vector<char>>& battlefield,
 
                     // This gives the ability 
                     if (!ability) {
-                        int randomChoice = rand() % 2; // 0 or 1
+                        int randomChoice = rand() % 3; // 0 or 1
                         if (randomChoice == 0){
                             ability = new ScoutBot();
                             cout << name << " gained the ScoutBot ability!\n";
                             log << name << " gained the ScoutBot ability!\n";
                         }
-                        else {
+                        else if (randomChoice == 1) {
                             ability = new TrackBot();
                             cout << name << " gained the TrackBot ability!\n";
                             log << name << " gained the TrackBot ability!\n";
                          }
+                        else {
+                            ability = new JumpBot();
+                            cout << name << " gained the JumpBot ability!\n";
+                            log << name << " gained the JumpBot ability!\n";
                     }
                     return;
                 }
             }
             cout << name << " hit an empty spot.\n";
             log << name << " hit an empty spot.\n";
-        } else {
+        }} else {
             cout << name << " missed at (" << tx << "," << ty << ").\n";
             log << name << " missed at (" << tx << "," << ty << ").\n";
         }
@@ -120,17 +125,22 @@ void GenericRobot::move(vector<vector<char>>& battlefield, vector<Robot*>& robot
                     r->kill(battlefield, log);
                     //give the ability 
                     if (!ability) {
-                        int randomChoice = rand() % 2; // 0 or 1
+                        int randomChoice = rand() % 3; // 0 or 1
                         if (randomChoice == 0){
                             ability = new ScoutBot();
                             cout << name << " gained the ScoutBot ability!\n";
                             log << name << " gained the ScoutBot ability!\n";
                         }
+                        else if (randomChoice == 1){
+                            ability = new JumpBot();
+                            cout << name << " gained the JumpBot ability!\n";
+                            log << name << " gained the JumpBot ability!\n";
+                        }
                         else {
                             ability = new TrackBot();
                             cout << name << " gained the TrackBot ability!\n";
                             log << name << " gained the TrackBot ability!\n";
-                         }
+                        }
                     }
                     break;
                 }
@@ -206,17 +216,30 @@ void GenericRobot::takeTurn(vector<vector<char>>& battlefield, vector<Robot*>& r
             move(battlefield, robots, log);  // No tracked enemy, fallback
         }
     }
-    // random movement or firing
-    else {
-        static const int dx[] = {0, -1, 0, 1, 0, -1, 1, -1, 1};
-        static const int dy[] = {0, -1, -1, -1, 1, 0, 0, 1, 1};
-        int dir = rand() % 9;
-
-        if (look(dx[dir], dy[dir], battlefield, log) && shells > 0) {
-            fire(dx[dir], dy[dir], battlefield, robots, log);
+    else if (ability && ability->isJumpBot()) {
+        if (ability->hasUses()) {
+            // 30% chance to jump, 70% chance to act normally
+            if (rand() % 100 < 30) {
+                ability->activate(this, battlefield, log, robots);
+                return; // Only jump this turn
+            }
+            // else: fall through to normal action
         } else {
-            move(battlefield, robots, log);
+            cout << name << " has no jumps left.\n";
+            log << name << " has no jumps left.\n";
+            // Fall through to normal action
         }
+    }
+
+    // Normal action (move/fire) if no ability or JumpBot used up
+    static const int dx[] = {0, -1, 0, 1, 0, -1, 1, -1, 1};
+    static const int dy[] = {0, -1, -1, -1, 1, 0, 0, 1, 1};
+    int dir = rand() % 9;
+
+    if (look(dx[dir], dy[dir], battlefield, log) && shells > 0) {
+        fire(dx[dir], dy[dir], battlefield, robots, log);
+    } else {
+        move(battlefield, robots, log);
     }
 
 
