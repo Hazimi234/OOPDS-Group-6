@@ -23,6 +23,8 @@ Phone: +60 18-355-5944|| +60 17-779 3199 || +60 19-752 1755 ||+60 11-5372 6266
 
 
 class GenericRobot : public Robot {
+private:
+    std::vector<Robot*> trackedEnemies;
 public:
     GenericRobot(std::string t, std::string n, std::string xStr, std::string yStr);
 
@@ -40,12 +42,17 @@ public:
     void enableScoutVision(bool state) { scoutVisionThisTurn = state; }
     Ability* getAbility() const { return ability; }
     void setAbility(Ability* a) { ability = a; }
-    
-    std::vector<std::pair<int, int>> enemyPositions;
-    void addEnemyPosition(int r, int c) { enemyPositions.push_back({r, c}); }
-    void clearEnemyPositions() { enemyPositions.clear(); }
 
+    bool isEnemyTracked(Robot* enemyRobot) const;
+    void addTrackedEnemy(Robot* enemy) {
+        if (!isEnemyTracked(enemy)) {
+            trackedEnemies.push_back(enemy);
+        }
+    }
 
+    Robot* getTrackedEnemy() const {
+        return trackedEnemies.empty() ? nullptr : trackedEnemies[0];
+    }
     ~GenericRobot();
 
 };

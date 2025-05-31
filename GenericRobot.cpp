@@ -17,6 +17,8 @@ Phone: +60 18-355-5944|| +60 17-779 3199 || +60 19-752 1755 ||+60 11-5372 6266
 #include "ThirtyShotBot.h"
 #include "SemiAutoBot.h"
 #include "LongShotBot.h"
+#include "TrackBot.h"
+#include <algorithm>
 
 using namespace std;
 
@@ -45,6 +47,11 @@ bool GenericRobot::look(int dx, int dy, const vector<vector<char>> &battlefield,
         cout << name << " looks at (" << lookX << "," << lookY << "): " << target << "\n";
         log << name << " looks at (" << lookX << "," << lookY << "): " << target << "\n";
         return target != '-' && target != name[0];
+    }
+    else
+    {
+        cout << name << " looks out of bounds at (" << lookX << "," << lookY << ")\n";
+        log << name << " looks out of bounds at (" << lookX << "," << lookY << ")\n";
     }
     return false;
 }
@@ -141,6 +148,12 @@ void GenericRobot::fire(int dx, int dy, vector<vector<char>> &battlefield,
                         cout << name << " gained the LongShotBot ability!\n";
                         log << name << " gained the LongShotBot ability!\n";
                     }
+                    else if (choice == 4)
+                    {
+                        ability = new TrackBot();
+                        cout << name << " gained the TrackBot ability!\n";
+                        log << name << " gained the TrackBot ability!\n";
+                    }
                 }
             }
             else
@@ -200,7 +213,7 @@ void GenericRobot::move(vector<vector<char>> &battlefield, vector<Robot *> &robo
                     // Grant ability if none
                     if (!ability)
                     {
-                        int choice = rand() % 4;
+                        int choice = rand() % 5;
 
                         if (choice == 0)
                         {
@@ -226,6 +239,12 @@ void GenericRobot::move(vector<vector<char>> &battlefield, vector<Robot *> &robo
                             cout << name << " gained the LongShotBot ability!\n";
                             log << name << " gained the LongShotBot ability!\n";
                         }
+                        else if (choice == 4)
+                        {
+                            ability = new TrackBot();
+                            cout << name << " gained the TrackBot ability!\n";
+                            log << name << " gained the TrackBot ability!\n";
+                        }
                     }
 
                     break;
@@ -243,6 +262,11 @@ void GenericRobot::move(vector<vector<char>> &battlefield, vector<Robot *> &robo
             log << name << " moves to (" << x << "," << y << ")\n";
         }
     }
+    else
+    {
+        cout << name << " cannot move to (" << nx << "," << ny << ")\n";
+        log << name << " cannot move to (" << nx << "," << ny << ")\n";
+    }
 }
 
 void GenericRobot::takeTurn(vector<vector<char>> &battlefield, vector<Robot *> &robots, ofstream &log)
@@ -254,62 +278,97 @@ void GenericRobot::takeTurn(vector<vector<char>> &battlefield, vector<Robot *> &
         ability->activate(this, battlefield, log);
     }
 
-    if (ability && ability->isScoutBot())
+    void GenericRobot::takeTurn(vector<vector<char>> & battlefield, vector<Robot *> & robots, ofstream & log)
     {
-        ability->activate(this, battlefield, log);
-        enableScoutVision(true);
+        think(log);
 
-        bool scoutFired = false;
-        for (int i = -1; i <= 1; ++i)
+        // ScoutBot ability handling
+        if (ability && ability->isScoutBot())
         {
-            for (int j = -1; j <= 1; ++j)
+            ability->activate(this, battlefield, log, robots);
+            enableScoutVision(true);
+
+            bool scoutFired = false;
+            for (int i = -1; i <= 1; ++i)
             {
-                int ni = x + i;
-                int nj = y + j;
-                if (ni >= 0 && ni < battlefield.size() && nj >= 0 && nj < battlefield[0].size())
+                for (int j = -1; j <= 1; ++j)
                 {
-                    char target = battlefield[ni][nj];
-                    if (target != '-' && target != name[0])
+                    int ni = x + i;
+                    int nj = y + j;
+                    if (ni >= 0 && ni < battlefield.size() && nj >= 0 && nj < battlefield[0].size())
                     {
-                        fire(i, j, battlefield, robots, log); // fire only if close
-                        scoutFired = true;
-                        break;
+                        char target = battlefield[ni][nj];
+                        if (target != '-' && target != name[0])
+                        {
+                            fire(i, j, battlefield, robots, log); // fire only if close
+                            scoutFired = true;
+                            break;
+                        }
                     }
                 }
+                if (scoutFired)
+                    break;
             }
-            if (scoutFired)
-                break;
-        }
 
-        if (!scoutFired)
+            if (!scoutFired)
+            {
+                move(battlefield, robots, log);
+            }
+
+            enableScoutVision(false);
+        }
+        else if (ability && ability->isTrackBot())
         {
-            move(battlefield, robots, log);
+            ability->activate(this, battlefield, log, robots);
+
+            // Get tracked enemy robot pointer
+            Robot *trackedEnemy = getTrackedEnemy(); // You need a getter like this in your GenericRobot
+
+            if (trackedEnemy)
+            {
+                // Calculate relative position to tracked enemy
+                int dx = trackedEnemy->getX() - x;
+                int dy = trackedEnemy->getY() - y;
+
+                // Check if tracked enemy is within firing range (e.g., adjacent or close enough)
+                if (abs(dx) <= 1 && abs(dy) <= 1 && shells > 0)
+                {
+                    std::cout << name << " fires at tracked enemy " << trackedEnemy->getName() << "\n";
+                    log << name << " fires at tracked enemy " << trackedEnemy->getName() << "\n";
+                    fire(dx, dy, battlefield, robots, log);
+                }
+            }
+            else
+            {
+                move(battlefield, robots, log); // No tracked enemy, fallback
+            }
+        }
+        // random movement or firing
+        else
+        {
+            static const int dx[] = {0, -1, 0, 1, 0, -1, 1, -1, 1};
+            static const int dy[] = {0, -1, -1, -1, 1, 0, 0, 1, 1};
+            int dir = rand() % 9;
+
+            if (look(dx[dir], dy[dir], battlefield, log) && shells > 0)
+            {
+                fire(dx[dir], dy[dir], battlefield, robots, log);
+            }
+            else
+            {
+                move(battlefield, robots, log);
+            }
         }
 
         enableScoutVision(false);
     }
 
-    // random movement or firing
-    else
+    bool GenericRobot::isEnemyTracked(Robot * enemyRobot) const
     {
-        static const int dx[] = {0, -1, 0, 1, 0, -1, 1, -1, 1};
-        static const int dy[] = {0, -1, -1, -1, 1, 0, 0, 1, 1};
-        int dir = rand() % 9;
-
-        if (look(dx[dir], dy[dir], battlefield, log) && shells > 0)
-        {
-            fire(dx[dir], dy[dir], battlefield, robots, log);
-        }
-        else
-        {
-            move(battlefield, robots, log);
-        }
+        return std::find(trackedEnemies.begin(), trackedEnemies.end(), enemyRobot) != trackedEnemies.end();
     }
 
-    enableScoutVision(false);
-}
-
-GenericRobot::~GenericRobot()
-{
-    delete ability;
-}
+    GenericRobot::~GenericRobot()
+    {
+        delete ability;
+    }
