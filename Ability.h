@@ -15,6 +15,8 @@ public:
     virtual bool isScoutBot() const { return false; }
     virtual bool isThirtyShotBot() const { return false; }
     virtual bool isSemiAutoBot() const { return false; }
+    virtual bool isLongShotBot() const { return false; }
+
 
 
     virtual bool isShootingAbility() const { return false; }

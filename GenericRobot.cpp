@@ -16,6 +16,7 @@ Phone: +60 18-355-5944|| +60 17-779 3199 || +60 19-752 1755 ||+60 11-5372 6266
 #include "ScoutBot.h"
 #include "ThirtyShotBot.h"
 #include "SemiAutoBot.h"
+#include "LongShotBot.h"
 
 using namespace std;
 
@@ -59,34 +60,28 @@ void GenericRobot::fire(int dx, int dy, vector<vector<char>> &battlefield,
         return;
     }
 
-    shells--;  // decrement shells first
+    shells--; // consume shell
 
-    // Expire ThirtyShotBot or SemiAutoBot if shells ran out
-    if (ability && shells <= 0 && (ability->isThirtyShotBot() || ability->isSemiAutoBot()))
+    // Expire ThirtyShotBot, SemiAutoBot, or LongShotBot if shells run out
+    if (ability && shells <= 0 &&
+        (ability->isThirtyShotBot() || ability->isSemiAutoBot() || ability->isLongShotBot()))
     {
-        cout << name << "'s " 
-             << (ability->isThirtyShotBot() ? "ThirtyShotBot" : "SemiAutoBot")
-             << " ability expired (shells depleted).\n";
-        log << name << "'s " 
-            << (ability->isThirtyShotBot() ? "ThirtyShotBot" : "SemiAutoBot")
-            << " ability expired (shells depleted).\n";
-
+        cout << name << "'s ability expired (shells depleted).\n";
+        log << name << "'s ability expired (shells depleted).\n";
         delete ability;
         ability = nullptr;
-
-        shells = 10;  // reset shells to default after expiration
+        shells = 10; // reset to generic robot
     }
 
     int tx = x + dx;
     int ty = y + dy;
 
-
     if (tx < 0 || tx >= (int)battlefield.size() || ty < 0 || ty >= (int)battlefield[0].size())
-        return; // out of bounds, no log needed
+        return; // out of bounds
 
     int hits = 0;
 
-    // Determine number of hits based on ability
+    // SemiAutoBot fires 3 shots with 70% hit chance
     if (ability && ability->isSemiAutoBot())
     {
         for (int i = 0; i < 3; ++i)
@@ -100,8 +95,6 @@ void GenericRobot::fire(int dx, int dy, vector<vector<char>> &battlefield,
         if ((rand() % 100) < 70)
             hits = 1;
     }
-
-    bool robotKilled = false;
 
     for (Robot *r : robots)
     {
@@ -120,11 +113,10 @@ void GenericRobot::fire(int dx, int dy, vector<vector<char>> &battlefield,
                 log << " at (" << tx << "," << ty << ")\n";
 
                 r->kill(battlefield, log);
-                robotKilled = true;
 
                 if (!ability)
                 {
-                    int choice = rand() % 3;
+                    int choice = rand() % 4;
                     if (choice == 0)
                     {
                         ability = new ThirtyShotBot();
@@ -143,6 +135,12 @@ void GenericRobot::fire(int dx, int dy, vector<vector<char>> &battlefield,
                         cout << name << " gained the SemiAutoBot ability!\n";
                         log << name << " gained the SemiAutoBot ability!\n";
                     }
+                    else if (choice == 3)
+                    {
+                        ability = new LongShotBot();
+                        cout << name << " gained the LongShotBot ability!\n";
+                        log << name << " gained the LongShotBot ability!\n";
+                    }
                 }
             }
             else
@@ -155,7 +153,7 @@ void GenericRobot::fire(int dx, int dy, vector<vector<char>> &battlefield,
         }
     }
 
-    // If no robot found on target tile
+    // No robot hit
     if (hits > 0)
     {
         if (ability && ability->isSemiAutoBot())
@@ -202,7 +200,7 @@ void GenericRobot::move(vector<vector<char>> &battlefield, vector<Robot *> &robo
                     // Grant ability if none
                     if (!ability)
                     {
-                        int choice = rand() % 3;
+                        int choice = rand() % 4;
 
                         if (choice == 0)
                         {
@@ -221,6 +219,12 @@ void GenericRobot::move(vector<vector<char>> &battlefield, vector<Robot *> &robo
                             ability = new SemiAutoBot();
                             cout << name << " gained the SemiAutoBot ability!\n";
                             log << name << " gained the SemiAutoBot ability!\n";
+                        }
+                        else if (choice == 3)
+                        {
+                            ability = new LongShotBot();
+                            cout << name << " gained the LongShotBot ability!\n";
+                            log << name << " gained the LongShotBot ability!\n";
                         }
                     }
 
