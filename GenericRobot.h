@@ -18,6 +18,8 @@ Phone: +60 18-355-5944|| +60 17-779 3199 || +60 19-752 1755 ||+60 11-5372 6266
 #include <string>
 #include "Robot.h"
 #include "Ability.h"
+#include <utility>
+
 
 
 class GenericRobot : public Robot {
@@ -38,6 +40,11 @@ public:
     void enableScoutVision(bool state) { scoutVisionThisTurn = state; }
     Ability* getAbility() const { return ability; }
     void setAbility(Ability* a) { ability = a; }
+    
+    std::vector<std::pair<int, int>> enemyPositions;
+    void addEnemyPosition(int r, int c) { enemyPositions.push_back({r, c}); }
+    void clearEnemyPositions() { enemyPositions.clear(); }
+
 
     ~GenericRobot();
 

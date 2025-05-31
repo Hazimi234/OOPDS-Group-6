@@ -20,6 +20,8 @@ Phone: +60 18-355-5944|| +60 17-779 3199 || +60 19-752 1755 ||+60 11-5372 6266
 
 using namespace std;
 
+
+
 GenericRobot::GenericRobot(string t, string n, string xStr, string yStr)
     : Robot(t, n, xStr, yStr) {}
 
@@ -130,18 +132,46 @@ void GenericRobot::takeTurn(vector<vector<char>>& battlefield, vector<Robot*>& r
     think(log); 
 
     if (ability && ability->isScoutBot()) {
-    ability->activate(this, battlefield, log);
-    enableScoutVision(true);
+        ability->activate(this, battlefield, log);
+        enableScoutVision(true);
+
+        bool scoutFired = false;
+        for (int i = -1; i <= 1; ++i) {
+            for (int j = -1; j <= 1; ++j) {
+                int ni = x + i;
+                int nj = y + j;
+                if (ni >= 0 && ni < battlefield.size() && nj >= 0 && nj < battlefield[0].size()) {
+                    char target = battlefield[ni][nj];
+                    if (target != '-' && target != name[0]) {
+                        fire(i, j, battlefield, robots, log);  // fire only if close
+                        scoutFired = true;
+                        break;
+                    }
+                }
+            }
+            if (scoutFired) break;
+        }
+
+        if (!scoutFired) {
+            move(battlefield, robots, log);
+        }
+
+        enableScoutVision(false);
     }
-    
-    static const int dx[] = {0, -1, 0, 1, 0, -1, 1, -1, 1};
-    static const int dy[] = {0, -1, -1, -1, 1, 0, 0, 1, 1};
-    int dir = rand() % 9;
-    if (look(dx[dir], dy[dir], battlefield, log) && shells > 0) {
-        fire(dx[dir], dy[dir], battlefield, robots, log);
-    } else {
-        move(battlefield, robots, log);
+
+    // random movement or firing
+    else {
+        static const int dx[] = {0, -1, 0, 1, 0, -1, 1, -1, 1};
+        static const int dy[] = {0, -1, -1, -1, 1, 0, 0, 1, 1};
+        int dir = rand() % 9;
+
+        if (look(dx[dir], dy[dir], battlefield, log) && shells > 0) {
+            fire(dx[dir], dy[dir], battlefield, robots, log);
+        } else {
+            move(battlefield, robots, log);
+        }
     }
+
 
     enableScoutVision(false);
 
