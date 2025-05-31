@@ -22,6 +22,7 @@ protected:
     int x, y;
     bool isRandom, alive;
     int lives, shells;
+    bool tracked = false;
 
 public:
     Robot(std::string t, std::string n, std::string xStr, std::string yStr);
@@ -44,6 +45,9 @@ public:
     void respawn(std::vector<std::vector<char>>& battlefield, int rows, int cols, std::ofstream& log);
     
     bool canRespawn() const;
+
+    void setTracked(bool status) { tracked = status; }
+    bool isTracked() const { return tracked; }
 };
 
 #endif

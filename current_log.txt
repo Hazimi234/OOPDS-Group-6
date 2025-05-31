@@ -1,0 +1,382 @@
+Error: Robot Bolt has invalid position (3,7).
+
+Turn 1:
+Jet is thinking...
+Jet looks out of bounds at (5,4)
+Jet cannot move to (3,5)
+Kidd is thinking...
+Kidd looks at (0,1): -
+Kidd moves to (1,1)
+Bolt is thinking...
+Bolt looks out of bounds at (1,-1)
+Bolt cannot move to (-1,0)
+Alpha is thinking...
+Alpha looks at (3,2): -
+Alpha moves to (3,2)
+
+Battlefield              
+     0 1 2 3 4
+  0  - - - - -
+  1  - K - - -
+  2  - - - - -
+  3  - - A - -
+  4  - - - - J
+
+Turn 2:
+Jet is thinking...
+Jet looks at (3,3): -
+Jet cannot move to (5,4)
+Kidd is thinking...
+Kidd looks at (2,1): -
+Kidd moves to (1,0)
+Bolt is thinking...
+Bolt looks at (1,0): K
+Bolt missed at (1,0).
+Alpha is thinking...
+Alpha moves to (4,1)
+
+Battlefield              
+     0 1 2 3 4
+  0  B - - - -
+  1  K - - - -
+  2  - - - - -
+  3  - - - - -
+  4  - A - - J
+
+Turn 3:
+Jet is thinking...
+Jet looks out of bounds at (4,5)
+Jet cannot move to (3,5)
+Kidd is thinking...
+Kidd looks at (0,1): -
+Kidd cannot move to (0,-1)
+Bolt is thinking...
+Bolt looks out of bounds at (-1,0)
+Bolt moves to (1,1)
+Alpha is thinking...
+Alpha looks at (4,0): -
+Alpha moves to (3,2)
+
+Battlefield              
+     0 1 2 3 4
+  0  - - - - -
+  1  K B - - -
+  2  - - - - -
+  3  - - A - -
+  4  - - - - J
+
+Turn 4:
+Jet is thinking...
+Jet looks out of bounds at (5,5)
+Jet cannot move to (5,5)
+Kidd is thinking...
+Kidd looks at (0,0): -
+Kidd moves into (1,1) and destroys Bolt!
+Bolt has lost a life! Remaining lives: 2
+Kidd gained the TrackBot ability!
+Kidd moves to (1,1)
+Alpha is thinking...
+Alpha looks at (4,3): -
+Alpha moves to (2,3)
+
+Battlefield              
+     0 1 2 3 4
+  0  - - - - -
+  1  - K B - -
+  2  - - - A -
+  3  - - - - -
+  4  - - - - J
+
+Turn 5:
+Jet is thinking...
+Jet looks out of bounds at (4,5)
+Jet cannot move to (4,5)
+Kidd is thinking...
+Kidd plants a tracker on B at (1,2)
+Kidd fires at tracked enemy Bolt
+Kidd missed at (1,2).
+Bolt is thinking...
+Bolt looks at (0,2): -
+Bolt moves to (1,3)
+Alpha is thinking...
+Alpha looks at (3,2): -
+Alpha moves into (1,3) and destroys Bolt!
+Bolt has lost a life! Remaining lives: 1
+Alpha gained the TrackBot ability!
+Alpha moves to (1,3)
+
+Battlefield              
+     0 1 2 3 4
+  0  - - - - -
+  1  - K - A -
+  2  - - - B -
+  3  - - - - -
+  4  - - - - J
+
+Turn 6:
+Jet is thinking...
+Jet looks out of bounds at (5,3)
+Jet moves to (4,3)
+Kidd is thinking...
+Kidd tried to use TrackBot but saw no enemies nearby.
+Bolt is thinking...
+Bolt looks at (2,2): -
+Bolt moves to (2,4)
+Alpha is thinking...
+Alpha plants a tracker on B at (2,4)
+Alpha fires at tracked enemy Bolt
+Alpha hit and killed Bolt at (2,4)
+Bolt has been destroyed!
+
+Battlefield              
+     0 1 2 3 4
+  0  - - - - -
+  1  - K - A -
+  2  - - - - -
+  3  - - - - -
+  4  - - - J -
+
+Turn 7:
+Jet is thinking...
+Jet looks out of bounds at (5,3)
+Jet cannot move to (5,2)
+Kidd is thinking...
+Kidd tried to use TrackBot but saw no enemies nearby.
+Alpha is thinking...
+Alpha tried to use TrackBot but saw no enemies nearby.
+Alpha fires at tracked enemy Bolt
+Alpha missed at (2,4).
+
+Battlefield              
+     0 1 2 3 4
+  0  - - - - -
+  1  - K - A -
+  2  - - - - -
+  3  - - - - -
+  4  - - - J -
+
+Turn 8:
+Jet is thinking...
+Jet looks at (4,4): -
+Jet moves to (3,3)
+Kidd is thinking...
+Kidd tried to use TrackBot but saw no enemies nearby.
+Alpha is thinking...
+Alpha tried to use TrackBot but saw no enemies nearby.
+Alpha fires at tracked enemy Bolt
+Alpha hit an empty spot.
+
+Battlefield              
+     0 1 2 3 4
+  0  - - - - -
+  1  - K - A -
+  2  - - - - -
+  3  - - - J -
+  4  - - - - -
+
+Turn 9:
+Jet is thinking...
+Jet looks at (4,4): -
+Jet moves to (2,2)
+Kidd is thinking...
+Kidd plants a tracker on J at (2,2)
+Alpha is thinking...
+Alpha plants a tracker on J at (2,2)
+Alpha fires at tracked enemy Bolt
+Alpha hit an empty spot.
+
+Battlefield              
+     0 1 2 3 4
+  0  - - - - -
+  1  - K - A -
+  2  - - J - -
+  3  - - - - -
+  4  - - - - -
+
+Turn 10:
+Jet is thinking...
+Jet looks at (2,1): -
+Jet moves to (3,1)
+Kidd is thinking...
+Kidd tried to use TrackBot but saw no enemies nearby.
+Alpha is thinking...
+Alpha tried to use TrackBot but saw no enemies nearby.
+Alpha fires at tracked enemy Bolt
+Alpha hit an empty spot.
+
+Battlefield              
+     0 1 2 3 4
+  0  - - - - -
+  1  - K - A -
+  2  - - - - -
+  3  - J - - -
+  4  - - - - -
+
+Turn 11:
+Jet is thinking...
+Jet looks at (3,2): -
+Jet moves to (2,1)
+Kidd is thinking...
+Kidd plants a tracker on J at (2,1)
+Alpha is thinking...
+Alpha tried to use TrackBot but saw no enemies nearby.
+Alpha fires at tracked enemy Bolt
+Alpha hit an empty spot.
+
+Battlefield              
+     0 1 2 3 4
+  0  - - - - -
+  1  - K - A -
+  2  - J - - -
+  3  - - - - -
+  4  - - - - -
+
+Turn 12:
+Jet is thinking...
+Jet looks at (1,0): -
+Jet moves to (3,1)
+Kidd is thinking...
+Alpha is thinking...
+Alpha tried to use TrackBot but saw no enemies nearby.
+Alpha fires at tracked enemy Bolt
+Alpha missed at (2,4).
+
+Battlefield              
+     0 1 2 3 4
+  0  - - - - -
+  1  - K - A -
+  2  - - - - -
+  3  - J - - -
+  4  - - - - -
+
+Turn 13:
+Jet is thinking...
+Jet looks at (4,1): -
+Jet moves to (4,0)
+Kidd is thinking...
+Alpha is thinking...
+Alpha tried to use TrackBot but saw no enemies nearby.
+Alpha fires at tracked enemy Bolt
+Alpha hit an empty spot.
+
+Battlefield              
+     0 1 2 3 4
+  0  - - - - -
+  1  - K - A -
+  2  - - - - -
+  3  - - - - -
+  4  J - - - -
+
+Turn 14:
+Jet is thinking...
+Jet looks out of bounds at (5,0)
+Jet moves to (3,0)
+Kidd is thinking...
+Alpha is thinking...
+Alpha tried to use TrackBot but saw no enemies nearby.
+Alpha fires at tracked enemy Bolt
+Alpha hit an empty spot.
+
+Battlefield              
+     0 1 2 3 4
+  0  - - - - -
+  1  - K - A -
+  2  - - - - -
+  3  J - - - -
+  4  - - - - -
+
+Turn 15:
+Jet is thinking...
+Jet looks at (2,1): -
+Jet moves to (2,0)
+Kidd is thinking...
+Alpha is thinking...
+Alpha tried to use TrackBot but saw no enemies nearby.
+Alpha fires at tracked enemy Bolt
+Alpha hit an empty spot.
+
+Battlefield              
+     0 1 2 3 4
+  0  - - - - -
+  1  - K - A -
+  2  J - - - -
+  3  - - - - -
+  4  - - - - -
+
+Turn 16:
+Jet is thinking...
+Jet looks out of bounds at (1,-1)
+Jet moves to (3,1)
+Kidd is thinking...
+Alpha is thinking...
+Alpha tried to use TrackBot but saw no enemies nearby.
+
+Battlefield              
+     0 1 2 3 4
+  0  - - - - -
+  1  - K - A -
+  2  - - - - -
+  3  - J - - -
+  4  - - - - -
+
+Turn 17:
+Jet is thinking...
+Jet looks at (3,0): -
+Jet moves to (2,2)
+Kidd is thinking...
+Alpha is thinking...
+Alpha plants a tracker on J at (2,2)
+
+Battlefield              
+     0 1 2 3 4
+  0  - - - - -
+  1  - K - A -
+  2  - - J - -
+  3  - - - - -
+  4  - - - - -
+
+Turn 18:
+Jet is thinking...
+Jet looks at (1,3): A
+Jet hit and killed Alpha at (1,3)
+Alpha has lost a life! Remaining lives: 2
+Jet gained the TrackBot ability!
+Kidd is thinking...
+
+Battlefield              
+     0 1 2 3 4
+  0  - - - - -
+  1  - K - - -
+  2  - - J - -
+  3  - - - - -
+  4  - A - - -
+
+Turn 19:
+Jet is thinking...
+Jet plants a tracker on K at (1,1)
+Jet fires at tracked enemy Kidd
+Jet hit and killed Kidd at (1,1)
+Kidd has lost a life! Remaining lives: 2
+Alpha is thinking...
+
+Battlefield              
+     0 1 2 3 4
+  0  - - - - -
+  1  - - - - -
+  2  - - J - -
+  3  - - - - -
+  4  - A K - -
+
+Turn 20:
+Jet is thinking...
+Jet tried to use TrackBot but saw no enemies nearby.
+Kidd is thinking...
+Alpha is thinking...
+
+Battlefield              
+     0 1 2 3 4
+  0  - - - - -
+  1  - - - - -
+  2  - - J - -
+  3  - - - - -
+  4  - A K - -
