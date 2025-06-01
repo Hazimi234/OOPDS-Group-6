@@ -226,7 +226,6 @@ bool GenericRobot::isEnemyTracked(Robot* enemyRobot) const {
 }
 
 void GenericRobot::kill(vector<vector<char>>& battlefield, ofstream& log) {
-    // ...existing kill logic...
     if (movingAbility) { delete movingAbility; movingAbility = nullptr; }
     if (seeingAbility) { delete seeingAbility; seeingAbility = nullptr; }
     if (shootingAbility) { delete shootingAbility; shootingAbility = nullptr; }
@@ -234,6 +233,18 @@ void GenericRobot::kill(vector<vector<char>>& battlefield, ofstream& log) {
     movingAbility = nullptr;
     seeingAbility = nullptr;
     shootingAbility = nullptr;
+    lives--;
+    battlefield[x][y] = '-';
+    if (lives <= 0) {
+        alive = false;
+        cout << name << " has been destroyed!\n";
+        log << name << " has been destroyed!\n";
+    } else {
+        alive = true;
+        cout << name << " has lost a life! Remaining lives: " << lives << "\n";
+        log << name << " has lost a life! Remaining lives: " << lives << "\n";
+        // Optionally respawn or reset position here
+    }
     // ...rest of your kill logic...
 }
 
