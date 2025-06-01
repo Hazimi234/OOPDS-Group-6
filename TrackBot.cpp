@@ -2,9 +2,7 @@
 #include "GenericRobot.h"
 #include "Robot.h"
 
-using namespace std;
-
-void TrackBot::activate(GenericRobot* robot, vector<vector<char>>& battlefield, ostream& log, const vector<Robot*>& robots) {
+void TrackBot::activate(GenericRobot* robot, std::vector<std::vector<char>>& battlefield, std::ostream& log, const std::vector<Robot*>& robots) {
     if (!hasUses()) 
     robot->checkAndResetIfNoUpgrades();
     return;
@@ -21,7 +19,7 @@ void TrackBot::activate(GenericRobot* robot, vector<vector<char>>& battlefield, 
                     // Find the Robot* matching the symbol
                     for (Robot* r : robots) {
                         if (r->getName()[0] == targetChar) {
-                            cout << robot->getName() << " plants a tracker on " << targetChar << " at (" << ni << "," << nj << ")\n";
+                            std::cout << robot->getName() << " plants a tracker on " << targetChar << " at (" << ni << "," << nj << ")\n";
                             log << robot->getName() << " plants a tracker on " << targetChar << " at (" << ni << "," << nj << ")\n";
                             robot->addTrackedEnemy(r);
                             decrementUse();
@@ -32,6 +30,6 @@ void TrackBot::activate(GenericRobot* robot, vector<vector<char>>& battlefield, 
             }
         }
     }
-    cout << robot->getName() << " tried to use TrackBot but saw no enemies nearby.\n";
+    std::cout << robot->getName() << " tried to use TrackBot but saw no enemies nearby.\n";
     log << robot->getName() << " tried to use TrackBot but saw no enemies nearby.\n";
 }

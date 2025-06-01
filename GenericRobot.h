@@ -1,5 +1,5 @@
 /**********|**********|**********|
-Program: GenericRobot.h
+Program: GenericRobot.h  
 Course: Data Structures and Algorithms
 Trimester: 2510
 Name: Alif Akmal Bin Abdul Halim || Brian Ng Zheng Yang || Meor Hazimi Bin Meor Mohammad Fared || Yen Ming Jun
@@ -20,55 +20,53 @@ Phone: +60 18-355-5944|| +60 17-779 3199 || +60 19-752 1755 ||+60 11-5372 6266
 #include "Ability.h"
 #include <utility>
 
-using namespace std;
 
-class GenericRobot : public Robot
-{
+
+class GenericRobot : public Robot {
 private:
-    vector<Robot *> trackedEnemies;
-
+    std::vector<Robot*> trackedEnemies;
 public:
-    GenericRobot(string t, string n, string xStr, string yStr);
+    GenericRobot(std::string t, std::string n, std::string xStr, std::string yStr);
 
-    void think(ofstream &log) override;
-    bool look(int dx, int dy, const vector<vector<char>> &battlefield, ofstream &log) override;
-    void fire(int dx, int dy, vector<vector<char>> &battlefield,
-              vector<Robot *> &robots, ofstream &log) override;
-    void move(vector<vector<char>> &battlefield, vector<Robot *> &robots, ofstream &log) override;
-    void takeTurn(vector<vector<char>> &battlefield, vector<Robot *> &robots, ofstream &log) override;
-    void assignRandomUpgrade(ofstream &log);
+    void think(std::ofstream& log) override;
+    bool look(int dx, int dy, const std::vector<std::vector<char>>& battlefield, std::ofstream& log) override;
+    void fire(int dx, int dy, std::vector<std::vector<char>>& battlefield,
+              std::vector<Robot*>& robots, std::ofstream& log) override;
+    void move(std::vector<std::vector<char>>& battlefield, std::vector<Robot*>& robots, std::ofstream& log) override;
+    void takeTurn(std::vector<std::vector<char>>& battlefield, std::vector<Robot*>& robots, std::ofstream& log) override;
+    void assignRandomUpgrade(std::ofstream& log);
     void checkAndResetIfNoUpgrades();
-    Ability *movingAbility = nullptr;
-    Ability *seeingAbility = nullptr;
-    Ability *shootingAbility = nullptr;
+    Ability* movingAbility= nullptr;
+    Ability* seeingAbility= nullptr;
+    Ability* shootingAbility= nullptr;
     bool scoutVisionThisTurn = false;
 
     bool hasScoutVision() const { return scoutVisionThisTurn; }
     void enableScoutVision(bool state) { scoutVisionThisTurn = state; }
-    Ability *getMovingAbility() const { return movingAbility; }
-    Ability *getSeeingAbility() const { return seeingAbility; }
-    Ability *getShootingAbility() const { return shootingAbility; }
-    void setMovingAbility(Ability *a) { movingAbility = a; }
-    void setSeeingAbility(Ability *a) { seeingAbility = a; }
-    void setShootingAbility(Ability *a) { shootingAbility = a; }
+    Ability* getMovingAbility() const { return movingAbility; }
+    Ability* getSeeingAbility() const { return seeingAbility; }
+    Ability* getShootingAbility() const { return shootingAbility; }
+    void setMovingAbility(Ability* a) { movingAbility = a; }
+    void setSeeingAbility(Ability* a) { seeingAbility = a; }
+    void setShootingAbility(Ability* a) { shootingAbility = a; }
 
-    bool isEnemyTracked(Robot *enemyRobot) const;
-    void addTrackedEnemy(Robot *enemy)
-    {
-        if (!isEnemyTracked(enemy))
-        {
+    bool isEnemyTracked(Robot* enemyRobot) const;
+    void addTrackedEnemy(Robot* enemy) {
+        if (!isEnemyTracked(enemy)) {
             trackedEnemies.push_back(enemy);
         }
     }
 
-    Robot *getTrackedEnemy() const
-    {
+    Robot* getTrackedEnemy() const {
         return trackedEnemies.empty() ? nullptr : trackedEnemies[0];
     }
 
-    void kill(vector<vector<char>> &battlefield, ofstream &log) override;
+    void kill(std::vector<std::vector<char>>& battlefield, std::ofstream& log) override;
 
     ~GenericRobot();
+
 };
+
+
 
 #endif // GENERICROBOT_H
