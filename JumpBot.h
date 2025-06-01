@@ -21,16 +21,21 @@ Phone: +60 18-355-5944|| +60 17-779 3199 || +60 19-752 1755 ||+60 11-5372 6266
 
 using namespace std;
 
+// jumpbot inherits from Ability class
 class JumpBot : public Ability
 {
 private:
+    // number of jumps
     int jumpsRemaining = 3;
 
 public:
-    JumpBot();
+    JumpBot(); // constructor initializes jumpsRemaining to 3
+    // activate function to perform the jump action
     void activate(GenericRobot *robot, vector<vector<char>> &battlefield,
                   ostream &log, const vector<Robot *> &robots) override;
+    // returns true if the bot has jumps left
     bool hasUses() const override { return jumpsRemaining > 0; }
+    // identifies that this is a JumpBot ability
     bool isJumpBot() const override;
 };
 

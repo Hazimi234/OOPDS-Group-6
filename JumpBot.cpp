@@ -16,12 +16,13 @@ Phone: +60 18-355-5944|| +60 17-779 3199 || +60 19-752 1755 ||+60 11-5372 6266
 #include <ctime>
 
 using namespace std;
-
+//initialising constructor for JumpBot
 JumpBot::JumpBot() : jumpsRemaining(3) {}
 
 void JumpBot::activate(GenericRobot *robot, vector<vector<char>> &battlefield,
                        ostream &log, const vector<Robot *> &robots)
 {
+    // check if the robot has jumps left and is alive
     if (jumpsRemaining <= 0 || !robot->isAlive())
     {
         log << robot->getName() << " has no jumps left or is dead.\n";
@@ -33,6 +34,7 @@ void JumpBot::activate(GenericRobot *robot, vector<vector<char>> &battlefield,
     int cols = battlefield[0].size();
 
     int newX, newY;
+    //find a random empty cell to jump to
     do
     {
         newX = rand() % rows;
@@ -47,6 +49,8 @@ void JumpBot::activate(GenericRobot *robot, vector<vector<char>> &battlefield,
     battlefield[newX][newY] = robot->getName()[0];
     --jumpsRemaining;
 
+
+    // log and display the jump
     log << robot->getName() << " jumped to (" << newX << "," << newY << "). "
         << "Jumps remaining: " << jumpsRemaining << "\n";
     cout << robot->getName() << " jumped to (" << newX << "," << newY << "). "
