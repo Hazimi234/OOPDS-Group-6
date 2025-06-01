@@ -60,9 +60,10 @@ public:
     }
 
     void resetToGeneric() {
-    delete ability;
-    ability = nullptr;
-    shells = 10; // Reset to default shell count
+        delete ability;
+        ability = nullptr;
+        shells = 10; // Reset to default shell count
+        cout << "Robot destroyed! Resetting to GenericRobot." << endl; 
     }
     ~GenericRobot();
 };
