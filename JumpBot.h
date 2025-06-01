@@ -39,4 +39,4 @@ public:
     bool isJumpBot() const override;
 };
 
-#endif // JUMPBOT_H
+#endif 

@@ -13,7 +13,7 @@ Phone: +60 18-355-5944|| +60 17-779 3199 || +60 19-752 1755 ||+60 11-5372 6266
 #ifndef TRACKBOT_H
 #define TRACKBOT_H
 
-#include "Ability.h" // Assuming Ability is the base class
+#include "Ability.h" 
 #include "GenericRobot.h"
 #include <vector>
 #include <iostream>

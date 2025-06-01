@@ -21,7 +21,7 @@ using namespace std;
 class ThirtyShotBot : public Ability
 {
 private:
-    bool used = false; // One-time activation
+    bool used = false; 
 
 public:
     void activate(GenericRobot *robot, vector<vector<char>> &battlefield, ostream &log, const vector<Robot *> & /*robots*/) override;

@@ -275,8 +275,6 @@ void GenericRobot::move(vector<vector<char>> &battlefield, vector<Robot *> &robo
                     log << name << " moves into (" << nx << "," << ny << ") and destroys " << r->getName() << "!\n";
                     r->kill(battlefield, log);
 
-                    // This gives the ability too
-                    // Grant ability if none
                     if (!ability)
                     {
                         int choice = rand() % 7;

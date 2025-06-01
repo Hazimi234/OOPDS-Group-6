@@ -34,7 +34,6 @@ void TrackBot::activate(GenericRobot *robot, vector<vector<char>> &battlefield, 
                 if (targetChar != '-' && targetChar != robot->getName()[0])
                 {
 
-                    // Find the Robot* matching the symbol
                     for (Robot *r : robots)
                     {
                         if (r->getName()[0] == targetChar)
