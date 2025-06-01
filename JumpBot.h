@@ -1,5 +1,5 @@
 /**********|**********|**********|
-Program: JumpBot.h 
+Program: JumpBot.h
 Course: Data Structures and Algorithms
 Trimester: 2510
 Name: Alif Akmal Bin Abdul Halim || Brian Ng Zheng Yang || Meor Hazimi Bin Meor Mohammad Fared || Yen Ming Jun
@@ -13,22 +13,24 @@ Phone: +60 18-355-5944|| +60 17-779 3199 || +60 19-752 1755 ||+60 11-5372 6266
 #ifndef JUMPBOT_H
 #define JUMPBOT_H
 
-
 #include "Ability.h"
 #include "GenericRobot.h"
 #include <vector>
 #include <iostream>
 #include <cstdlib>
 
+using namespace std;
 
-class JumpBot : public Ability {
+class JumpBot : public Ability
+{
 private:
-    int jumpsRemaining=3;
+    int jumpsRemaining = 3;
+
 public:
     JumpBot();
-    void activate(GenericRobot* robot, std::vector<std::vector<char>>& battlefield,
-                  std::ostream& log, const std::vector<Robot*>& robots) override;
-    bool hasUses() const override { return jumpsRemaining > 0; }            
+    void activate(GenericRobot *robot, vector<vector<char>> &battlefield,
+                  ostream &log, const vector<Robot *> &robots) override;
+    bool hasUses() const override { return jumpsRemaining > 0; }
     bool isJumpBot() const override;
 };
 

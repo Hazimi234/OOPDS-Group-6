@@ -6,12 +6,15 @@
 #include <vector>
 #include <iostream>
 
-class TrackBot : public Ability {
+using namespace std;
+
+class TrackBot : public Ability
+{
 private:
     int usesLeft = 3;
 
 public:
-    void activate(GenericRobot* robot, std::vector<std::vector<char>>& battlefield, std::ostream& log, const std::vector<Robot*>& robots) override;
+    void activate(GenericRobot *robot, vector<vector<char>> &battlefield, ostream &log, const vector<Robot *> &robots) override;
 
     bool isTrackBot() const override { return true; }
 

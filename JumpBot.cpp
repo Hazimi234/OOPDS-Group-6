@@ -3,13 +3,17 @@
 #include <cstdlib>
 #include <ctime>
 
+using namespace std;
+
 JumpBot::JumpBot() : jumpsRemaining(3) {}
 
-void JumpBot::activate(GenericRobot* robot, std::vector<std::vector<char>>& battlefield,
-                       std::ostream& log, const std::vector<Robot*>& robots) {
-    if (jumpsRemaining <= 0 || !robot->isAlive()) {
+void JumpBot::activate(GenericRobot *robot, vector<vector<char>> &battlefield,
+                       ostream &log, const vector<Robot *> &robots)
+{
+    if (jumpsRemaining <= 0 || !robot->isAlive())
+    {
         log << robot->getName() << " has no jumps left or is dead.\n";
-        std::cout << robot->getName() << " has no jumps left or is dead.\n";
+        cout << robot->getName() << " has no jumps left or is dead.\n";
         robot->checkAndResetIfNoUpgrades();
         return;
     }
@@ -18,9 +22,10 @@ void JumpBot::activate(GenericRobot* robot, std::vector<std::vector<char>>& batt
     int cols = battlefield[0].size();
 
     int newX, newY;
-    do {
-        newX = std::rand() % rows;
-        newY = std::rand() % cols;
+    do
+    {
+        newX = rand() % rows;
+        newY = rand() % cols;
     } while (battlefield[newX][newY] != '-'); // Find an empty cell
 
     // Clear the old position
@@ -33,10 +38,11 @@ void JumpBot::activate(GenericRobot* robot, std::vector<std::vector<char>>& batt
 
     log << robot->getName() << " jumped to (" << newX << "," << newY << "). "
         << "Jumps remaining: " << jumpsRemaining << "\n";
-    std::cout << robot->getName() << " jumped to (" << newX << "," << newY << "). "
-              << "Jumps remaining: " << jumpsRemaining << "\n";
+    cout << robot->getName() << " jumped to (" << newX << "," << newY << "). "
+         << "Jumps remaining: " << jumpsRemaining << "\n";
 }
 
-bool JumpBot::isJumpBot() const{
+bool JumpBot::isJumpBot() const
+{
     return true;
 }

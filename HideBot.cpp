@@ -1,14 +1,18 @@
 #include "HideBot.h"
 #include <iostream>
 
-bool HideBot::tryHide(GenericRobot* robot, std::ostream& log) {
-    std::cout << robot->getName() << " used HideBot to avoid being hit! (" << usesRemaining - 1 << " left)\n";
+using namespace std;
+
+bool HideBot::tryHide(GenericRobot *robot, ostream &log)
+{
+    cout << robot->getName() << " used HideBot to avoid being hit! (" << usesRemaining - 1 << " left)\n";
     log << robot->getName() << " used HideBot to avoid being hit! (" << usesRemaining - 1 << " left)\n";
 
     usesRemaining--;
 
-    if (usesRemaining <= 0) {
-        std::cout << robot->getName() << "'s HideBot ability expired and reverted to GenericRobot.\n";
+    if (usesRemaining <= 0)
+    {
+        cout << robot->getName() << "'s HideBot ability expired and reverted to GenericRobot.\n";
         log << robot->getName() << "'s HideBot ability expired and reverted to GenericRobot.\n";
 
         delete robot->movingAbility;
@@ -19,6 +23,6 @@ bool HideBot::tryHide(GenericRobot* robot, std::ostream& log) {
     return true; // dodged the attack
 }
 
-
-void HideBot::activate(GenericRobot* robot, std::vector<std::vector<char>>& battlefield, std::ostream& log, const std::vector<Robot*>& /*robots*/) {
+void HideBot::activate(GenericRobot *robot, vector<vector<char>> &battlefield, ostream &log, const vector<Robot *> & /*robots*/)
+{
 }

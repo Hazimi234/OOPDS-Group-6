@@ -4,12 +4,15 @@
 #include "Ability.h"
 #include "GenericRobot.h"
 
-class ScoutBot : public Ability {
+using namespace std;
+
+class ScoutBot : public Ability
+{
 private:
     int usesLeft = 3;
 
 public:
-    void activate(GenericRobot* robot, std::vector<std::vector<char>>& battlefield, std::ostream& log, const std::vector<Robot*>& robots) override;
+    void activate(GenericRobot *robot, vector<vector<char>> &battlefield, ostream &log, const vector<Robot *> &robots) override;
     bool isScoutBot() const override { return true; }
 
     void decrementUse() { usesLeft--; }

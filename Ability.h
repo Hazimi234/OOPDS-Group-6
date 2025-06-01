@@ -5,12 +5,15 @@
 #include <string>
 #include <ostream>
 #include "Robot.h"
+
+using namespace std;
+
 class GenericRobot; // Forward declaration
 
 class Ability
 {
 public:
-    virtual void activate(GenericRobot *robot, std::vector<std::vector<char>> &battlefield, std::ostream &log, const std::vector<Robot*>& robots) = 0;
+    virtual void activate(GenericRobot *robot, vector<vector<char>> &battlefield, ostream &log, const vector<Robot*>& robots) = 0;
 
     // Category checkers
     virtual bool isScoutBot() const { return false; }

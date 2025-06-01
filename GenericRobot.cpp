@@ -1,5 +1,5 @@
 /**********|**********|**********|
-Program: GenericRobot.cpp  
+Program: GenericRobot.cpp
 Course: Data Structures and Algorithms
 Trimester: 2510
 Name: Alif Akmal Bin Abdul Halim || Brian Ng Zheng Yang || Meor Hazimi Bin Meor Mohammad Fared || Yen Ming Jun
@@ -22,42 +22,47 @@ Phone: +60 18-355-5944|| +60 17-779 3199 || +60 19-752 1755 ||+60 11-5372 6266
 #include "JumpBot.h"
 #include <algorithm>
 
-
 using namespace std;
-
-
 
 GenericRobot::GenericRobot(string t, string n, string xStr, string yStr)
     : Robot(t, n, xStr, yStr) {}
 
-void GenericRobot::think(ofstream& log) {
+void GenericRobot::think(ofstream &log)
+{
     cout << name << " is thinking...\n";
     log << name << " is thinking...\n";
 }
 
-bool GenericRobot::look(int dx, int dy, const vector<vector<char>>& battlefield, ofstream& log) {
-    if (scoutVisionThisTurn) return true; // Always return true if ScoutBot active
+bool GenericRobot::look(int dx, int dy, const vector<vector<char>> &battlefield, ofstream &log)
+{
+    if (scoutVisionThisTurn)
+        return true; // Always return true if ScoutBot active
 
     int lookX = x + dx;
     int lookY = y + dy;
     if (lookX >= 0 && lookX < (int)battlefield.size() &&
-        lookY >= 0 && lookY < (int)battlefield[0].size()) {
-        if (lookX == x && lookY == y) return false;
+        lookY >= 0 && lookY < (int)battlefield[0].size())
+    {
+        if (lookX == x && lookY == y)
+            return false;
         char target = battlefield[lookX][lookY];
         cout << name << " looks at (" << lookX << "," << lookY << "): " << target << "\n";
         log << name << " looks at (" << lookX << "," << lookY << "): " << target << "\n";
         return target != '-' && target != name[0];
     }
-    else {
+    else
+    {
         cout << name << " looks out of bounds at (" << lookX << "," << lookY << ")\n";
         log << name << " looks out of bounds at (" << lookX << "," << lookY << ")\n";
     }
     return false;
 }
 
-void GenericRobot::fire(int dx, int dy, vector<vector<char>>& battlefield,
-                        vector<Robot*>& robots, ofstream& log) {
-    if (shells <= 0) {
+void GenericRobot::fire(int dx, int dy, vector<vector<char>> &battlefield,
+                        vector<Robot *> &robots, ofstream &log)
+{
+    if (shells <= 0)
+    {
         cout << name << " has no shells and self-destructs!\n";
         log << name << " has no shells and self-destructs!\n";
         kill(battlefield, log);
@@ -69,10 +74,14 @@ void GenericRobot::fire(int dx, int dy, vector<vector<char>>& battlefield,
     shells--;
 
     if (tx >= 0 && tx < (int)battlefield.size() &&
-        ty >= 0 && ty < (int)battlefield[0].size()) {
-        if ((rand() % 100) < 70) {
-            for (Robot* r : robots) {
-                if (r->isAlive() && r != this && r->getX() == tx && r->getY() == ty) {
+        ty >= 0 && ty < (int)battlefield[0].size())
+    {
+        if ((rand() % 100) < 70)
+        {
+            for (Robot *r : robots)
+            {
+                if (r->isAlive() && r != this && r->getX() == tx && r->getY() == ty)
+                {
                     cout << name << " hit and killed " << r->getName()
                          << " at (" << tx << "," << ty << ")\n";
                     log << name << " hit and killed " << r->getName()
@@ -80,7 +89,8 @@ void GenericRobot::fire(int dx, int dy, vector<vector<char>>& battlefield,
                     r->kill(battlefield, log);
 
                     // Assign an upgrade if not maxed out
-                    if (!movingAbility || !seeingAbility || !shootingAbility) {
+                    if (!movingAbility || !seeingAbility || !shootingAbility)
+                    {
                         assignRandomUpgrade(log);
                     }
                     return;
@@ -88,14 +98,17 @@ void GenericRobot::fire(int dx, int dy, vector<vector<char>>& battlefield,
             }
             cout << name << " hit an empty spot.\n";
             log << name << " hit an empty spot.\n";
-        } else {
+        }
+        else
+        {
             cout << name << " missed at (" << tx << "," << ty << ").\n";
             log << name << " missed at (" << tx << "," << ty << ").\n";
         }
     }
 }
 
-void GenericRobot::move(vector<vector<char>>& battlefield, vector<Robot*>& robots, ofstream& log) {
+void GenericRobot::move(vector<vector<char>> &battlefield, vector<Robot *> &robots, ofstream &log)
+{
     static const int dx[] = {-1, 0, 1, -1, 1, -1, 0, 1};
     static const int dy[] = {-1, -1, -1, 0, 0, 1, 1, 1};
     int dir = rand() % 8;
@@ -103,17 +116,22 @@ void GenericRobot::move(vector<vector<char>>& battlefield, vector<Robot*>& robot
     int ny = y + dy[dir];
 
     if (nx >= 0 && nx < (int)battlefield.size() &&
-        ny >= 0 && ny < (int)battlefield[0].size()) {
+        ny >= 0 && ny < (int)battlefield[0].size())
+    {
         char target = battlefield[nx][ny];
-        if (target != '-' && target != name[0]) {
-            for (Robot* r : robots) {
-                if (r->isAlive() && r->getX() == nx && r->getY() == ny) {
+        if (target != '-' && target != name[0])
+        {
+            for (Robot *r : robots)
+            {
+                if (r->isAlive() && r->getX() == nx && r->getY() == ny)
+                {
                     cout << name << " moves into (" << nx << "," << ny << ") and destroys " << r->getName() << "!\n";
                     log << name << " moves into (" << nx << "," << ny << ") and destroys " << r->getName() << "!\n";
                     r->kill(battlefield, log);
 
                     // Assign an upgrade if not maxed out
-                    if (!movingAbility || !seeingAbility || !shootingAbility) {
+                    if (!movingAbility || !seeingAbility || !shootingAbility)
+                    {
                         assignRandomUpgrade(log);
                     }
                     break;
@@ -121,7 +139,8 @@ void GenericRobot::move(vector<vector<char>>& battlefield, vector<Robot*>& robot
             }
         }
 
-        if (target == '-' || (target != '-' && target != name[0])) {
+        if (target == '-' || (target != '-' && target != name[0]))
+        {
             battlefield[x][y] = '-';
             x = nx;
             y = ny;
@@ -130,75 +149,92 @@ void GenericRobot::move(vector<vector<char>>& battlefield, vector<Robot*>& robot
             log << name << " moves to (" << x << "," << y << ")\n";
         }
     }
-    else {
+    else
+    {
         cout << name << " cannot move to (" << nx << "," << ny << ")\n";
         log << name << " cannot move to (" << nx << "," << ny << ")\n";
     }
 }
 
+void GenericRobot::takeTurn(vector<vector<char>> &battlefield, vector<Robot *> &robots, ofstream &log)
+{
+    think(log);
 
-
-void GenericRobot::takeTurn(vector<vector<char>>& battlefield, vector<Robot*>& robots, ofstream& log) {
-    think(log); 
-    
     // ScoutBot ability handling
-    if (seeingAbility && seeingAbility->isScoutBot()) {
+    if (seeingAbility && seeingAbility->isScoutBot())
+    {
         seeingAbility->activate(this, battlefield, log, robots);
         enableScoutVision(true);
 
         bool scoutFired = false;
-        for (int i = -1; i <= 1; ++i) {
-            for (int j = -1; j <= 1; ++j) {
+        for (int i = -1; i <= 1; ++i)
+        {
+            for (int j = -1; j <= 1; ++j)
+            {
                 int ni = x + i;
                 int nj = y + j;
-                if (ni >= 0 && ni < battlefield.size() && nj >= 0 && nj < battlefield[0].size()) {
+                if (ni >= 0 && ni < battlefield.size() && nj >= 0 && nj < battlefield[0].size())
+                {
                     char target = battlefield[ni][nj];
-                    if (target != '-' && target != name[0]) {
-                        fire(i, j, battlefield, robots, log);  // fire only if close
+                    if (target != '-' && target != name[0])
+                    {
+                        fire(i, j, battlefield, robots, log); // fire only if close
                         scoutFired = true;
                         break;
                     }
                 }
             }
-            if (scoutFired) break;
+            if (scoutFired)
+                break;
         }
 
-        if (!scoutFired) {
+        if (!scoutFired)
+        {
             move(battlefield, robots, log);
         }
 
         enableScoutVision(false);
     }
-    else if (seeingAbility && seeingAbility->isTrackBot()) {
+    else if (seeingAbility && seeingAbility->isTrackBot())
+    {
         seeingAbility->activate(this, battlefield, log, robots);
 
         // Get tracked enemy robot pointer
-        Robot* trackedEnemy = getTrackedEnemy();  // You need a getter like this in your GenericRobot
+        Robot *trackedEnemy = getTrackedEnemy(); // You need a getter like this in your GenericRobot
 
-        if (trackedEnemy) {
+        if (trackedEnemy)
+        {
             // Calculate relative position to tracked enemy
             int dx = trackedEnemy->getX() - x;
             int dy = trackedEnemy->getY() - y;
 
             // Check if tracked enemy is within firing range (e.g., adjacent or close enough)
-            if (abs(dx) <= 1 && abs(dy) <= 1 && shells > 0) {
-                std::cout << name << " fires at tracked enemy " << trackedEnemy->getName() << "\n";
+            if (abs(dx) <= 1 && abs(dy) <= 1 && shells > 0)
+            {
+                cout << name << " fires at tracked enemy " << trackedEnemy->getName() << "\n";
                 log << name << " fires at tracked enemy " << trackedEnemy->getName() << "\n";
                 fire(dx, dy, battlefield, robots, log);
             }
-        } else {
-            move(battlefield, robots, log);  // No tracked enemy, fallback
+        }
+        else
+        {
+            move(battlefield, robots, log); // No tracked enemy, fallback
         }
     }
-    else if (movingAbility && movingAbility->isJumpBot()) {
-        if (movingAbility->hasUses()) {
+    else if (movingAbility && movingAbility->isJumpBot())
+    {
+        if (movingAbility->hasUses())
+        {
             // 30% chance to jump, 70% chance to act normally
-            if (rand() % 100 < 30) {
+            if (rand() % 100 < 30)
+            {
                 movingAbility->activate(this, battlefield, log, robots);
                 return; // Only jump this turn
             }
             // else: fall through to normal action
-        } else {
+        }
+        else
+        {
             cout << name << " has no jumps left.\n";
             log << name << " has no jumps left.\n";
             // Fall through to normal action
@@ -210,94 +246,135 @@ void GenericRobot::takeTurn(vector<vector<char>>& battlefield, vector<Robot*>& r
     static const int dy[] = {0, -1, -1, -1, 1, 0, 0, 1, 1};
     int dir = rand() % 9;
 
-    if (look(dx[dir], dy[dir], battlefield, log) && shells > 0) {
+    if (look(dx[dir], dy[dir], battlefield, log) && shells > 0)
+    {
         fire(dx[dir], dy[dir], battlefield, robots, log);
-    } else {
+    }
+    else
+    {
         move(battlefield, robots, log);
     }
 
-
     enableScoutVision(false);
-
 }
 
-bool GenericRobot::isEnemyTracked(Robot* enemyRobot) const {
-    return std::find(trackedEnemies.begin(), trackedEnemies.end(), enemyRobot) != trackedEnemies.end();
+bool GenericRobot::isEnemyTracked(Robot *enemyRobot) const
+{
+    return find(trackedEnemies.begin(), trackedEnemies.end(), enemyRobot) != trackedEnemies.end();
 }
 
-void GenericRobot::kill(vector<vector<char>>& battlefield, ofstream& log) {
-    if (movingAbility) { delete movingAbility; movingAbility = nullptr; }
-    if (seeingAbility) { delete seeingAbility; seeingAbility = nullptr; }
-    if (shootingAbility) { delete shootingAbility; shootingAbility = nullptr; }
+void GenericRobot::kill(vector<vector<char>> &battlefield, ofstream &log)
+{
+    if (movingAbility)
+    {
+        delete movingAbility;
+        movingAbility = nullptr;
+    }
+    if (seeingAbility)
+    {
+        delete seeingAbility;
+        seeingAbility = nullptr;
+    }
+    if (shootingAbility)
+    {
+        delete shootingAbility;
+        shootingAbility = nullptr;
+    }
     // Reset all upgrades on death (robot becomes plain GenericRobot)
     movingAbility = nullptr;
     seeingAbility = nullptr;
     shootingAbility = nullptr;
     lives--;
     battlefield[x][y] = '-';
-    if (lives <= 0) {
+    if (lives <= 0)
+    {
         alive = false;
         cout << name << " has been destroyed!\n";
         log << name << " has been destroyed!\n";
-    } else {
+    }
+    else
+    {
         alive = true;
         cout << name << " has lost a life! Remaining lives: " << lives << "\n";
         log << name << " has lost a life! Remaining lives: " << lives << "\n";
-        // Optionally respawn or reset position here
     }
-    // ...rest of your kill logic...
 }
 
-GenericRobot::~GenericRobot() {
-        delete movingAbility;
-        delete seeingAbility;
-        delete shootingAbility;
+GenericRobot::~GenericRobot()
+{
+    delete movingAbility;
+    delete seeingAbility;
+    delete shootingAbility;
 }
 
-void GenericRobot::assignRandomUpgrade(std::ofstream& log) {
-    std::vector<int> availableCategories;
-    if (!movingAbility) availableCategories.push_back(0);
-    if (!seeingAbility) availableCategories.push_back(1);
-    if (!shootingAbility) availableCategories.push_back(2);
+void GenericRobot::assignRandomUpgrade(ofstream &log)
+{
+    vector<int> availableCategories;
+    if (!movingAbility)
+        availableCategories.push_back(0);
+    if (!seeingAbility)
+        availableCategories.push_back(1);
+    if (!shootingAbility)
+        availableCategories.push_back(2);
 
-    if (availableCategories.empty()) return; // Already max upgrades
+    if (availableCategories.empty())
+        return; // Already max upgrades
 
     int cat = availableCategories[rand() % availableCategories.size()];
 
-    if (cat == 0) { // Moving
-        if (movingAbility) delete movingAbility;
-        if (rand() % 2 == 0) {
+    if (cat == 0)
+    { // Moving
+        if (movingAbility)
+            delete movingAbility;
+        if (rand() % 2 == 0)
+        {
             movingAbility = new HideBot();
             cout << name << " gained the HideBot ability!\n";
             log << name << " gained the HideBot ability!\n";
-        } else {
+        }
+        else
+        {
             movingAbility = new JumpBot();
             cout << name << " gained the JumpBot ability!\n";
             log << name << " gained the JumpBot ability!\n";
         }
-    } else if (cat == 1) { // Seeing
-        if (seeingAbility) delete seeingAbility;
-        if (rand() % 2 == 0) {
+    }
+    else if (cat == 1)
+    { // Seeing
+        if (seeingAbility)
+            delete seeingAbility;
+        if (rand() % 2 == 0)
+        {
             seeingAbility = new ScoutBot();
             cout << name << " gained the ScoutBot ability!\n";
             log << name << " gained the ScoutBot ability!\n";
-        } else {
+        }
+        else
+        {
             seeingAbility = new TrackBot();
             cout << name << " gained the TrackBot ability!\n";
             log << name << " gained the TrackBot ability!\n";
         }
-    } else if (cat == 2) { // Shooting
-        if (shootingAbility) delete shootingAbility;
+    }
+    else if (cat == 2)
+    { // Shooting
+        if (shootingAbility)
+            delete shootingAbility;
         int pick = rand() % 3;
-        if (pick == 0) {
+        if (pick == 0)
+        {
             shootingAbility = new ThirtyShotBot();
             cout << name << " gained the ThirtyShotBot ability!\n";
             log << name << " gained the ThirtyShotBot ability!\n";
-        } else if (pick == 1) {
+        }
+        else if (pick == 1)
+        {
             shootingAbility = new SemiAutoBot();
             cout << name << " gained the SemiAutoBot ability!\n";
             log << name << " gained the SemiAutoBot ability!\n";
-        } else {
+        }
+        else
+        {
             shootingAbility = new LongShotBot();
             cout << name << " gained the LongShotBot ability!\n";
             log << name << " gained the LongShotBot ability!\n";
@@ -305,11 +382,10 @@ void GenericRobot::assignRandomUpgrade(std::ofstream& log) {
     }
 }
 
-void GenericRobot::checkAndResetIfNoUpgrades() {
-    if (!movingAbility && !seeingAbility && !shootingAbility) {
-        // Optionally log this event
-        std::cout << name << " has no upgrades left and is now a plain GenericRobot.\n";
-        // You can add any additional reset logic here if needed
+void GenericRobot::checkAndResetIfNoUpgrades()
+{
+    if (!movingAbility && !seeingAbility && !shootingAbility)
+    {
+        cout << name << " has no upgrades left and is now a plain GenericRobot.\n";
     }
 }
-
