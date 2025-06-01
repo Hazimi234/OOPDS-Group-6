@@ -199,18 +199,15 @@ int main() {
         log << "\nBattlefield";
 
         // Tens digits
+        cout<<endl;
+        log << endl;
         cout << "    ";
         log << "    ";
         for (int c = 0; c < cols; ++c) {
-            cout << " ";
-            log << " ";
-            if (c >= 10) {
-                cout << c / 10;
-                log << c / 10;
-            } else {
-                cout << " ";
-                log << " ";
-            }      
+            if (c < 10)
+                cout << "  ", log << "  ";
+            else
+                cout << setw(2) << (c / 10), log << setw(2) << (c / 10);
         }
         cout << '\n';
         log << '\n';
@@ -219,8 +216,18 @@ int main() {
         cout << "    ";
         log << "    ";
         for (int c = 0; c < cols; ++c) {
-            cout << " " << c % 10;
-            log << " " << c % 10;
+            cout << setw(2) << (c % 10);
+            log << setw(2) << (c % 10);
+        }
+        cout << '\n';
+        log << '\n';
+
+        // Dashed line
+        cout << "    ";
+        log << "    ";
+        for (int c = 0; c < cols; ++c) {
+            cout << "--";
+            log << "--";
         }
         cout << '\n';
         log << '\n';

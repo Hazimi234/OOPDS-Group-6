@@ -1,4 +1,4 @@
-M by N : 4 4
+M by N : 12 12
 steps: 30
 robots: 4
 GenericRobot Jet random random
