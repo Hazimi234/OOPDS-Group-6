@@ -24,6 +24,10 @@ Phone: +60 18-355-5944|| +60 17-779 3199 || +60 19-752 1755 ||+60 11-5372 6266
 
 using namespace std;
 
+int reinforcementsSpawned = 0;
+const int maxReinforcements = 3;
+vector<string> reinforcementNames = {"Link", "Clank", "Smasher"};
+
 bool fileExists(const string& filename) {
     ifstream f(filename);
     return f.good();
@@ -36,6 +40,32 @@ string getNextLogFilename() {
         newName = "log_" + to_string(index++) + ".txt";
     } while (fileExists(newName));
     return newName;
+}
+
+void trySpawnReinforcement(vector<vector<char>>& battlefield, vector<Robot*>& robots, int rows, int cols, ofstream& log) {
+    if (reinforcementsSpawned >= maxReinforcements)
+        return;
+
+    // 10% chance to spawn per turn
+    if (rand() % 100 < 20) {
+        for (int attempt = 0; attempt < 20; ++attempt) {
+            int x = rand() % rows;
+            int y = rand() % cols;
+            if (battlefield[x][y] == '-') {
+                string name = reinforcementNames[reinforcementsSpawned];
+                GenericRobot* newBot = new GenericRobot("G", name, to_string(x), to_string(y));
+                newBot->setPosition(x, y);
+                battlefield[x][y] = name[0];
+                robots.push_back(newBot);
+
+                cout << ">>> Reinforcement " << name << " spawned at (" << x << "," << y << ")!\n";
+                log << ">>> Reinforcement " << name << " spawned at (" << x << "," << y << ")!\n";
+
+                reinforcementsSpawned++;
+                break;
+            }
+        }
+    }
 }
 
 int main() {
@@ -162,6 +192,8 @@ int main() {
                 activeCount++;
             }
         }
+
+        trySpawnReinforcement(matrix, robots, rows, cols, log);
 
         cout << "\nBattlefield";
         log << "\nBattlefield";
