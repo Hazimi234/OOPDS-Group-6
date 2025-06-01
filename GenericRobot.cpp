@@ -354,11 +354,16 @@ void GenericRobot::takeTurn(vector<vector<char>> &battlefield, vector<Robot *> &
         ability->activate(this, battlefield, log, robots);
     }
 
-    if (ability && ability->isLongShotBot())
+    else if (ability && ability->isLongShotBot())
     {
         int dx = (rand() % 7) - 3;
         int dy = (rand() % 7) - 3;
 
+        while ((dx == 0 && dy == 0) || (abs(dx) + abs(dy) > 3))
+        {
+            dx = (rand() % 7) - 3; // Random direction within -3 to 3
+            dy = (rand() % 7) - 3; // Random direction within -3 to 3
+        }
         if ((dx != 0 || dy != 0) && abs(dx) + abs(dy) <= 3)
         {
             if (look(dx, dy, battlefield, log))
@@ -366,10 +371,11 @@ void GenericRobot::takeTurn(vector<vector<char>> &battlefield, vector<Robot *> &
                 fire(dx, dy, battlefield, robots, log);
             }
         }
+
     }
 
     // ScoutBot ability handling
-    if (ability && ability->isScoutBot())
+    else if (ability && ability->isScoutBot())
     {
         ability->activate(this, battlefield, log, robots);
 
@@ -446,7 +452,6 @@ void GenericRobot::takeTurn(vector<vector<char>> &battlefield, vector<Robot *> &
             // Fall through to normal action
         }
     }
-
     // random movement or firing
     else
     {
