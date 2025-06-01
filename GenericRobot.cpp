@@ -374,7 +374,6 @@ void GenericRobot::takeTurn(vector<vector<char>> &battlefield, vector<Robot *> &
     if (ability && ability->isScoutBot())
     {
         ability->activate(this, battlefield, log, robots);
-        enableScoutVision(true);
 
         bool scoutFired = false;
         for (int i = -1; i <= 1; ++i)
@@ -403,7 +402,6 @@ void GenericRobot::takeTurn(vector<vector<char>> &battlefield, vector<Robot *> &
             move(battlefield, robots, log);
         }
 
-        enableScoutVision(false);
     }
     else if (ability && ability->isTrackBot())
     {
@@ -467,8 +465,6 @@ void GenericRobot::takeTurn(vector<vector<char>> &battlefield, vector<Robot *> &
             move(battlefield, robots, log);
         }
     }
-
-    enableScoutVision(false);
 }
 
 bool GenericRobot::isEnemyTracked(Robot *enemyRobot) const
