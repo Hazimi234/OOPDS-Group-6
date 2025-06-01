@@ -11,9 +11,8 @@ bool HideBot::tryHide(GenericRobot* robot, std::ostream& log) {
         std::cout << robot->getName() << "'s HideBot ability expired and reverted to GenericRobot.\n";
         log << robot->getName() << "'s HideBot ability expired and reverted to GenericRobot.\n";
 
-        delete robot->movingAbility;
-        robot->movingAbility = nullptr;
-        robot->checkAndResetIfNoUpgrades();
+        delete robot->ability;
+        robot->ability = nullptr;
     }
 
     return true; // dodged the attack
