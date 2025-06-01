@@ -34,14 +34,21 @@ public:
               std::vector<Robot*>& robots, std::ofstream& log) override;
     void move(std::vector<std::vector<char>>& battlefield, std::vector<Robot*>& robots, std::ofstream& log) override;
     void takeTurn(std::vector<std::vector<char>>& battlefield, std::vector<Robot*>& robots, std::ofstream& log) override;
-
-    Ability* ability = nullptr;
+    void assignRandomUpgrade(std::ofstream& log);
+    void checkAndResetIfNoUpgrades();
+    Ability* movingAbility= nullptr;
+    Ability* seeingAbility= nullptr;
+    Ability* shootingAbility= nullptr;
     bool scoutVisionThisTurn = false;
 
     bool hasScoutVision() const { return scoutVisionThisTurn; }
     void enableScoutVision(bool state) { scoutVisionThisTurn = state; }
-    Ability* getAbility() const { return ability; }
-    void setAbility(Ability* a) { ability = a; }
+    Ability* getMovingAbility() const { return movingAbility; }
+    Ability* getSeeingAbility() const { return seeingAbility; }
+    Ability* getShootingAbility() const { return shootingAbility; }
+    void setMovingAbility(Ability* a) { movingAbility = a; }
+    void setSeeingAbility(Ability* a) { seeingAbility = a; }
+    void setShootingAbility(Ability* a) { shootingAbility = a; }
 
     bool isEnemyTracked(Robot* enemyRobot) const;
     void addTrackedEnemy(Robot* enemy) {
@@ -53,6 +60,9 @@ public:
     Robot* getTrackedEnemy() const {
         return trackedEnemies.empty() ? nullptr : trackedEnemies[0];
     }
+
+    void kill(std::vector<std::vector<char>>& battlefield, std::ofstream& log) override;
+
     ~GenericRobot();
 
 };

@@ -3,7 +3,9 @@
 #include "GenericRobot.h"
 
 void ScoutBot::activate(GenericRobot* robot, std::vector<std::vector<char>>& battlefield, std::ostream& log, const std::vector<Robot*>& robots) {
-    if (!hasUses()) return;
+    if (!hasUses()) 
+    robot->checkAndResetIfNoUpgrades();
+    return;
 
     std::cout << robot->getName() << " uses ScoutBot ability! Scans entire battlefield:\n";
     log << robot->getName() << " uses ScoutBot ability! Scans entire battlefield:\n";

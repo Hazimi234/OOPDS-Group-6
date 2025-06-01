@@ -10,6 +10,7 @@ void JumpBot::activate(GenericRobot* robot, std::vector<std::vector<char>>& batt
     if (jumpsRemaining <= 0 || !robot->isAlive()) {
         log << robot->getName() << " has no jumps left or is dead.\n";
         std::cout << robot->getName() << " has no jumps left or is dead.\n";
+        robot->checkAndResetIfNoUpgrades();
         return;
     }
 

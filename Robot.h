@@ -36,7 +36,8 @@ public:
     virtual bool look(int dx, int dy, const std::vector<std::vector<char>>&, std::ofstream& log) = 0;
     virtual void fire(int dx, int dy, std::vector<std::vector<char>>&, std::vector<Robot*>&, std::ofstream& log) = 0;
     virtual void move(std::vector<std::vector<char>>&, std::vector<Robot*>&, std::ofstream& log) = 0;
-
+    virtual void kill(std::vector<std::vector<char>>& battlefield, std::ofstream& log);
+    
     std::string getName() const;
     int getX() const;
     int getY() const;
@@ -44,7 +45,7 @@ public:
     bool isRandomPosition() const;
     bool isAlive() const;
 
-    void kill(std::vector<std::vector<char>>& battlefield, std::ofstream& log);
+    
     void respawn(std::vector<std::vector<char>>& battlefield, int rows, int cols, std::ofstream& log);
     
     bool canRespawn() const;
