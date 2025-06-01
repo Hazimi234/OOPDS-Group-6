@@ -3,9 +3,7 @@
 #include "Robot.h"
 
 void TrackBot::activate(GenericRobot* robot, std::vector<std::vector<char>>& battlefield, std::ostream& log, const std::vector<Robot*>& robots) {
-    if (!hasUses()) 
-    robot->checkAndResetIfNoUpgrades();
-    return;
+    if (!hasUses()) return;
 
     for (int i = -1; i <= 1; ++i) {
         for (int j = -1; j <= 1; ++j) {
