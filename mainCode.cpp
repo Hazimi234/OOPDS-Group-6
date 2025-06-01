@@ -32,7 +32,7 @@ bool fileExists(const string& filename) {
     ifstream f(filename);
     return f.good();
 }
-
+//generate next log filename
 string getNextLogFilename() {
     int index = 1;
     string newName;
@@ -41,7 +41,7 @@ string getNextLogFilename() {
     } while (fileExists(newName));
     return newName;
 }
-
+//attempt to spawn a reinforcement robot
 void trySpawnReinforcement(vector<vector<char>>& battlefield, vector<Robot*>& robots, int rows, int cols, ofstream& log) {
     if (reinforcementsSpawned >= maxReinforcements)
         return;
@@ -113,7 +113,7 @@ int main() {
     vector<Robot*> robots;
     srand(time(0));
     int deathsThisTurn=0;
-
+    //initialize robots from input file
     for (int i = 0; i < robotCount; ++i) {
         if (getline(file, line)) {
             istringstream iss(line);
@@ -126,7 +126,7 @@ int main() {
             robots.push_back(robot);
         }
     }
-
+    //place robots on battlefield
     for (Robot* r : robots) {
         int x = r->getX(), y = r->getY();
         if (r->isRandomPosition()) {
@@ -198,7 +198,7 @@ int main() {
         cout << "\nBattlefield";
         log << "\nBattlefield";
 
-        // Tens digits
+        // Tens digits (the digits on the top row)
         cout<<endl;
         log << endl;
         cout << "    ";

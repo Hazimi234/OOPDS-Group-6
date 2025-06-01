@@ -23,12 +23,13 @@ Phone: +60 18-355-5944|| +60 17-779 3199 || +60 19-752 1755 ||+60 11-5372 6266
 #include <algorithm>
 
 using namespace std;
-
+//constructor for GenericRobot
 GenericRobot::GenericRobot(string t, string n, string xStr, string yStr)
     : Robot(t, n, xStr, yStr) {}
 
 void GenericRobot::think(ofstream &log)
 {
+    //display and log the thinking action
     cout << name << " is thinking...\n";
     log << name << " is thinking...\n";
 }
@@ -71,7 +72,7 @@ bool GenericRobot::look(int dx, int dy, const vector<vector<char>> &battlefield,
     }
     return false;
 }
-
+//fires at target in direction (dx, dy) and logs the action
 void GenericRobot::fire(int dx, int dy, vector<vector<char>> &battlefield,
                         vector<Robot *> &robots, ofstream &log)
 {
@@ -140,7 +141,7 @@ void GenericRobot::fire(int dx, int dy, vector<vector<char>> &battlefield,
                     return;
                 }
             }
-
+            
             if (hits > 0)
             {
                 cout << name << " hit and killed " << r->getName();
@@ -237,7 +238,7 @@ void GenericRobot::fire(int dx, int dy, vector<vector<char>> &battlefield,
         log << name << " missed at (" << tx << "," << ty << ").\n";
     }
 }
-
+//move robot to a new position
 void GenericRobot::move(vector<vector<char>> &battlefield, vector<Robot *> &robots, ofstream &log)
 {
     static const int dx[] = {-1, 0, 1, -1, 1, -1, 0, 1};
