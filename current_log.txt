@@ -1,531 +1,932 @@
 
 Turn 1:
 Jet is thinking...
-Jet looks at (2,1): -
-Jet moves to (2,1)
+Jet looks at (8,7): -
+Jet moves to (8,7)
 Kidd is thinking...
-Kidd looks at (5,1): -
-Kidd moves to (5,2)
+Kidd looks at (8,8): -
+Kidd moves to (7,7)
 Bolt is thinking...
-Bolt looks at (4,2): -
-Bolt moves into (5,2) and destroys Kidd!
-Kidd has lost a life! Remaining lives: 2
-Bolt gained the LongShotBot ability!
-Bolt moves to (5,2)
+Bolt moves to (9,7)
 Alpha is thinking...
-Alpha looks at (2,5): -
-Alpha moves to (2,5)
->>> Reinforcement Link spawned at (6,2)!
+Alpha looks at (4,2): -
+Alpha moves to (4,0)
+>>> Reinforcement Link spawned at (5,0)!
 
 Battlefield
-                  
-     0 1 2 3 4 5 6
-    --------------
-  0  - - - - - - -
-  1  - - - - - - -
-  2  - J - - - A -
-  3  - - - - - K -
-  4  - - - - - - -
-  5  - - B - - - -
-  6  - - L - - - -
+                         1
+     0 1 2 3 4 5 6 7 8 9 0
+    ----------------------
+  0  - - - - - - - - - - -
+  1  - - - - - - - - - - -
+  2  - - - - - - - - - - -
+  3  - - - - - - - - - - -
+  4  A - - - - - - - - - -
+  5  L - - - - - - - - - -
+  6  - - - - - - - - - - -
+  7  - - - - - - - K - - -
+  8  - - - - - - - J - - -
+  9  - - - - - - - B - - -
+ 10  - - - - - - - - - - -
 
 Turn 2:
 Jet is thinking...
-Jet looks at (2,2): -
-Jet moves to (3,2)
+Jet looks at (7,8): -
+Jet moves to (9,6)
 Kidd is thinking...
-Kidd looks at (2,6): -
-Kidd moves to (2,4)
+Kidd looks at (8,8): -
+Kidd moves to (7,6)
 Bolt is thinking...
-Bolt looks at (6,3): -
+Bolt looks at (8,7): -
+Bolt moves to (8,7)
 Alpha is thinking...
-Alpha looks at (3,6): -
-Alpha moves to (1,5)
+Alpha moves to (5,1)
 Link is thinking...
-Link looks at (6,1): -
-Link moves to (6,0)
+Link looks at (6,0): -
+Link moves to (4,0)
+>>> Reinforcement Clank spawned at (0,10)!
 
 Battlefield
-                  
-     0 1 2 3 4 5 6
-    --------------
-  0  - - - - - - -
-  1  - - - - - A -
-  2  - - - - K - -
-  3  - - J - - - -
-  4  - - - - - - -
-  5  - - B - - - -
-  6  L - - - - - -
+                         1
+     0 1 2 3 4 5 6 7 8 9 0
+    ----------------------
+  0  - - - - - - - - - - C
+  1  - - - - - - - - - - -
+  2  - - - - - - - - - - -
+  3  - - - - - - - - - - -
+  4  L - - - - - - - - - -
+  5  - A - - - - - - - - -
+  6  - - - - - - - - - - -
+  7  - - - - - - K - - - -
+  8  - - - - - - - B - - -
+  9  - - - - - - J - - - -
+ 10  - - - - - - - - - - -
 
 Turn 3:
 Jet is thinking...
-Jet looks at (2,2): -
-Jet moves to (3,3)
+Jet looks at (8,7): B
+Jet missed all shots at (8,7).
 Kidd is thinking...
-Kidd looks at (1,5): A
-Kidd missed all shots at (1,5).
+Kidd looks at (7,7): -
+Kidd moves to (6,5)
 Bolt is thinking...
-Bolt looks at (3,3): J
-Bolt hit and killed Jet with LongShotBot at (3,3)
-Jet has lost a life! Remaining lives: 2
+Bolt looks at (8,8): -
+Bolt moves to (8,8)
 Alpha is thinking...
-Alpha moves to (2,6)
-Link is thinking...
-Link moves to (5,0)
+Alpha looks at (5,0): -
+Alpha moves into (4,0) and destroys Link!
+Link has lost a life! Remaining lives: 2
+Alpha gained the TrackBot ability!
+Alpha moves to (4,0)
+Clank is thinking...
 
 Battlefield
-                  
-     0 1 2 3 4 5 6
-    --------------
-  0  - - - - - - -
-  1  - - - - - - -
-  2  - - - - K - A
-  3  - - - - - - -
-  4  - - - - - - -
-  5  L - B - - - -
-  6  - - - - - - -
+                         1
+     0 1 2 3 4 5 6 7 8 9 0
+    ----------------------
+  0  - - - - - - - - - - C
+  1  - - - - - - - - - - -
+  2  - - - - - - - - - - -
+  3  - - - - - - - - - - -
+  4  A - - - - - - - - - -
+  5  - - - - - - - - - - -
+  6  - - - - - K - - - - -
+  7  - - - - - - - - - - -
+  8  - - - - - - - - B - -
+  9  - - - - - - J - - - -
+ 10  - - - - - - - - - - -
 
 Turn 4:
+Jet is thinking...
+Jet looks at (10,6): -
+Jet moves to (10,5)
 Kidd is thinking...
-Kidd looks at (1,3): -
-Kidd moves to (3,5)
+Kidd looks at (5,6): -
+Kidd moves to (6,6)
 Bolt is thinking...
-Bolt looks at (6,4): -
+Bolt looks at (9,7): -
+Bolt moves to (7,8)
 Alpha is thinking...
-Alpha moves into (3,5) and destroys Kidd!
-Kidd has lost a life! Remaining lives: 1
-Alpha gained the JumpBot ability!
-Alpha moves to (3,5)
-Link is thinking...
-Link moves to (6,0)
+Alpha tried to use TrackBot but saw no enemies nearby.
+Clank is thinking...
+Clank moves to (1,9)
+>>> Reinforcement Smasher spawned at (10,2)!
 
 Battlefield
-                  
-     0 1 2 3 4 5 6
-    --------------
-  0  - - - - - - -
-  1  - - - - - - -
-  2  - - - - - - -
-  3  - - - - - A -
-  4  - - - - - - -
-  5  - - B - - - -
-  6  L - - - - - J
+                         1
+     0 1 2 3 4 5 6 7 8 9 0
+    ----------------------
+  0  - - - - - - - - - - -
+  1  - - - - - - - - - C -
+  2  - - - - - - - - - - -
+  3  - - - - - - - - - - -
+  4  A - - - - - - - - - -
+  5  - - - - - - - - - - -
+  6  - - - - - - K - - - -
+  7  - - - - - - - - B - -
+  8  - - - - - - - - - - -
+  9  - - - - - - - - - - -
+ 10  - - S - - J - - - - -
 
 Turn 5:
 Jet is thinking...
-Jet moves to (5,5)
+Jet looks at (9,5): -
+Jet moves to (10,3)
+Kidd is thinking...
+Kidd looks at (5,6): -
+Kidd moves to (6,5)
 Bolt is thinking...
-Bolt looks at (3,2): -
+Bolt looks at (6,8): -
+Bolt moves to (8,7)
 Alpha is thinking...
-Alpha jumped to (1,1). Jumps remaining: 2
-Link is thinking...
-Link moves to (4,0)
+Alpha tried to use TrackBot but saw no enemies nearby.
+Alpha moves to (3,0)
+Clank is thinking...
+Clank looks at (1,10): -
+Clank moves to (1,10)
+Smasher is thinking...
+Smasher looks at (10,3): J
+Smasher hit and killed Jet at (10,3)
+Jet has lost a life! Remaining lives: 2
+Smasher gained the TrackBot ability!
 
 Battlefield
-                  
-     0 1 2 3 4 5 6
-    --------------
-  0  - - - - - - -
-  1  - A - - - - -
-  2  - - - - - - -
-  3  - - - - - - -
-  4  L - - - K - -
-  5  - - B - - J -
-  6  - - - - - - -
+                         1
+     0 1 2 3 4 5 6 7 8 9 0
+    ----------------------
+  0  - - - - - - - - - - -
+  1  - - - - - - - - - - C
+  2  - - - - - - - - - - -
+  3  A - - - - - - - - - -
+  4  - - - - - - - - - - -
+  5  - - - - - - - - - - -
+  6  - - - - - K - - - - -
+  7  - - - - - - - - - - -
+  8  - - - - - - - B - - -
+  9  - - - - - - - - - - -
+ 10  - - S - - - - - - - -
 
 Turn 6:
-Jet is thinking...
-Jet looks at (5,6): -
-Jet moves to (6,4)
 Kidd is thinking...
-Kidd looks at (3,5): -
-Kidd moves to (4,5)
+Kidd looks at (5,4): -
+Kidd moves to (7,5)
 Bolt is thinking...
-Bolt looks at (3,3): -
+Bolt looks at (7,8): -
+Bolt moves to (7,6)
 Alpha is thinking...
-Link is thinking...
-Link looks at (5,1): -
-Link moves to (4,1)
->>> Reinforcement Clank spawned at (4,4)!
+Alpha tried to use TrackBot but saw no enemies nearby.
+Clank is thinking...
+Smasher is thinking...
+Smasher tried to use TrackBot but saw no enemies nearby.
+Smasher moves to (9,3)
 
 Battlefield
-                  
-     0 1 2 3 4 5 6
-    --------------
-  0  - - - - - - -
-  1  - A - - - - -
-  2  - - - - - - -
-  3  - - - - - - -
-  4  - L - - C K -
-  5  - - B - - - -
-  6  - - - - J - -
+                         1
+     0 1 2 3 4 5 6 7 8 9 0
+    ----------------------
+  0  - - - - - - - - - - -
+  1  - - - - - - - - - - C
+  2  - - - - - - - - - - -
+  3  A - - - - - - - - - -
+  4  - - - - - - - - - - -
+  5  - - - - - - - - - - -
+  6  - - - - - - - - - - -
+  7  - - - - - K B - - - -
+  8  - - - - - - - - - - -
+  9  - - - S - - - - - - -
+ 10  - - - - - - - - - - -
 
 Turn 7:
-Jet is thinking...
-Jet looks at (5,3): -
-Jet moves to (6,3)
 Kidd is thinking...
-Kidd looks at (5,5): -
-Kidd moves to (3,6)
-Bolt is thinking...
-Bolt looks at (3,1): -
-Alpha is thinking...
-Alpha jumped to (3,3). Jumps remaining: 1
-Link is thinking...
-Link looks at (5,2): B
-Link hit and killed Bolt at (5,2)
+Kidd looks at (8,4): -
+Kidd moves into (7,6) and destroys Bolt!
 Bolt has lost a life! Remaining lives: 2
-Link gained the ThirtyShotBot ability!
+Kidd gained the ThirtyShotBot ability!
+Kidd moves to (7,6)
+Alpha is thinking...
+Alpha tried to use TrackBot but saw no enemies nearby.
+Alpha moves to (3,1)
 Clank is thinking...
-Clank moves to (4,3)
+Clank looks at (0,10): -
+Smasher is thinking...
+Smasher tried to use TrackBot but saw no enemies nearby.
+Smasher moves to (9,2)
 
 Battlefield
-                  
-     0 1 2 3 4 5 6
-    --------------
-  0  - - - - - - -
-  1  - - - - - - -
-  2  - - - - - - -
-  3  - - - A - - K
-  4  - L - C - - -
-  5  - - - - - - -
-  6  - - - J - - -
+                         1
+     0 1 2 3 4 5 6 7 8 9 0
+    ----------------------
+  0  - - - - - - - - - - -
+  1  - - - - - - - - - - C
+  2  - - - - - - - - - - J
+  3  - A - - - - - - - - -
+  4  - - - - - - - - - - -
+  5  - - - - - - - - - - -
+  6  - - - - - - - - - - -
+  7  - - - - - - K - - - -
+  8  - - - - - - - - - - -
+  9  - - S - - - - - - - -
+ 10  - - - - - - - - - - -
 
 Turn 8:
 Jet is thinking...
-Jet looks at (5,2): -
-Jet moves to (5,4)
+Jet looks at (3,9): -
+Jet moves into (1,10) and destroys Clank!
+Clank has lost a life! Remaining lives: 2
+Jet gained the TrackBot ability!
+Jet moves to (1,10)
 Kidd is thinking...
-Kidd looks at (4,6): -
-Kidd moves to (4,5)
+Kidd now has 30 shells from ThirtyShotBot!
 Alpha is thinking...
-Link is thinking...
-Link now has 30 shells from ThirtyShotBot!
-Clank is thinking...
-Clank looks at (3,4): -
-Clank moves to (5,2)
+Alpha tried to use TrackBot but saw no enemies nearby.
+Alpha moves to (2,1)
+Smasher is thinking...
+Smasher tried to use TrackBot but saw no enemies nearby.
+Smasher moves to (8,1)
 
 Battlefield
-                  
-     0 1 2 3 4 5 6
-    --------------
-  0  - - - - - - -
-  1  - - - - - - -
-  2  - - - - - - -
-  3  - - - A - - -
-  4  - L - - - K -
-  5  - - C - J - -
-  6  - - - - - - -
+                         1
+     0 1 2 3 4 5 6 7 8 9 0
+    ----------------------
+  0  - - - - - - - - - - -
+  1  - - - - - - - B - - J
+  2  - A - - - - - - - - -
+  3  - - - - - - - - - - -
+  4  - - - - - - - - - - -
+  5  - - - - - - - - - - -
+  6  - - - - - - - - - - -
+  7  - - - - - - K - - - -
+  8  - S - - - - - - - - -
+  9  - - - - - - - - - - -
+ 10  - - - - - - - - - - -
 
 Turn 9:
 Jet is thinking...
-Jet looks at (6,3): -
-Jet moves to (5,5)
+Jet tried to use TrackBot but saw no enemies nearby.
+Jet moves to (0,10)
 Kidd is thinking...
-Kidd looks at (3,5): -
-Kidd moves to (3,4)
+Bolt is thinking...
+Bolt looks at (1,6): -
+Bolt moves to (0,6)
 Alpha is thinking...
-Alpha jumped to (2,1). Jumps remaining: 0
-Link is thinking...
-Clank is thinking...
-Clank looks at (5,3): -
-Clank moves to (5,3)
+Alpha tried to use TrackBot but saw no enemies nearby.
+Alpha moves to (3,0)
+Smasher is thinking...
+Smasher tried to use TrackBot but saw no enemies nearby.
+Smasher moves to (7,1)
 
 Battlefield
-                  
-     0 1 2 3 4 5 6
-    --------------
-  0  - - - - - - -
-  1  - - - - - - -
-  2  - A - - - - -
-  3  - - - - K - -
-  4  - L - - - - -
-  5  - - - C - J -
-  6  - - - - - - -
+                         1
+     0 1 2 3 4 5 6 7 8 9 0
+    ----------------------
+  0  - - - - - - B - - - J
+  1  - - - - - - - - - - -
+  2  - - - - - - - - - - -
+  3  A - - - - - - - - - -
+  4  - - - - - - - - - - -
+  5  - - - - - - - - - - -
+  6  - - - - - - - - - - -
+  7  - S - - - - K - - - -
+  8  - - - - - - - - - - -
+  9  - - - - - - - - - - -
+ 10  - - - - - - - - - - -
 
 Turn 10:
 Jet is thinking...
-Jet looks at (6,4): -
-Jet moves to (6,5)
+Jet tried to use TrackBot but saw no enemies nearby.
+Jet moves to (1,10)
 Kidd is thinking...
-Kidd looks at (4,5): -
-Kidd moves to (4,4)
+Bolt is thinking...
+Bolt moves to (0,5)
 Alpha is thinking...
-Alpha has no jumps left.
-Link is thinking...
-Clank is thinking...
-Clank looks at (4,3): -
-Clank moves to (6,3)
+Alpha tried to use TrackBot but saw no enemies nearby.
+Alpha moves to (4,1)
+Smasher is thinking...
+Smasher tried to use TrackBot but saw no enemies nearby.
+Smasher moves to (8,0)
 
 Battlefield
-                  
-     0 1 2 3 4 5 6
-    --------------
-  0  - - - - - - -
-  1  - - - - - - -
-  2  - A - - - - -
-  3  - - - - - - -
-  4  - L - - K - -
-  5  - - - - - - -
-  6  - - - C - J -
+                         1
+     0 1 2 3 4 5 6 7 8 9 0
+    ----------------------
+  0  - - - - - B - - - - -
+  1  - - - - - - - - - - J
+  2  - - - - - - - - - - -
+  3  - - - - - - - - - - -
+  4  - A - - - - - - - - -
+  5  - - - - - - - - - - -
+  6  - - - - - - - - - - -
+  7  - - - - - - K - - - -
+  8  S - - - - - - - - - -
+  9  - - - - - - - - - - -
+ 10  - - - - - - - - - - -
 
 Turn 11:
 Jet is thinking...
-Jet looks at (6,4): -
+Jet tried to use TrackBot but saw no enemies nearby.
+Jet moves to (0,10)
 Kidd is thinking...
-Kidd looks at (5,4): -
-Kidd moves to (3,4)
+Bolt is thinking...
+Bolt moves to (1,6)
 Alpha is thinking...
-Alpha has no jumps left.
-Link is thinking...
-Clank is thinking...
-Clank looks at (5,4): -
-Clank moves to (5,4)
+Alpha tried to use TrackBot but saw no enemies nearby.
+Alpha moves to (5,2)
+Smasher is thinking...
+Smasher tried to use TrackBot but saw no enemies nearby.
+Smasher moves to (7,0)
 
 Battlefield
-                  
-     0 1 2 3 4 5 6
-    --------------
-  0  - - - - - - -
-  1  - - - - - - -
-  2  - A - - - - -
-  3  - - - - K - -
-  4  - L - - - - -
-  5  - - - - C - -
-  6  - - - - - J -
+                         1
+     0 1 2 3 4 5 6 7 8 9 0
+    ----------------------
+  0  - - - - - - - - - - J
+  1  - - - - - - B - - - -
+  2  - - - - - - - - - - -
+  3  - - - - - - - - - - -
+  4  - - - - - - - - - - -
+  5  - - A - - - - - - - -
+  6  - - - - - - - - - - -
+  7  S - - - - - K - - - -
+  8  - - - - - - - - - - -
+  9  - - - - - - - - - - -
+ 10  - - - - - - - - - - -
 
 Turn 12:
 Jet is thinking...
-Jet looks at (5,5): -
+Jet tried to use TrackBot but saw no enemies nearby.
 Kidd is thinking...
-Kidd looks at (3,5): -
-Kidd moves to (3,3)
+Bolt is thinking...
+Bolt looks at (0,6): -
+Bolt moves to (0,7)
 Alpha is thinking...
-Alpha has no jumps left.
-Link is thinking...
-Clank is thinking...
-Clank moves to (5,5)
+Alpha tried to use TrackBot but saw no enemies nearby.
+Alpha moves to (6,2)
+Smasher is thinking...
+Smasher tried to use TrackBot but saw no enemies nearby.
+Smasher moves to (6,0)
 
 Battlefield
-                  
-     0 1 2 3 4 5 6
-    --------------
-  0  - - - - - - -
-  1  - - - - - - -
-  2  - A - - - - -
-  3  - - - K - - -
-  4  - L - - - - -
-  5  - - - - - C -
-  6  - - - - - J -
+                         1
+     0 1 2 3 4 5 6 7 8 9 0
+    ----------------------
+  0  - - - - - - - B - - J
+  1  - - - - - - - - - - -
+  2  - - - - - - - - - - -
+  3  - - - - - - - - - - -
+  4  - - - - - - - - - - -
+  5  - - - - - - - - - - -
+  6  S - A - - - - - - - -
+  7  - - - - - - K - - - -
+  8  - - - - - - - - - - -
+  9  - - - - - - - - - - -
+ 10  - - - - - - - - - - -
 
 Turn 13:
 Jet is thinking...
-Jet looks at (5,4): -
-Jet moves to (5,4)
+Jet tried to use TrackBot but saw no enemies nearby.
+Jet moves to (0,8)
 Kidd is thinking...
-Kidd looks at (3,2): -
-Kidd moves to (2,2)
+Bolt is thinking...
+Bolt moves to (1,6)
 Alpha is thinking...
-Alpha has no jumps left.
-Link is thinking...
-Clank is thinking...
-Clank looks at (4,4): -
-Clank moves to (5,6)
->>> Reinforcement Smasher spawned at (0,0)!
+Alpha tried to use TrackBot but saw no enemies nearby.
+Alpha moves to (6,1)
+Smasher is thinking...
+Smasher plants a tracker on A at (6,1)
+Smasher fires at tracked enemy Alpha
+Smasher hit and killed Alpha at (6,1)
+Alpha has lost a life! Remaining lives: 2
 
 Battlefield
-                  
-     0 1 2 3 4 5 6
-    --------------
-  0  S - - - - - -
-  1  - - - - - - -
-  2  - A K - - - -
-  3  - - - - - - -
-  4  - L - - - - -
-  5  - - - - J - C
-  6  - - - - - - -
+                         1
+     0 1 2 3 4 5 6 7 8 9 0
+    ----------------------
+  0  - - - - - - - - J - -
+  1  - - - - - - B - - - -
+  2  - - - - - - - - - - -
+  3  - - - - - - - - - - -
+  4  - - - - - - - - - - -
+  5  - - - - - - - - - - -
+  6  S - - - - - - - - - -
+  7  - - - - - - K - - - -
+  8  - - - - - - - - - - -
+  9  - - - - - - - - - - -
+ 10  - - - - - - - - - - -
 
 Turn 14:
 Jet is thinking...
-Jet looks at (5,3): -
-Jet moves to (5,3)
+Jet tried to use TrackBot but saw no enemies nearby.
+Jet moves to (0,6)
 Kidd is thinking...
-Kidd looks at (1,3): -
-Kidd moves to (3,1)
-Alpha is thinking...
-Alpha has no jumps left.
-Link is thinking...
-Clank is thinking...
-Clank looks at (4,5): -
-Clank moves to (4,6)
+Bolt is thinking...
+Bolt looks at (1,7): -
+Bolt moves into (0,6) and destroys Jet!
+Jet has lost a life! Remaining lives: 1
+Bolt gained the ScoutBot ability!
+Bolt moves to (0,6)
 Smasher is thinking...
+Smasher tried to use TrackBot but saw no enemies nearby.
+Smasher fires at tracked enemy Alpha
+Smasher missed at (6,1).
 
 Battlefield
-                  
-     0 1 2 3 4 5 6
-    --------------
-  0  S - - - - - -
-  1  - - - - - - -
-  2  - A - - - - -
-  3  - K - - - - -
-  4  - L - - - - C
-  5  - - - J - - -
-  6  - - - - - - -
+                         1
+     0 1 2 3 4 5 6 7 8 9 0
+    ----------------------
+  0  - - - - - - B - - - -
+  1  - - - - - - - - - - -
+  2  - - - - - - - - - - -
+  3  - - - - - - - - - - -
+  4  - - - - - - - - - - -
+  5  - - - - - - - - - - -
+  6  S - - - - - - - - - -
+  7  - - - - - - K - - - -
+  8  - - - - - - - - - - -
+  9  - - - - - - - - - J -
+ 10  - - - - - - - - - - -
 
 Turn 15:
 Jet is thinking...
-Jet looks at (4,4): -
-Jet moves to (4,2)
+Jet looks at (10,9): -
+Jet moves to (8,8)
 Kidd is thinking...
-Kidd looks at (4,1): L
-Kidd hit and killed Link at (4,1)
-Link has lost a life! Remaining lives: 2
-Kidd gained the ThirtyShotBot ability!
-Alpha is thinking...
-Alpha has no jumps left.
-Clank is thinking...
-Clank looks at (4,5): -
-Clank moves to (3,6)
+Bolt is thinking...
+Bolt uses ScoutBot ability! Scans entire battlefield:
+ (0,0): -  (0,1): -  (0,2): -  (0,3): -  (0,4): -  (0,5): -  (0,6): B  (0,7): -  (0,8): -  (0,9): -  (0,10): - 
+ (1,0): -  (1,1): -  (1,2): -  (1,3): -  (1,4): -  (1,5): -  (1,6): -  (1,7): -  (1,8): -  (1,9): -  (1,10): - 
+ (2,0): -  (2,1): -  (2,2): -  (2,3): -  (2,4): -  (2,5): -  (2,6): -  (2,7): -  (2,8): -  (2,9): -  (2,10): - 
+ (3,0): -  (3,1): -  (3,2): -  (3,3): -  (3,4): -  (3,5): -  (3,6): -  (3,7): -  (3,8): -  (3,9): -  (3,10): - 
+ (4,0): -  (4,1): -  (4,2): -  (4,3): -  (4,4): -  (4,5): -  (4,6): -  (4,7): -  (4,8): -  (4,9): -  (4,10): - 
+ (5,0): -  (5,1): -  (5,2): -  (5,3): -  (5,4): -  (5,5): -  (5,6): -  (5,7): -  (5,8): -  (5,9): -  (5,10): - 
+ (6,0): S  (6,1): -  (6,2): -  (6,3): -  (6,4): -  (6,5): -  (6,6): -  (6,7): -  (6,8): -  (6,9): -  (6,10): - 
+ (7,0): -  (7,1): -  (7,2): -  (7,3): -  (7,4): -  (7,5): -  (7,6): K  (7,7): -  (7,8): -  (7,9): -  (7,10): - 
+ (8,0): -  (8,1): -  (8,2): -  (8,3): -  (8,4): -  (8,5): -  (8,6): -  (8,7): -  (8,8): J  (8,9): -  (8,10): - 
+ (9,0): -  (9,1): -  (9,2): -  (9,3): -  (9,4): -  (9,5): -  (9,6): -  (9,7): -  (9,8): -  (9,9): -  (9,10): - 
+ (10,0): -  (10,1): -  (10,2): -  (10,3): -  (10,4): -  (10,5): -  (10,6): -  (10,7): -  (10,8): -  (10,9): -  (10,10): - 
+Bolt moves to (0,5)
 Smasher is thinking...
-Smasher looks at (1,1): -
-Smasher moves to (1,1)
+Smasher tried to use TrackBot but saw no enemies nearby.
+Smasher fires at tracked enemy Alpha
+Smasher hit an empty spot.
 
 Battlefield
-                  
-     0 1 2 3 4 5 6
-    --------------
-  0  - - - - - - -
-  1  - S - - - - -
-  2  - A - - - - -
-  3  - K - - - - C
-  4  - - J - - - -
-  5  - - - - - - -
-  6  - - - - - - -
+                         1
+     0 1 2 3 4 5 6 7 8 9 0
+    ----------------------
+  0  - - - - - B - - - - -
+  1  - - - - - - - - - - -
+  2  - - - - - - - - - - -
+  3  - - - - - - - - - - -
+  4  - - - - - - - - - - -
+  5  - - - - - - - - - - -
+  6  S - - - - - - - - - -
+  7  - - - - - - K - - - -
+  8  - - - - - - - - J - -
+  9  - - - - - - - - - - -
+ 10  - - - - - - - - - A -
 
 Turn 16:
 Jet is thinking...
-Jet looks at (5,1): -
-Jet moves into (3,1) and destroys Kidd!
-Kidd has been destroyed!
-Jet gained the ThirtyShotBot ability!
-Jet moves to (3,1)
+Jet looks at (9,8): -
+Jet moves to (9,7)
+Kidd is thinking...
+Bolt is thinking...
+Bolt uses ScoutBot ability! Scans entire battlefield:
+ (0,0): -  (0,1): -  (0,2): -  (0,3): -  (0,4): -  (0,5): B  (0,6): -  (0,7): -  (0,8): -  (0,9): -  (0,10): - 
+ (1,0): -  (1,1): -  (1,2): -  (1,3): -  (1,4): -  (1,5): -  (1,6): -  (1,7): -  (1,8): -  (1,9): -  (1,10): - 
+ (2,0): -  (2,1): -  (2,2): -  (2,3): -  (2,4): -  (2,5): -  (2,6): -  (2,7): -  (2,8): -  (2,9): -  (2,10): - 
+ (3,0): -  (3,1): -  (3,2): -  (3,3): -  (3,4): -  (3,5): -  (3,6): -  (3,7): -  (3,8): -  (3,9): -  (3,10): - 
+ (4,0): -  (4,1): -  (4,2): -  (4,3): -  (4,4): -  (4,5): -  (4,6): -  (4,7): -  (4,8): -  (4,9): -  (4,10): - 
+ (5,0): -  (5,1): -  (5,2): -  (5,3): -  (5,4): -  (5,5): -  (5,6): -  (5,7): -  (5,8): -  (5,9): -  (5,10): - 
+ (6,0): S  (6,1): -  (6,2): -  (6,3): -  (6,4): -  (6,5): -  (6,6): -  (6,7): -  (6,8): -  (6,9): -  (6,10): - 
+ (7,0): -  (7,1): -  (7,2): -  (7,3): -  (7,4): -  (7,5): -  (7,6): K  (7,7): -  (7,8): -  (7,9): -  (7,10): - 
+ (8,0): -  (8,1): -  (8,2): -  (8,3): -  (8,4): -  (8,5): -  (8,6): -  (8,7): -  (8,8): -  (8,9): -  (8,10): - 
+ (9,0): -  (9,1): -  (9,2): -  (9,3): -  (9,4): -  (9,5): -  (9,6): -  (9,7): J  (9,8): -  (9,9): -  (9,10): - 
+ (10,0): -  (10,1): -  (10,2): -  (10,3): -  (10,4): -  (10,5): -  (10,6): -  (10,7): -  (10,8): -  (10,9): A  (10,10): - 
+Bolt moves to (0,4)
 Alpha is thinking...
-Alpha has no jumps left.
-Clank is thinking...
-Clank moves to (1,6)
+Alpha looks at (9,10): -
+Alpha moves to (10,10)
 Smasher is thinking...
-Smasher looks at (0,1): -
-Smasher moves to (0,0)
+Smasher tried to use TrackBot but saw no enemies nearby.
 
 Battlefield
-                  
-     0 1 2 3 4 5 6
-    --------------
-  0  S - - - - - -
-  1  - - - - - - C
-  2  - A - B - - -
-  3  - J - - - - -
-  4  - - - - - - -
-  5  - - - - - - -
-  6  - - - - - - -
+                         1
+     0 1 2 3 4 5 6 7 8 9 0
+    ----------------------
+  0  - - - - B - - - - - -
+  1  - - - - - - - - - - -
+  2  - - - - - - - - - - -
+  3  - - - - - - - - - - -
+  4  - - - - - - - - - - -
+  5  - - - - - - - - - - -
+  6  S - - - - - - - - - -
+  7  - - - - - - K - - - -
+  8  - - - - - - - - - - -
+  9  - - - - - - - J - - -
+ 10  - - - - - - - - - - A
 
 Turn 17:
 Jet is thinking...
-Jet now has 30 shells from ThirtyShotBot!
+Jet looks at (10,6): -
+Jet moves to (8,7)
+Kidd is thinking...
 Bolt is thinking...
-Bolt looks at (1,2): -
-Bolt moves to (3,2)
+Bolt uses ScoutBot ability! Scans entire battlefield:
+ (0,0): -  (0,1): -  (0,2): -  (0,3): -  (0,4): B  (0,5): -  (0,6): -  (0,7): -  (0,8): -  (0,9): -  (0,10): - 
+ (1,0): -  (1,1): -  (1,2): -  (1,3): -  (1,4): -  (1,5): -  (1,6): -  (1,7): -  (1,8): -  (1,9): -  (1,10): - 
+ (2,0): -  (2,1): -  (2,2): -  (2,3): -  (2,4): -  (2,5): -  (2,6): -  (2,7): -  (2,8): -  (2,9): -  (2,10): - 
+ (3,0): -  (3,1): -  (3,2): -  (3,3): -  (3,4): -  (3,5): -  (3,6): -  (3,7): -  (3,8): -  (3,9): -  (3,10): - 
+ (4,0): -  (4,1): -  (4,2): -  (4,3): -  (4,4): -  (4,5): -  (4,6): -  (4,7): -  (4,8): -  (4,9): -  (4,10): - 
+ (5,0): -  (5,1): -  (5,2): -  (5,3): -  (5,4): -  (5,5): -  (5,6): -  (5,7): -  (5,8): -  (5,9): -  (5,10): - 
+ (6,0): S  (6,1): -  (6,2): -  (6,3): -  (6,4): -  (6,5): -  (6,6): -  (6,7): -  (6,8): -  (6,9): -  (6,10): - 
+ (7,0): -  (7,1): -  (7,2): -  (7,3): -  (7,4): -  (7,5): -  (7,6): K  (7,7): -  (7,8): -  (7,9): -  (7,10): - 
+ (8,0): -  (8,1): -  (8,2): -  (8,3): -  (8,4): -  (8,5): -  (8,6): -  (8,7): J  (8,8): -  (8,9): -  (8,10): - 
+ (9,0): -  (9,1): -  (9,2): -  (9,3): -  (9,4): -  (9,5): -  (9,6): -  (9,7): -  (9,8): -  (9,9): -  (9,10): - 
+ (10,0): -  (10,1): -  (10,2): -  (10,3): -  (10,4): -  (10,5): -  (10,6): -  (10,7): -  (10,8): -  (10,9): -  (10,10): A 
+Bolt moves to (1,3)
 Alpha is thinking...
-Alpha has no jumps left.
-Clank is thinking...
 Smasher is thinking...
-Smasher looks at (0,1): -
-Smasher moves to (1,1)
+Smasher tried to use TrackBot but saw no enemies nearby.
 
 Battlefield
-                  
-     0 1 2 3 4 5 6
-    --------------
-  0  - - - - - - -
-  1  - S - - - - C
-  2  - A - - - - -
-  3  - J B - - - -
-  4  - - - - - - -
-  5  - - - - - - -
-  6  - - - - - - -
+                         1
+     0 1 2 3 4 5 6 7 8 9 0
+    ----------------------
+  0  - - - - - - - - - - -
+  1  - - - B - - - - - - -
+  2  - - - - - - - - - - -
+  3  - - - - - - - - - - -
+  4  - - - - - - - - - - -
+  5  - - - - - - - - - - -
+  6  S - - - - - - - - - -
+  7  - - - - - - K - - - -
+  8  - - - - - - - J - - -
+  9  - - - - - - - - - - -
+ 10  - - - - - - - - - - A
 
 Turn 18:
 Jet is thinking...
+Jet moves to (7,8)
+Kidd is thinking...
 Bolt is thinking...
-Bolt moves to (3,3)
+Bolt moves to (0,4)
 Alpha is thinking...
-Alpha has no jumps left.
-Clank is thinking...
-Clank looks at (2,5): -
-Clank moves to (0,6)
+Alpha looks at (9,9): -
+Alpha moves to (9,10)
 Smasher is thinking...
-Smasher moves to (0,2)
+Smasher tried to use TrackBot but saw no enemies nearby.
 
 Battlefield
-                  
-     0 1 2 3 4 5 6
-    --------------
-  0  - - S - - - C
-  1  - - - - - - -
-  2  - A - - - - -
-  3  - J - B - - -
-  4  - - - - - - -
-  5  - - - - - - -
-  6  - - - - - - -
+                         1
+     0 1 2 3 4 5 6 7 8 9 0
+    ----------------------
+  0  - - - - B - - - - - -
+  1  - - - - - - - - - - -
+  2  - - - - - - - - - - -
+  3  - - - - - - - - - - -
+  4  - - - - - - - - - - -
+  5  - - - - - - - - - - -
+  6  S - - - - - - - - - -
+  7  - - - - - - K - J - -
+  8  - - - - - - - - - - -
+  9  - - - - - - - - - - A
+ 10  - - - - - - - - - - -
 
 Turn 19:
 Jet is thinking...
+Jet looks at (6,8): -
+Jet moves to (8,9)
+Kidd is thinking...
 Bolt is thinking...
-Bolt looks at (2,3): -
-Bolt moves to (4,4)
+Bolt moves to (1,4)
 Alpha is thinking...
-Alpha has no jumps left.
-Clank is thinking...
-Clank moves to (0,4)
+Alpha looks at (8,9): J
+Alpha hit and killed Jet at (8,9)
+Jet has been destroyed!
+Alpha gained the SemiAutoBot ability!
 Smasher is thinking...
-Smasher moves to (1,2)
+Smasher tried to use TrackBot but saw no enemies nearby.
 
 Battlefield
-                  
-     0 1 2 3 4 5 6
-    --------------
-  0  - - - - C - -
-  1  - - S - - - -
-  2  - A - - - - -
-  3  - J - - - - -
-  4  - - - - B - -
-  5  - - - - - - -
-  6  - - - - - - -
+                         1
+     0 1 2 3 4 5 6 7 8 9 0
+    ----------------------
+  0  - - - - - - - - - - -
+  1  - - - - B - - - - - -
+  2  - - - - - - - - - - -
+  3  - - - - - - - - - - -
+  4  - - - - - - - - - - -
+  5  - - - - - - - - - - -
+  6  S - - - - - - - - - -
+  7  - - - - - - K - - - -
+  8  - - - - - - - - - - -
+  9  - - - - - - - - - - A
+ 10  - - - - - - - - - - -
 
 Turn 20:
-Jet is thinking...
+Kidd is thinking...
 Bolt is thinking...
-Bolt looks at (4,3): -
-Bolt moves to (3,3)
+Bolt moves to (0,3)
 Alpha is thinking...
-Alpha has no jumps left.
-Clank is thinking...
-Clank looks at (1,3): -
-Clank moves to (0,2)
+Alpha looks at (9,9): -
 Smasher is thinking...
-Smasher looks at (2,1): A
-Smasher hit and killed Alpha at (2,1)
-Alpha has lost a life! Remaining lives: 2
-Smasher gained the JumpBot ability!
+Smasher tried to use TrackBot but saw no enemies nearby.
 
 Battlefield
-                  
-     0 1 2 3 4 5 6
-    --------------
-  0  - - C - - - -
-  1  - - S - - - -
-  2  - - - - - - -
-  3  - J - B - - -
-  4  - - - - - - -
-  5  - - - - - - -
-  6  - - - - - - -
+                         1
+     0 1 2 3 4 5 6 7 8 9 0
+    ----------------------
+  0  - - - B - - - - - - -
+  1  - - - - - - - - - - -
+  2  - - - - - - - - - - -
+  3  - - - - - - - - - - -
+  4  - - - - - - - - - - -
+  5  - - - - - - - - - - -
+  6  S - - - - - - - - L -
+  7  - - - - - - K - - - -
+  8  - - - - - - - - - - -
+  9  - - - - - - - - - - A
+ 10  - - - - - - - - - - -
+
+Turn 21:
+Kidd is thinking...
+Bolt is thinking...
+Bolt moves to (1,2)
+Alpha is thinking...
+Alpha looks at (8,9): -
+Alpha moves to (10,10)
+Link is thinking...
+Link looks at (7,9): -
+Link moves to (6,8)
+Smasher is thinking...
+Smasher tried to use TrackBot but saw no enemies nearby.
+
+Battlefield
+                         1
+     0 1 2 3 4 5 6 7 8 9 0
+    ----------------------
+  0  - - - - - - - - - - -
+  1  - - B - - - - - - - -
+  2  - - - - - - - - - - -
+  3  - - - - - - - - - - -
+  4  - - - - - - - - - - -
+  5  - - - - - - - - - - -
+  6  S - - - - - - - L - -
+  7  - - - - - - K - - - -
+  8  - - - - - - - - - - -
+  9  - - - - - - - - - - -
+ 10  - - - - - - - - - - A
+
+Turn 22:
+Kidd is thinking...
+Bolt is thinking...
+Bolt moves to (2,1)
+Alpha is thinking...
+Alpha moves to (10,9)
+Link is thinking...
+Link looks at (5,7): -
+Link moves to (7,9)
+Smasher is thinking...
+Smasher tried to use TrackBot but saw no enemies nearby.
+
+Battlefield
+                         1
+     0 1 2 3 4 5 6 7 8 9 0
+    ----------------------
+  0  - - - - - - - - - - -
+  1  - - - - - - - - - - -
+  2  - B - - - - - - - - -
+  3  - - - - - - - - - - -
+  4  - - - - - - - - - - -
+  5  - - - - - - - - - - -
+  6  S - - - - - - - - - -
+  7  - - - - - - K - - L -
+  8  - - - - - - - - - - -
+  9  - - - - - - - - - - -
+ 10  - - - - - - - - - A -
+
+Turn 23:
+Kidd is thinking...
+Bolt is thinking...
+Bolt moves to (1,2)
+Alpha is thinking...
+Alpha moves to (10,8)
+Link is thinking...
+Link looks at (6,8): -
+Link moves to (8,10)
+Smasher is thinking...
+Smasher tried to use TrackBot but saw no enemies nearby.
+
+Battlefield
+                         1
+     0 1 2 3 4 5 6 7 8 9 0
+    ----------------------
+  0  - - - - - - - - - - -
+  1  - - B - - - - - - - -
+  2  - - - - - - - - - - -
+  3  - - - - - - - - - - -
+  4  - - - - - - - - - - -
+  5  - - - - - - - - - - -
+  6  S - - - - - - - - - -
+  7  - - - - - - K - - - -
+  8  - - - - - - - - - - L
+  9  - - - - - - - - - - -
+ 10  - - - - - - - - A - -
+
+Turn 24:
+Kidd is thinking...
+Bolt is thinking...
+Bolt moves to (0,3)
+Alpha is thinking...
+Alpha moves to (9,7)
+Link is thinking...
+Smasher is thinking...
+Smasher tried to use TrackBot but saw no enemies nearby.
+
+Battlefield
+                         1
+     0 1 2 3 4 5 6 7 8 9 0
+    ----------------------
+  0  - - - B - - - - - - -
+  1  - - - - - - - - - - -
+  2  - - - - - - - - - - -
+  3  - - - - - - - - - - -
+  4  - - - - - - - - - - -
+  5  - - - - - - - - - - -
+  6  S - - - - - - - - - -
+  7  - - - - - - K - - - -
+  8  - - - - - - - - - - L
+  9  - - - - - - - A - - -
+ 10  - - - - - - - - - - -
+
+Turn 25:
+Kidd is thinking...
+Bolt is thinking...
+Alpha is thinking...
+Alpha looks at (8,7): -
+Alpha moves to (9,8)
+Link is thinking...
+Link looks at (8,9): -
+Link moves to (7,10)
+Smasher is thinking...
+Smasher tried to use TrackBot but saw no enemies nearby.
+
+Battlefield
+                         1
+     0 1 2 3 4 5 6 7 8 9 0
+    ----------------------
+  0  - - - B - - - - - - -
+  1  - - - - - - - - - - -
+  2  - - - - - - - - - - -
+  3  - - - - - - - - - - -
+  4  - - - - - - - - - - -
+  5  - - - - - - - - - - -
+  6  S - - - - - - - - - -
+  7  - - - - - - K - - - L
+  8  - - - - - - - - - - -
+  9  - - - - - - - - A - -
+ 10  - - - - - - - - - - -
+
+Turn 26:
+Kidd is thinking...
+Bolt is thinking...
+Bolt moves to (0,4)
+Alpha is thinking...
+Alpha looks at (8,7): -
+Alpha moves to (9,7)
+Link is thinking...
+Link looks at (8,9): -
+Link moves to (6,9)
+Smasher is thinking...
+Smasher tried to use TrackBot but saw no enemies nearby.
+
+Battlefield
+                         1
+     0 1 2 3 4 5 6 7 8 9 0
+    ----------------------
+  0  - - - - B - - - - - -
+  1  - - - - - - - - - - -
+  2  - - - - - - - - - - -
+  3  - - - - - - - - - - -
+  4  - - - - - - - - - - -
+  5  - - - - - - - - - - -
+  6  S - - - - - - - - L -
+  7  - - - - - - K - - - -
+  8  - - - - - - - - - - -
+  9  - - - - - - - A - - -
+ 10  - - - - - - - - - - -
+
+Turn 27:
+Kidd is thinking...
+Bolt is thinking...
+Bolt moves to (1,3)
+Alpha is thinking...
+Alpha looks at (9,6): -
+Alpha moves to (10,8)
+Link is thinking...
+Link looks at (5,10): -
+Link moves to (5,9)
+Smasher is thinking...
+Smasher tried to use TrackBot but saw no enemies nearby.
+
+Battlefield
+                         1
+     0 1 2 3 4 5 6 7 8 9 0
+    ----------------------
+  0  - - - - - - - - - - -
+  1  - - - B - - - - - - -
+  2  - - - - - - - - - - -
+  3  - - - - - - - - - - -
+  4  - - - - - - - - - - -
+  5  - - - - - - - - - L -
+  6  S - - - - - - - - - -
+  7  - - - - - - K - - - -
+  8  - - - - - - - - - - -
+  9  - - - - - - - - - - -
+ 10  - - - - - - - - A - -
+
+Turn 28:
+Kidd is thinking...
+Bolt is thinking...
+Bolt moves to (0,3)
+Alpha is thinking...
+Alpha looks at (9,9): -
+Alpha moves to (10,6)
+Link is thinking...
+Link looks at (5,8): -
+Link moves to (6,8)
+Smasher is thinking...
+Smasher tried to use TrackBot but saw no enemies nearby.
+
+Battlefield
+                         1
+     0 1 2 3 4 5 6 7 8 9 0
+    ----------------------
+  0  - - - B - - - - - - -
+  1  - - - - - - - - - - -
+  2  - - - - - - - - - - -
+  3  - - - - - - - - - - -
+  4  - - - - - - - - - - -
+  5  - - - - - - - - - - -
+  6  S - - - - - - - L - -
+  7  - - - - - - K - - - -
+  8  - - - - - - - - - - -
+  9  - - - - - - - - - - -
+ 10  - - - - - - A - - - -
+
+Turn 29:
+Kidd is thinking...
+Bolt is thinking...
+Alpha is thinking...
+Alpha moves to (9,7)
+Link is thinking...
+Link looks at (7,8): -
+Link moves to (7,8)
+Smasher is thinking...
+Smasher tried to use TrackBot but saw no enemies nearby.
+
+Battlefield
+                         1
+     0 1 2 3 4 5 6 7 8 9 0
+    ----------------------
+  0  - - - B - - - - - - -
+  1  - - - - - - - - - - -
+  2  - - - - - - - - - - -
+  3  - - - - - - - - - - -
+  4  - - - - - - - - - - -
+  5  - - - - - - - - - - -
+  6  S - - - - - - - - - -
+  7  - - - - - - K - L - -
+  8  - - - - - - - - - - -
+  9  - - - - - - - A - - -
+ 10  - - - - - - - - - - -
+
+Turn 30:
+Kidd is thinking...
+Bolt is thinking...
+Bolt moves to (0,4)
+Alpha is thinking...
+Alpha looks at (10,7): -
+Alpha moves to (8,6)
+Link is thinking...
+Link looks at (7,7): -
+Link moves to (6,9)
+Smasher is thinking...
+Smasher tried to use TrackBot but saw no enemies nearby.
+
+Battlefield
+                         1
+     0 1 2 3 4 5 6 7 8 9 0
+    ----------------------
+  0  - - - - B - - - - - -
+  1  - - - - - - - - - - -
+  2  - - - - - - - - - - -
+  3  - - - - - - - - - - -
+  4  - - - - - - - - - - -
+  5  - - - - - - - - - - -
+  6  S - - - - - - - - L -
+  7  - - - - - - K - - - -
+  8  - - - - - - A - - - -
+  9  - - - - - - - - - - -
+ 10  - - - - - - - - - - -
