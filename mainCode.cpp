@@ -46,7 +46,7 @@ void trySpawnReinforcement(vector<vector<char>>& battlefield, vector<Robot*>& ro
     if (reinforcementsSpawned >= maxReinforcements)
         return;
 
-    // 10% chance to spawn per turn
+    // 20% chance to spawn per turn
     if (rand() % 100 < 20) {
         for (int attempt = 0; attempt < 20; ++attempt) {
             int x = rand() % rows;
