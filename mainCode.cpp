@@ -1,6 +1,6 @@
 /**********|**********|**********|
 Program: mainCode.cpp  
-Course: Data Structures and Algorithms
+Course: Object Oriented Programming and Data Structures (OOPDS)
 Trimester: 2510
 Name: Alif Akmal Bin Abdul Halim || Brian Ng Zheng Yang || Meor Hazimi Bin Meor Mohammad Fared || Yen Ming Jun
 ID: 242UC244L7 || 242UC244RD || 242UC244PU || 243UC246NQ

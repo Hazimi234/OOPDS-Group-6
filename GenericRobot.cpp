@@ -1,6 +1,6 @@
 /**********|**********|**********|
 Program: GenericRobot.cpp
-Course: Data Structures and Algorithms
+Course: Object Oriented Programming and Data Structures (OOPDS)
 Trimester: 2510
 Name: Alif Akmal Bin Abdul Halim || Brian Ng Zheng Yang || Meor Hazimi Bin Meor Mohammad Fared || Yen Ming Jun
 ID: 242UC244L7 || 242UC244RD || 242UC244PU || 243UC246NQ
@@ -38,19 +38,23 @@ bool GenericRobot::look(int dx, int dy, const vector<vector<char>> &battlefield,
     int lookX = x + dx;
     int lookY = y + dy;
 
-    // tries to adjust dx and dy if its out of bounds 
+    // tries to adjust dx and dy if its out of bounds
     while ((lookX < 0 || lookX >= (int)battlefield.size() || lookY < 0 || lookY >= (int)battlefield[0].size()) &&
            (dx != 0 || dy != 0))
     {
-        if (dx > 0) dx--;
-        else if (dx < 0) dx++;
-        if (dy > 0) dy--;
-        else if (dy < 0) dy++;
+        if (dx > 0)
+            dx--;
+        else if (dx < 0)
+            dx++;
+        if (dy > 0)
+            dy--;
+        else if (dy < 0)
+            dy++;
 
         lookX = x + dx;
         lookY = y + dy;
     }
-    
+
     if (lookX >= 0 && lookX < (int)battlefield.size() &&
         lookY >= 0 && lookY < (int)battlefield[0].size())
     {
@@ -61,7 +65,8 @@ bool GenericRobot::look(int dx, int dy, const vector<vector<char>> &battlefield,
         log << name << " looks at (" << lookX << "," << lookY << "): " << target << "\n";
         return target != '-' && target != name[0];
     }
-    else{
+    else
+    {
         log << "broken";
     }
     return false;
@@ -123,8 +128,8 @@ void GenericRobot::fire(int dx, int dy, vector<vector<char>> &battlefield,
             if (targetRobot && targetRobot->getAbility() && targetRobot->getAbility()->isHideBot())
             {
                 // Always show the intent to shoot
-                std::cout << name << " tried to shoot " << targetRobot->getName()
-                          << " at (" << tx << "," << ty << ")\n";
+                cout << name << " tried to shoot " << targetRobot->getName()
+                     << " at (" << tx << "," << ty << ")\n";
                 log << name << " tried to shoot " << targetRobot->getName()
                     << " at (" << tx << "," << ty << ")\n";
 
@@ -148,7 +153,7 @@ void GenericRobot::fire(int dx, int dy, vector<vector<char>> &battlefield,
                 if (ability && ability->isLongShotBot())
                 {
                     cout << " with LongShotBot";
-                    log << " with LongShotBot" ;
+                    log << " with LongShotBot";
                 }
                 cout << " at (" << tx << "," << ty << ")\n";
                 log << " at (" << tx << "," << ty << ")\n";
@@ -241,14 +246,18 @@ void GenericRobot::move(vector<vector<char>> &battlefield, vector<Robot *> &robo
     int nx = x + dx[dir];
     int ny = y + dy[dir];
 
-    // tries to adjust dx and dy if its out of bounds 
+    // tries to adjust dx and dy if its out of bounds
     while ((nx < 0 || nx >= (int)battlefield.size() || ny < 0 || ny >= (int)battlefield[0].size()) &&
            (dx != 0 || dy != 0))
     {
-        if (nx > 0) nx--;
-        else if (nx < 0) nx++;
-        if (ny > 0) ny--;
-        else if (ny < 0) ny++;
+        if (nx > 0)
+            nx--;
+        else if (nx < 0)
+            nx++;
+        if (ny > 0)
+            ny--;
+        else if (ny < 0)
+            ny++;
     }
 
     // check if the new position is valid again
@@ -361,7 +370,6 @@ void GenericRobot::takeTurn(vector<vector<char>> &battlefield, vector<Robot *> &
         }
     }
 
-
     // ScoutBot ability handling
     if (ability && ability->isScoutBot())
     {
@@ -413,7 +421,7 @@ void GenericRobot::takeTurn(vector<vector<char>> &battlefield, vector<Robot *> &
             // Check if tracked enemy is within firing range (e.g., adjacent or close enough)
             if (abs(dx) <= 1 && abs(dy) <= 1 && shells > 0)
             {
-                std::cout << name << " fires at tracked enemy " << trackedEnemy->getName() << "\n";
+                cout << name << " fires at tracked enemy " << trackedEnemy->getName() << "\n";
                 log << name << " fires at tracked enemy " << trackedEnemy->getName() << "\n";
                 fire(dx, dy, battlefield, robots, log);
             }
@@ -465,7 +473,7 @@ void GenericRobot::takeTurn(vector<vector<char>> &battlefield, vector<Robot *> &
 
 bool GenericRobot::isEnemyTracked(Robot *enemyRobot) const
 {
-    return std::find(trackedEnemies.begin(), trackedEnemies.end(), enemyRobot) != trackedEnemies.end();
+    return find(trackedEnemies.begin(), trackedEnemies.end(), enemyRobot) != trackedEnemies.end();
 }
 
 GenericRobot::~GenericRobot()
