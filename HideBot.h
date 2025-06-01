@@ -18,9 +18,11 @@ Phone: +60 18-355-5944|| +60 17-779 3199 || +60 19-752 1755 ||+60 11-5372 6266
 
 using namespace std;
 
+//inherits from Ability class
 class HideBot : public Ability
 {
 private:
+    //hidebot has 3 uses remaining
     int usesRemaining = 3;
 
 public:
