@@ -14,6 +14,7 @@ Phone: +60 18-355-5944|| +60 17-779 3199 || +60 19-752 1755 ||+60 11-5372 6266
 #include <iostream>
 #include <cstdlib> 
 #include <fstream>
+#include "GenericRobot.h"
 
 
 using namespace std;
@@ -69,6 +70,13 @@ void Robot::kill(vector<vector<char>>& battlefield, ofstream& log) {
     alive = false;
     lives--;
     battlefield[x][y] = '-';
+
+    // Cast to GenericRobot if possible and reset abilities
+    GenericRobot* genericRobot = dynamic_cast<GenericRobot*>(this);
+    if (genericRobot) {
+        genericRobot->resetToGeneric();
+    }
+
     if (lives <= 0) {
         cout << name << " has been destroyed!\n";
         log << name << " has been destroyed!\n";
@@ -93,6 +101,13 @@ void Robot::respawn(vector<vector<char>>& battlefield, int rows, int cols, ofstr
     y = newY;
     alive = true;
     battlefield[x][y] = name[0];
+
+    // Cast to GenericRobot if possible
+    GenericRobot* genericRobot = dynamic_cast<GenericRobot*>(this);
+    if (genericRobot && genericRobot->getAbility()) {
+        // Just to be extra safe, clear ability again
+        genericRobot->resetToGeneric();
+    }
     cout << name << " has respawned at (" << x << "," << y << ")!\n";
 }
 

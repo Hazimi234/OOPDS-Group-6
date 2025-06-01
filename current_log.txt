@@ -1,500 +1,577 @@
 
 Turn 1:
 Jet is thinking...
-Jet looks at (0,1): -
-Jet moves to (1,1)
+Jet looks at (2,2): -
 Kidd is thinking...
-Kidd looks at (0,1): -
+Kidd looks at (1,3): -
+Kidd moves to (1,2)
 Bolt is thinking...
-Bolt moves to (2,2)
 Alpha is thinking...
-Alpha moves to (3,2)
+Alpha moves to (0,0)
+
+Battlefield            
+     0 1 2 3
+  0  A - - B
+  1  - - K -
+  2  - - - -
+  3  - - J -
+
+Turn 2:
+Jet is thinking...
+Jet moves to (3,1)
+Kidd is thinking...
+Kidd moves to (0,1)
+Bolt is thinking...
+Alpha is thinking...
+Alpha moves to (1,1)
+
+Battlefield            
+     0 1 2 3
+  0  - K - B
+  1  - A - -
+  2  - - - -
+  3  - J - -
+
+Turn 3:
+Jet is thinking...
+Jet looks at (2,2): -
+Jet moves to (3,2)
+Kidd is thinking...
+Kidd moves to (0,2)
+Bolt is thinking...
+Bolt moves to (1,3)
+Alpha is thinking...
+Alpha looks at (0,1): -
+Alpha moves to (1,2)
 
 Battlefield            
      0 1 2 3
   0  - - K -
-  1  - J - -
-  2  - - B -
-  3  - - A -
-
-Turn 2:
-Jet is thinking...
-Jet looks at (1,0): -
-Jet moves to (2,1)
-Kidd is thinking...
-Kidd looks at (0,1): -
-Kidd moves to (0,1)
-Bolt is thinking...
-Bolt moves to (2,3)
-Alpha is thinking...
-Alpha moves to (3,0)
-
-Battlefield            
-     0 1 2 3
-  0  - K - -
-  1  - - - -
-  2  - J - B
-  3  A - - -
-
-Turn 3:
-Jet is thinking...
-Jet looks at (1,2): -
-Jet moves into (3,0) and destroys Alpha!
-Alpha has lost a life! Remaining lives: 2
-Jet gained the ScoutBot ability!
-Jet moves to (3,0)
-Kidd is thinking...
-Kidd moves to (0,0)
-Bolt is thinking...
-
-Battlefield            
-     0 1 2 3
-  0  K - - -
-  1  - A - -
-  2  - - - B
-  3  J - - -
+  1  - - A B
+  2  - - - -
+  3  - - J -
 
 Turn 4:
 Jet is thinking...
-Jet uses ScoutBot ability! Scans entire battlefield:
- (0,0): K  (0,1): -  (0,2): -  (0,3): - 
- (1,0): -  (1,1): A  (1,2): -  (1,3): - 
- (2,0): -  (2,1): -  (2,2): -  (2,3): B 
- (3,0): J  (3,1): -  (3,2): -  (3,3): - 
-Jet moves to (3,1)
+Jet looks at (2,1): -
+Jet moves to (2,1)
 Kidd is thinking...
+Kidd moves into (1,2) and destroys Alpha!
+Alpha has lost a life! Remaining lives: 2
+Kidd gained the ThirtyShotBot ability!
+Kidd moves to (1,2)
 Bolt is thinking...
-Bolt moves to (0,3)
-Alpha is thinking...
-Alpha moves to (1,2)
->>> Reinforcement Link spawned at (1,1)!
+Bolt looks at (1,2): K
+Bolt missed all shots at (1,2).
 
 Battlefield            
      0 1 2 3
-  0  K - - B
-  1  - L A -
-  2  - - - -
-  3  - J - -
+  0  - - - -
+  1  - - K B
+  2  A J - -
+  3  - - - -
 
 Turn 5:
 Jet is thinking...
-Jet uses ScoutBot ability! Scans entire battlefield:
- (0,0): K  (0,1): -  (0,2): -  (0,3): B 
- (1,0): -  (1,1): L  (1,2): A  (1,3): - 
- (2,0): -  (2,1): -  (2,2): -  (2,3): - 
- (3,0): -  (3,1): J  (3,2): -  (3,3): - 
-Jet moves to (2,2)
+Jet looks at (2,0): A
+Jet hit and killed Alpha at (2,0)
+Alpha has lost a life! Remaining lives: 1
+Jet gained the ScoutBot ability!
 Kidd is thinking...
+Kidd now has 30 shells from ThirtyShotBot!
+Kidd looks at (2,2): -
+Kidd moves to (0,2)
 Bolt is thinking...
-Alpha is thinking...
-Alpha looks at (1,3): -
-Alpha moves into (2,2) and destroys Jet!
-Jet has lost a life! Remaining lives: 2
-Alpha gained the SemiAutoBot ability!
-Alpha moves to (2,2)
-Link is thinking...
-Link looks at (0,1): -
-Link moves to (1,2)
->>> Reinforcement Clank spawned at (1,3)!
+Bolt moves to (1,2)
 
 Battlefield            
      0 1 2 3
-  0  K - - B
-  1  - - L C
-  2  - - A -
+  0  - - K -
+  1  - A B -
+  2  - J - -
   3  - - - -
 
 Turn 6:
+Jet is thinking...
+Jet uses ScoutBot ability! Scans entire battlefield:
+ (0,0): -  (0,1): -  (0,2): K  (0,3): - 
+ (1,0): -  (1,1): A  (1,2): B  (1,3): - 
+ (2,0): -  (2,1): J  (2,2): -  (2,3): - 
+ (3,0): -  (3,1): -  (3,2): -  (3,3): - 
+Jet hit and killed Alpha at (1,1)
+Alpha has been destroyed!
 Kidd is thinking...
+Kidd looks at (1,2): B
+Kidd missed all shots at (1,2).
 Bolt is thinking...
-Alpha is thinking...
-Alpha looks at (1,3): C
-Alpha hit and killed Clank with SemiAutoBot (1/3 hits) at (1,3)
-Clank has lost a life! Remaining lives: 2
-Link is thinking...
-Link looks at (2,1): -
-Link moves into (0,3) and destroys Bolt!
-Bolt has lost a life! Remaining lives: 2
-Link gained the TrackBot ability!
-Link moves to (0,3)
+Bolt looks at (1,3): -
+Bolt moves to (1,3)
+>>> Reinforcement Link spawned at (0,0)!
 
 Battlefield            
      0 1 2 3
-  0  K - - L
-  1  - - - -
-  2  - - A -
-  3  - J - -
+  0  L - K -
+  1  - - - B
+  2  - J - -
+  3  - - - -
 
 Turn 7:
 Jet is thinking...
 Jet uses ScoutBot ability! Scans entire battlefield:
- (0,0): K  (0,1): -  (0,2): -  (0,3): L 
- (1,0): -  (1,1): -  (1,2): -  (1,3): - 
- (2,0): -  (2,1): -  (2,2): A  (2,3): - 
- (3,0): -  (3,1): J  (3,2): -  (3,3): - 
-Jet hit and killed Alpha at (2,2)
-Alpha has lost a life! Remaining lives: 1
+ (0,0): L  (0,1): -  (0,2): K  (0,3): - 
+ (1,0): -  (1,1): -  (1,2): -  (1,3): B 
+ (2,0): -  (2,1): J  (2,2): -  (2,3): - 
+ (3,0): -  (3,1): -  (3,2): -  (3,3): - 
+Jet moves to (2,0)
 Kidd is thinking...
-Kidd looks at (1,0): -
+Kidd moves to (1,1)
+Bolt is thinking...
+Bolt looks at (2,2): -
 Link is thinking...
-Link tried to use TrackBot but saw no enemies nearby.
-Link moves to (0,2)
->>> Reinforcement Smasher spawned at (2,3)!
+Link looks at (0,1): -
+Link moves into (1,1) and destroys Kidd!
+Kidd has lost a life! Remaining lives: 2
+Link gained the SemiAutoBot ability!
+Link moves to (1,1)
 
 Battlefield            
      0 1 2 3
-  0  K - L -
-  1  - B A -
-  2  - - - S
-  3  - J - -
+  0  - - - -
+  1  - L - B
+  2  J - - K
+  3  - - - -
 
 Turn 8:
 Jet is thinking...
+Jet uses ScoutBot ability! Scans entire battlefield:
+ (0,0): -  (0,1): -  (0,2): -  (0,3): - 
+ (1,0): -  (1,1): L  (1,2): -  (1,3): B 
+ (2,0): J  (2,1): -  (2,2): -  (2,3): K 
+ (3,0): -  (3,1): -  (3,2): -  (3,3): - 
+Jet hit and killed Link at (1,1)
+Link has lost a life! Remaining lives: 2
 Kidd is thinking...
-Kidd moves into (1,1) and destroys Bolt!
-Bolt has lost a life! Remaining lives: 1
-Kidd gained the JumpBot ability!
-Kidd moves to (1,1)
-Alpha is thinking...
-Alpha looks at (1,1): K
-Alpha hit and killed Kidd with SemiAutoBot (3/3 hits) at (1,1)
-Kidd has lost a life! Remaining lives: 2
-Link is thinking...
-Link plants a tracker on A at (1,2)
-Link fires at tracked enemy Alpha
-Link hit and killed Alpha at (1,2)
-Alpha has been destroyed!
-Smasher is thinking...
-Smasher looks at (1,2): -
-Smasher moves to (3,2)
+Kidd moves to (0,3)
+Bolt is thinking...
+Bolt looks at (2,2): -
+Bolt moves to (1,2)
 
 Battlefield            
      0 1 2 3
-  0  - - L -
-  1  - - - -
-  2  - - - -
-  3  - J S -
+  0  - L - K
+  1  - - B -
+  2  J - - -
+  3  - - - -
 
 Turn 9:
 Jet is thinking...
-Jet missed all shots at (3,2).
+Jet moves to (2,1)
+Kidd is thinking...
+Kidd moves to (0,2)
+Bolt is thinking...
+Bolt looks at (1,3): -
+Bolt moves to (2,2)
 Link is thinking...
-Link tried to use TrackBot but saw no enemies nearby.
-Link fires at tracked enemy Alpha
-Link hit an empty spot.
-Smasher is thinking...
-Smasher moves into (3,1) and destroys Jet!
-Jet has lost a life! Remaining lives: 1
-Smasher gained the LongShotBot ability!
-Smasher moves to (3,1)
+Link moves to (0,0)
 
 Battlefield            
      0 1 2 3
-  0  - - L -
+  0  L - K -
   1  - - - -
-  2  - K J -
-  3  - S - -
+  2  - J B -
+  3  - - - -
 
 Turn 10:
 Jet is thinking...
-Jet missed all shots at (2,1).
+Jet missed all shots at (2,2).
 Kidd is thinking...
+Kidd looks at (1,3): -
+Kidd moves to (0,1)
+Bolt is thinking...
+Bolt looks at (1,1): -
+Bolt moves to (1,1)
 Link is thinking...
-Link tried to use TrackBot but saw no enemies nearby.
-Link fires at tracked enemy Alpha
-Link hit an empty spot.
-Smasher is thinking...
-Smasher looks at (2,2): J
-Smasher missed all shots at (2,2).
-Smasher moves into (2,1) and destroys Kidd!
-Kidd has lost a life! Remaining lives: 1
-Smasher moves to (2,1)
+Link looks at (1,0): -
+>>> Reinforcement Clank spawned at (1,3)!
 
 Battlefield            
      0 1 2 3
-  0  - - L -
-  1  - - - -
-  2  - S J K
+  0  L K - -
+  1  - B - C
+  2  - J - -
   3  - - - -
 
 Turn 11:
 Jet is thinking...
-Jet hit and killed Smasher at (2,1)
-Smasher has lost a life! Remaining lives: 2
+Jet hit and killed Bolt at (1,1)
+Bolt has lost a life! Remaining lives: 2
 Kidd is thinking...
-Link is thinking...
-Link tried to use TrackBot but saw no enemies nearby.
-Link fires at tracked enemy Alpha
-Link hit an empty spot.
+Kidd looks at (1,0): -
+Kidd moves into (0,0) and destroys Link!
+Link has lost a life! Remaining lives: 1
+Kidd gained the LongShotBot ability!
+Kidd moves to (0,0)
+Clank is thinking...
+Clank moves to (0,3)
 
 Battlefield            
      0 1 2 3
-  0  - - L -
-  1  C - - -
-  2  - - J K
-  3  - - B -
+  0  K - - C
+  1  - - B -
+  2  - J - L
+  3  - - - -
 
 Turn 12:
 Jet is thinking...
-Jet hit and killed Kidd at (2,3)
-Kidd has been destroyed!
-Bolt is thinking...
-Bolt looks at (3,1): -
-Bolt moves to (3,3)
+Jet hit and killed Bolt at (1,2)
+Bolt has lost a life! Remaining lives: 1
+Kidd is thinking...
+Kidd looks at (0,1): -
 Link is thinking...
-Link tried to use TrackBot but saw no enemies nearby.
-Link fires at tracked enemy Alpha
-Link missed at (1,2).
+Link moves to (1,2)
 Clank is thinking...
-Clank moves to (2,1)
+>>> Reinforcement Smasher spawned at (3,3)!
 
 Battlefield            
      0 1 2 3
-  0  - - L -
-  1  - - - S
-  2  - C J -
-  3  - - - B
+  0  K - - C
+  1  - - L -
+  2  - J - -
+  3  B - - S
 
 Turn 13:
 Jet is thinking...
-Jet hit and killed Smasher at (1,3)
-Smasher has lost a life! Remaining lives: 1
+Jet missed all shots at (1,2).
+Kidd is thinking...
 Bolt is thinking...
-Bolt moves to (3,2)
+Bolt moves into (2,1) and destroys Jet!
+Jet has lost a life! Remaining lives: 2
+Bolt gained the LongShotBot ability!
+Bolt moves to (2,1)
 Link is thinking...
-Link tried to use TrackBot but saw no enemies nearby.
-Link fires at tracked enemy Alpha
-Link hit an empty spot.
+Link moves to (2,2)
 Clank is thinking...
-Clank looks at (3,1): -
-Clank moves into (3,2) and destroys Bolt!
-Bolt has been destroyed!
-Clank gained the SemiAutoBot ability!
-Clank moves to (3,2)
+Clank moves to (1,3)
+Smasher is thinking...
+Smasher moves to (2,3)
 
 Battlefield            
      0 1 2 3
-  0  - - L -
-  1  - - - S
-  2  - - J -
-  3  - - C -
+  0  K - - -
+  1  - - - C
+  2  - B L S
+  3  - - - -
 
 Turn 14:
-Jet is thinking...
-Jet hit and killed Smasher at (1,3)
-Smasher has been destroyed!
+Kidd is thinking...
+Kidd moves to (1,0)
+Bolt is thinking...
+Bolt looks at (3,1): -
+Bolt looks at (2,2): L
+Bolt missed all shots at (2,2).
 Link is thinking...
-Link tried to use TrackBot but saw no enemies nearby.
-Link fires at tracked enemy Alpha
-Link hit an empty spot.
+Link looks at (3,2): -
+Link moves to (1,2)
 Clank is thinking...
-Clank moves to (3,3)
+Clank looks at (1,2): L
+Clank hit and killed Link at (1,2)
+Link has been destroyed!
+Clank gained the ThirtyShotBot ability!
+Smasher is thinking...
+Smasher looks at (1,2): -
+Smasher moves to (0,3)
 
 Battlefield            
      0 1 2 3
-  0  - - L -
-  1  - - - -
-  2  - - J -
-  3  - - - C
+  0  - - - S
+  1  K - - C
+  2  - B - -
+  3  - - - -
 
 Turn 15:
-Jet is thinking...
-Jet hit and killed Clank at (3,3)
-Clank has lost a life! Remaining lives: 1
-Link is thinking...
-Link tried to use TrackBot but saw no enemies nearby.
-Link fires at tracked enemy Alpha
-Link hit an empty spot.
+Kidd is thinking...
+Kidd looks at (0,0): -
+Kidd moves to (0,0)
+Bolt is thinking...
+Bolt looks at (3,0): -
+Bolt looks at (1,0): -
+Bolt moves to (3,1)
+Clank is thinking...
+Clank now has 30 shells from ThirtyShotBot!
+Clank moves into (0,3) and destroys Smasher!
+Smasher has lost a life! Remaining lives: 2
+Clank moves to (0,3)
 
 Battlefield            
      0 1 2 3
-  0  - - L -
-  1  - - - -
-  2  - - J -
-  3  - - C -
+  0  K - - C
+  1  - - S -
+  2  - - - J
+  3  - B - -
 
 Turn 16:
 Jet is thinking...
-Jet hit and killed Clank at (3,2)
-Clank has been destroyed!
-Link is thinking...
-Link tried to use TrackBot but saw no enemies nearby.
-Link fires at tracked enemy Alpha
-Link hit an empty spot.
+Jet moves to (1,3)
+Kidd is thinking...
+Kidd looks at (0,1): -
+Bolt is thinking...
+Bolt moves to (2,0)
+Clank is thinking...
+Clank looks at (1,3): J
+Clank missed all shots at (1,3).
+Smasher is thinking...
+Smasher looks at (2,2): -
+Smasher moves to (0,1)
 
 Battlefield            
      0 1 2 3
-  0  - - L -
-  1  - - - -
-  2  - - J -
+  0  K S - C
+  1  - - - J
+  2  B - - -
   3  - - - -
 
 Turn 17:
 Jet is thinking...
-Jet moves to (2,3)
-Link is thinking...
-Link tried to use TrackBot but saw no enemies nearby.
-Link fires at tracked enemy Alpha
-Link missed at (1,2).
+Jet looks at (1,2): -
+Jet moves to (2,2)
+Kidd is thinking...
+Bolt is thinking...
+Bolt moves to (1,0)
+Clank is thinking...
+Clank moves to (0,2)
+Smasher is thinking...
+Smasher looks at (0,2): C
+Smasher hit and killed Clank at (0,2)
+Clank has lost a life! Remaining lives: 2
+Smasher gained the HideBot ability!
 
 Battlefield            
      0 1 2 3
-  0  - - L -
-  1  - - - -
-  2  - - - J
+  0  K S - -
+  1  B - - -
+  2  - - J -
   3  - - - -
 
 Turn 18:
 Jet is thinking...
-Jet moves to (3,3)
-Link is thinking...
-Link tried to use TrackBot but saw no enemies nearby.
+Jet looks at (1,1): -
+Jet moves to (2,3)
+Kidd is thinking...
+Kidd moves to (1,1)
+Bolt is thinking...
+Bolt looks at (2,0): -
+Bolt looks at (2,0): -
+Bolt moves to (0,0)
+Smasher is thinking...
+Smasher moves into (0,0) and destroys Bolt!
+Bolt has been destroyed!
+Smasher moves to (0,0)
 
 Battlefield            
      0 1 2 3
-  0  - - L -
-  1  - - - -
-  2  - - - -
-  3  - - - J
+  0  S - - -
+  1  - K - -
+  2  - C - J
+  3  - - - -
 
 Turn 19:
 Jet is thinking...
-Jet moves to (3,2)
-Link is thinking...
-Link tried to use TrackBot but saw no enemies nearby.
+Jet looks at (1,3): -
+Jet moves to (1,3)
+Kidd is thinking...
+Kidd looks at (0,3): -
+Kidd looks at (0,1): -
+Kidd moves into (0,0) and destroys Smasher!
+Smasher has lost a life! Remaining lives: 1
+Kidd moves to (0,0)
+Clank is thinking...
+Clank looks at (3,1): -
+Clank moves to (3,2)
 
 Battlefield            
      0 1 2 3
-  0  - - L -
-  1  - - - -
-  2  - - - -
-  3  - - J -
+  0  K - - -
+  1  - - - J
+  2  - - - S
+  3  - - C -
 
 Turn 20:
 Jet is thinking...
-Jet moves to (2,2)
-Link is thinking...
-Link tried to use TrackBot but saw no enemies nearby.
+Jet looks at (2,2): -
+Jet moves to (0,3)
+Kidd is thinking...
+Kidd looks at (0,1): -
+Clank is thinking...
+Clank moves into (2,3) and destroys Smasher!
+Smasher has been destroyed!
+Clank gained the ScoutBot ability!
+Clank moves to (2,3)
 
 Battlefield            
      0 1 2 3
-  0  - - L -
+  0  K - - J
   1  - - - -
-  2  - - J -
+  2  - - - C
   3  - - - -
 
 Turn 21:
 Jet is thinking...
+Jet looks at (1,3): -
 Jet moves to (1,2)
-Link is thinking...
-Link plants a tracker on J at (1,2)
+Kidd is thinking...
+Kidd looks at (2,1): -
+Kidd moves to (0,1)
+Clank is thinking...
+Clank uses ScoutBot ability! Scans entire battlefield:
+ (0,0): -  (0,1): K  (0,2): -  (0,3): - 
+ (1,0): -  (1,1): -  (1,2): J  (1,3): - 
+ (2,0): -  (2,1): -  (2,2): -  (2,3): C 
+ (3,0): -  (3,1): -  (3,2): -  (3,3): - 
+Clank missed all shots at (1,2).
 
 Battlefield            
      0 1 2 3
-  0  - - L -
+  0  - K - -
   1  - - J -
-  2  - - - -
+  2  - - - C
   3  - - - -
 
 Turn 22:
 Jet is thinking...
-Jet hit and killed Link at (0,2)
-Link has lost a life! Remaining lives: 2
+Jet moves into (0,1) and destroys Kidd!
+Kidd has lost a life! Remaining lives: 1
+Jet gained the ThirtyShotBot ability!
+Jet moves to (0,1)
+Clank is thinking...
+Clank uses ScoutBot ability! Scans entire battlefield:
+ (0,0): -  (0,1): J  (0,2): -  (0,3): - 
+ (1,0): -  (1,1): -  (1,2): -  (1,3): - 
+ (2,0): -  (2,1): -  (2,2): -  (2,3): C 
+ (3,0): -  (3,1): -  (3,2): -  (3,3): - 
+Clank moves to (1,3)
 
 Battlefield            
      0 1 2 3
-  0  - - L -
-  1  - - J -
-  2  - - - -
+  0  - J - -
+  1  - - - C
+  2  K - - -
   3  - - - -
 
 Turn 23:
 Jet is thinking...
-Jet has no shells and self-destructs!
-Jet has been destroyed!
-Link is thinking...
-Link tried to use TrackBot but saw no enemies nearby.
+Jet now has 30 shells from ThirtyShotBot!
+Jet looks at (1,2): -
+Jet moves to (1,2)
+Kidd is thinking...
+Kidd looks at (3,0): -
+Kidd moves to (1,0)
+Clank is thinking...
+Clank uses ScoutBot ability! Scans entire battlefield:
+ (0,0): -  (0,1): -  (0,2): -  (0,3): - 
+ (1,0): K  (1,1): -  (1,2): J  (1,3): C 
+ (2,0): -  (2,1): -  (2,2): -  (2,3): - 
+ (3,0): -  (3,1): -  (3,2): -  (3,3): - 
+Clank hit and killed Jet at (1,2)
+Jet has lost a life! Remaining lives: 1
 
 Battlefield            
      0 1 2 3
-  0  - - L -
-  1  - - - -
-  2  - - - -
+  0  - - - -
+  1  K - - C
+  2  - J - -
   3  - - - -
 
 Turn 24:
-Link is thinking...
-Link tried to use TrackBot but saw no enemies nearby.
+Jet is thinking...
+Jet looks at (3,1): -
+Jet moves into (1,0) and destroys Kidd!
+Kidd has been destroyed!
+Jet gained the ThirtyShotBot ability!
+Jet moves to (1,0)
+Clank is thinking...
+Clank moves to (2,2)
 
 Battlefield            
      0 1 2 3
-  0  - - L -
-  1  - - - -
-  2  - - - -
+  0  - - - -
+  1  J - - -
+  2  - - C -
   3  - - - -
 
 Turn 25:
-Link is thinking...
-Link tried to use TrackBot but saw no enemies nearby.
+Jet is thinking...
+Jet now has 30 shells from ThirtyShotBot!
+Jet looks at (2,1): -
+Jet moves to (0,0)
+Clank is thinking...
+Clank moves to (2,3)
 
 Battlefield            
      0 1 2 3
-  0  - - L -
+  0  J - - -
   1  - - - -
-  2  - - - -
+  2  - - - C
   3  - - - -
 
 Turn 26:
-Link is thinking...
-Link tried to use TrackBot but saw no enemies nearby.
+Jet is thinking...
+Clank is thinking...
+Clank moves to (1,2)
 
 Battlefield            
      0 1 2 3
-  0  - - L -
-  1  - - - -
+  0  J - - -
+  1  - - C -
   2  - - - -
   3  - - - -
 
 Turn 27:
-Link is thinking...
-Link tried to use TrackBot but saw no enemies nearby.
+Jet is thinking...
+Clank is thinking...
+Clank moves to (2,3)
 
 Battlefield            
      0 1 2 3
-  0  - - L -
+  0  J - - -
   1  - - - -
-  2  - - - -
+  2  - - - C
   3  - - - -
 
 Turn 28:
-Link is thinking...
-Link tried to use TrackBot but saw no enemies nearby.
+Jet is thinking...
+Clank is thinking...
+Clank moves to (2,2)
 
 Battlefield            
      0 1 2 3
-  0  - - L -
+  0  J - - -
   1  - - - -
-  2  - - - -
+  2  - - C -
   3  - - - -
 
 Turn 29:
-Link is thinking...
-Link tried to use TrackBot but saw no enemies nearby.
+Jet is thinking...
+Jet looks at (1,1): -
+Clank is thinking...
+Clank moves to (2,3)
 
 Battlefield            
      0 1 2 3
-  0  - - L -
+  0  J - - -
   1  - - - -
-  2  - - - -
+  2  - - - C
   3  - - - -
 
 Turn 30:
-Link is thinking...
-Link tried to use TrackBot but saw no enemies nearby.
+Jet is thinking...
+Jet looks at (1,1): -
+Jet moves to (1,0)
+Clank is thinking...
+Clank moves to (3,2)
 
 Battlefield            
      0 1 2 3
-  0  - - L -
-  1  - - - -
+  0  - - - -
+  1  J - - -
   2  - - - -
-  3  - - - -
+  3  - - C -

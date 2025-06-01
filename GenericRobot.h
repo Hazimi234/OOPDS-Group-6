@@ -58,6 +58,12 @@ public:
     {
         return trackedEnemies.empty() ? nullptr : trackedEnemies[0];
     }
+
+    void resetToGeneric() {
+    delete ability;
+    ability = nullptr;
+    shells = 10; // Reset to default shell count
+    }
     ~GenericRobot();
 };
 
